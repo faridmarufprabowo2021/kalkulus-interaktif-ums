@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week 3: Fungsi Bilangan & Pemetaan Khusus — Kalkulus Interaktif UMS</title>
+  <title>Week 3: Fungsi Bilangan & Pemetaan Aljabar — Kalkulus Interaktif UMS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -27,6 +27,8 @@
       --success-bg: rgba(52, 120, 92, 0.1);
       --danger: #cf2d56;
       --danger-bg: rgba(207, 45, 86, 0.1);
+      --info: #0284c7;
+      --info-bg: rgba(2, 132, 199, 0.08);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'Newsreader', Georgia, serif;
       --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
@@ -49,6 +51,7 @@
       padding-bottom: 80px;
     }
 
+    /* Floating Island Nav */
     .nav-wrapper {
       position: sticky;
       top: 16px;
@@ -99,12 +102,14 @@
       font-weight: 600;
     }
 
+    /* Container */
     .container {
       max-width: 1080px;
       margin: 0 auto;
       padding: 40px 24px 0 24px;
     }
 
+    /* Hero Section */
     .hero {
       text-align: center;
       padding: 40px 0 32px 0;
@@ -131,7 +136,7 @@
       background: var(--accent);
     }
     .hero h1 {
-      font-size: 46px;
+      font-size: 44px;
       font-weight: 600;
       letter-spacing: -1.2px;
       line-height: 1.15;
@@ -139,11 +144,11 @@
       margin-bottom: 16px;
     }
     .hero p {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--text-muted);
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto 28px auto;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .hero-quote {
       font-family: var(--font-serif);
@@ -152,13 +157,14 @@
       color: #55544e;
       background: #fafaf8;
       border-left: 3px solid var(--accent);
-      padding: 10px 18px;
-      max-width: 640px;
+      padding: 12px 20px;
+      max-width: 680px;
       margin: 0 auto;
       text-align: left;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     }
 
+    /* macOS Window Mockup */
     .window-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -198,8 +204,9 @@
       padding: 28px;
     }
 
+    /* Content Typography */
     h2.section-title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 600;
       letter-spacing: -0.6px;
       margin-bottom: 8px;
@@ -221,14 +228,21 @@
       font-size: 15px;
     }
 
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 24px;
     }
-    @media (max-width: 768px) {
-      .grid-3 { grid-template-columns: 1fr; }
+    @media (max-width: 820px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .hero h1 { font-size: 32px; }
     }
 
@@ -250,6 +264,165 @@
       line-height: 1.55;
     }
 
+    .callout {
+      background: #fafaf7;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Table styling */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+    table.data-table th, table.data-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    table.data-table th {
+      background: var(--surface-subtle);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Worked Example Card */
+    .example-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .example-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+    }
+    .example-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .step-list {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      flex-shrink: 0;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .step-content {
+      flex: 1;
+    }
+
+    /* Slide Exercise Cards (Collapsible) */
+    .slide-exercise-card {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 18px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .slide-exercise-card.active {
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+    .slide-exercise-header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .slide-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: #ffede6;
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      margin-right: 8px;
+    }
+    .slide-points {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
+    }
+    .slide-exercise-body {
+      padding: 0 20px 20px 20px;
+      display: none;
+      border-top: 1px dashed var(--border);
+      margin-top: 4px;
+      padding-top: 16px;
+    }
+    .slide-exercise-card.active .slide-exercise-body {
+      display: block;
+    }
+    .solution-box {
+      background: #fdfdfc;
+      border-left: 3px solid var(--success);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 14px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
     /* Interactive Simulator */
     .sim-panel {
       background: #fafaf8;
@@ -261,65 +434,81 @@
     .sim-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
     }
     .sim-tag {
       font-family: var(--font-mono);
       font-size: 11px;
-      padding: 3px 8px;
-      background: rgba(245, 78, 0, 0.1);
       color: var(--accent);
+      background: rgba(245, 78, 0, 0.1);
+      padding: 2px 8px;
       border-radius: var(--radius-pill);
       font-weight: 600;
     }
 
-    .input-row {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-wrap: wrap;
+    .form-group {
       margin-bottom: 16px;
     }
-    .input-field {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .input-text {
+      width: 100%;
+      padding: 10px 14px;
       border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #ffffff;
       font-family: var(--font-mono);
       font-size: 14px;
-      background: #ffffff;
-      width: 140px;
+      outline: none;
+      transition: border 0.15s ease;
     }
-
+    .input-text:focus {
+      border-color: var(--accent);
+    }
     .btn-action {
+      padding: 10px 18px;
       background: var(--text);
       color: #ffffff;
       border: none;
-      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 500;
-      border-radius: var(--radius-pill);
       cursor: pointer;
-      transition: background 0.15s ease;
+      transition: opacity 0.15s ease;
+      white-space: nowrap;
     }
     .btn-action:hover {
-      background: #3f3e36;
+      opacity: 0.9;
     }
 
-    .modulo-proof-box {
+    /* Canvas styling */
+    .canvas-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    canvas {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 16px 20px;
-      font-family: var(--font-mono);
-      font-size: 14px;
-      margin-top: 14px;
-      line-height: 1.7;
+      box-shadow: var(--shadow-sm);
+      max-width: 100%;
     }
 
-    /* Quiz Component */
+    /* Quiz Cards */
     .quiz-section {
-      margin-top: 50px;
+      margin-top: 48px;
     }
     .quiz-card {
       background: var(--surface);
@@ -327,41 +516,34 @@
       border-radius: var(--radius-md);
       padding: 24px;
       margin-bottom: 24px;
-      transition: box-shadow 0.15s ease;
+      box-shadow: var(--shadow-sm);
     }
     .quiz-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 14px;
     }
     .quiz-number {
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--accent);
     }
     .difficulty-badge {
       font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
+      font-size: 11px;
       padding: 2px 8px;
       border-radius: var(--radius-pill);
-      text-transform: uppercase;
+      font-weight: 500;
     }
-    .difficulty-medium {
-      background: rgba(52, 120, 92, 0.12);
-      color: var(--success);
-    }
-    .difficulty-high {
-      background: rgba(245, 78, 0, 0.12);
-      color: var(--accent);
-    }
+    .difficulty-medium { background: #fff4e5; color: #b76e00; }
+    .difficulty-high { background: #ffebeb; color: #c92a2a; }
     .quiz-prompt {
       font-size: 15px;
       font-weight: 500;
-      color: var(--text);
       margin-bottom: 16px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     .quiz-options {
       display: flex;
@@ -373,20 +555,19 @@
       display: flex;
       align-items: center;
       padding: 10px 14px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border);
       border-radius: var(--radius-sm);
+      font-size: 14px;
       cursor: pointer;
       transition: all 0.15s ease;
-      background: var(--surface-subtle);
-      font-size: 14px;
+      background: #fafaf8;
     }
     .option-label:hover {
-      border-color: var(--border);
-      background: #eae9e4;
+      background: #ffffff;
+      border-color: #a0a09c;
     }
     .option-label input {
-      margin-right: 12px;
-      accent-color: var(--text);
+      margin-right: 10px;
     }
     .option-label.correct {
       background: var(--success-bg) !important;
@@ -400,52 +581,39 @@
       color: var(--danger);
     }
     .explanation-box {
-      background: #fafaf8;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      padding: 14px 18px;
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      font-size: 13.5px;
       display: none;
-      margin-top: 12px;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-subtle);
+      border-left: 3px solid var(--accent);
+      font-size: 13.5px;
       line-height: 1.6;
+      margin-top: 14px;
     }
     .explanation-box.show {
       display: block;
-      animation: fadeIn 0.2s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
-    .summary-card {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
+    footer {
       text-align: center;
-      margin-top: 30px;
-    }
-    .summary-score {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--text);
-      font-family: var(--font-mono);
-      letter-spacing: -1px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Island Navigation -->
+  <!-- Floating Island Nav -->
   <div class="nav-wrapper">
     <nav class="nav-island">
-      <a href="index.html" class="nav-link">← Hub Utama</a>
-      <a href="week1-bilangan.html" class="nav-link">Week 1</a>
-      <a href="week2-trigonometri.html" class="nav-link">Week 2</a>
-      <a href="week3-fungsi.html" class="nav-link active">Week 3 <span class="nav-badge">Fungsi</span></a>
-      <a href="week4-limit.html" class="nav-link">Week 4</a>
+      <a href="index.html" class="nav-link">Simulasi UTS <span class="nav-badge">Hub</span></a>
+      <a href="week1-bilangan.html" class="nav-link">Week 1: Bilangan</a>
+      <a href="week2-trigonometri.html" class="nav-link">Week 2: Trigonometri</a>
+      <a href="week3-fungsi.html" class="nav-link active">Week 3: Fungsi</a>
+      <a href="week4-limit.html" class="nav-link">Week 4: Limit</a>
     </nav>
   </div>
 
@@ -453,16 +621,16 @@
     <!-- Hero Header -->
     <header class="hero">
       <div class="hero-badge">
-        <span></span> KALKULUS 1 — UNIVERSITAS MUHAMMADIYAH SURAKARTA
+        <span></span> MODUL KALKULUS 1 — FAKULTAS KOMUNIKASI & INFORMATIKA UMS
       </div>
-      <h1>Week 3: Fungsi Bilangan & Pemetaan Khusus</h1>
-      <p>Kajian mendalam relasi pemetaan $f: A \to B$, domain dan range, syarat bijektif fungsi invers, komposisi aljabar, hingga fungsi diskrit penting: floor ($\lfloor x \rfloor$), ceiling ($\lceil x \rceil$), dan algoritma modulo dividen negatif.</p>
+      <h1>Week 3: Fungsi Bilangan &amp; Pemetaan Aljabar</h1>
+      <p>Kajian mendalam definisi pemetaan formal $f: A 	o B$, fungsi Injektif/Surjektif/Bijektif, fungsi invers &amp; komposisi, fungsi tangga Floor/Ceiling, aritmatika Modulo dividen negatif, contoh soal terbimbing, serta kunci pembahasan lengkap Games Fungsi 1–7 (71 Poin) slide dosen.</p>
       <div class="hero-quote">
-        "Algoritma pembagian Euclid $a = m \cdot q + r$ mensyaratkan sisa $0 \le r < m$. Inilah alasan mendasar mengapa $-25 \bmod 7 = 3$ dan bukan $-4$, karena pembagian kalkulus selalu mencari kuosien bilangan bulat terbesar ke arah negatif: $q = \lfloor a/m \rfloor$."
+        "Sebuah fungsi $y = f(x)$ hanya memiliki balikan (invers) $f^{-1}$ jika dan hanya jika relasinya bersifat Bijektif (Injektif sekaligus Surjektif). Modulo bilangan negatif wajib mematuhi aksioma sisa tak-negatif: $a = mq + r$ dengan $0 \le r < m$."
       </div>
     </header>
 
-    <!-- macOS Mockup 1: Teori Pemetaan & Sifat -->
+    <!-- macOS Mockup 1: Teori Pemetaan & Sifat Fungsi -->
     <div class="window-card">
       <div class="window-header">
         <div class="window-dots">
@@ -470,103 +638,492 @@
           <span class="dot dot-yellow"></span>
           <span class="dot dot-green"></span>
         </div>
-        <div class="window-title">teori_fungsi_dan_pemetaan.tex</div>
-        <div></div>
+        <div class="window-title">teori_relasi_fungsi_lengkap.tex</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Bab 03 &bull; Hal 1–8</div>
       </div>
       <div class="window-body">
-        <h2 class="section-title">1. Tiga Sifat Utama Relasi Pemetaan</h2>
-        <p class="section-desc">Karakteristik hubungan antara daerah asal (Domain) dan daerah kawan (Kodomain).</p>
+        <h2 class="section-title">1. Definisi Formal Fungsi &amp; Tiga Klasifikasi Pemetaan</h2>
+        <p class="section-desc">Berdasarkan slide 2–5 UMS, fungsi $f: A 	o B$ adalah aturan yang mengaitkan setiap elemen $x \in A$ (Domain) dengan tepat satu elemen $y \in B$ (Kodomain). Himpunan nilai yang benar-benar tercapai disebut Range ($R_f \subseteq B$).</p>
 
         <div class="grid-3">
           <div class="sub-card">
-            <h3>Fungsi Injektif (One-to-One)</h3>
-            <p>Setiap elemen berbeda di domain memiliki bayangan berbeda di kodomain:
-            $$x_1 \neq x_2 \implies f(x_1) \neq f(x_2)$$
-            <em>Uji Garis Horizontal:</em> Setiap garis horizontal $y = c$ memotong grafik fungsi maksimal di <strong>satu titik</strong> saja.</p>
+            <h3 style="color:var(--accent);">1. Fungsi Injektif (One-to-One)</h3>
+            <p><strong>Definisi:</strong> Tidak ada dua elemen domain berbeda yang memiliki bayangan sama.<br>
+            $$orall x_1, x_2 \in A, \quad f(x_1) = f(x_2) \implies x_1 = x_2$$</p>
+            <p style="margin-top:8px; font-size:13px;">
+              <strong>Uji Garis Horizontal:</strong> Jika setiap garis horizontal memotong kurva paling banyak di 1 titik, maka fungsi injektif.<br>
+              <em>Contoh Gagal:</em> $f(x) = x^2 + 1$ (karena $f(-1) = f(1) = 2$).<br>
+              <em>Contoh Sukses:</em> $f(x) = x - 1$ atau $f(x) = 2x - 3$.
+            </p>
           </div>
+
           <div class="sub-card">
-            <h3>Fungsi Surjektif (Onto)</h3>
-            <p>Setiap elemen pada daerah kawan (kodomain $B$) memiliki prapeta di domain $A$:
-            $$\forall y \in B, \exists x \in A \text{ sehingga } f(x) = y$$
-            Artinya, daerah hasil (Range) sama persis dengan seluruh Kodomain ($\text{Ran}(f) = B$).</p>
+            <h3 style="color:var(--accent);">2. Fungsi Surjektif (Onto)</h3>
+            <p><strong>Definisi:</strong> Seluruh elemen di kodomain $B$ merupakan bayangan dari setidaknya satu elemen di domain $A$.<br>
+            $$	ext{Range}(f) = 	ext{Kodomain}(B)$$</p>
+            <p style="margin-top:8px; font-size:13px;">
+              Tidak ada elemen di $B$ yang menganggur/kosong. Jika kodomain didefinisikan sebagai seluruh $\mathbb{R}$, maka fungsi kuadrat $f(x) = x^2$ bukan surjektif karena tidak pernah menghasilkan nilai negatif.
+            </p>
           </div>
+
           <div class="sub-card">
-            <h3>Fungsi Bijektif (Korespondensi 1-1)</h3>
-            <p>Fungsi yang <strong>sekaligus Injektif dan Surjektif</strong>. Syarat mutlak keberadaan <strong>fungsi invers</strong> $f^{-1}(x)$. Grafik $f^{-1}$ adalah hasil pencerminan grafik $f$ terhadap garis identitas $y = x$.</p>
+            <h3 style="color:var(--accent);">3. Fungsi Bijektif (Invers Ada)</h3>
+            <p><strong>Definisi:</strong> Fungsi yang <em>Injektif sekaligus Surjektif</em> (Korespondensi Satu-ke-Satu murni).<br>
+            $$y = f(x) \iff x = f^{-1}(y)$$</p>
+            <p style="margin-top:8px; font-size:13px;">
+              <strong>Syarat Mutlak Invers:</strong> Fungsi hanya memiliki fungsi invers $f^{-1}$ jika fungsi tersebut bersifat Bijektif.<br>
+              Sifat identitas: $(f \circ f^{-1})(x) = x$ dan $(f^{-1} \circ f)(x) = x$.
+            </p>
           </div>
         </div>
 
-        <h3 style="font-size:18px; margin:24px 0 12px 0;">Fungsi-Fungsi Khusus Kalkulus</h3>
+        <h2 class="section-title" style="margin-top:32px;">2. Komposisi Fungsi (Slide 6 UMS)</h2>
+        <p class="section-desc">Operasi menggabungkan dua fungsi di mana keluaran suatu fungsi menjadi masukan fungsi lainnya: $(f \circ g)(x) = f(g(x))$.</p>
         <div class="grid-2">
           <div class="sub-card">
-            <h3>Fungsi Tangga: Floor & Ceiling</h3>
-            <p><strong>Floor ($\lfloor x \rfloor$):</strong> Bilangan bulat terbesar yang lebih kecil atau sama dengan $x$.<br>
-            $\lfloor 3.8 \rfloor = 3, \quad \lfloor -2.3 \rfloor = -3, \quad \lfloor -4.1 \rfloor = -5$.<br><br>
-            <strong>Ceiling ($\lceil x \rceil$):</strong> Bilangan bulat terkecil yang lebih besar atau sama dengan $x$.<br>
-            $\lceil 3.2 \rceil = 4, \quad \lceil -2.3 \rceil = -2, \quad \lceil -4.1 \rceil = -4$.</p>
+            <h3>Sifat Non-Komutatif</h3>
+            <p>Secara umum, operasi komposisi tidak bersifat komutatif: $\mathbf{(f \circ g)(x) 
+eq (g \circ f)(x)}$.</p>
+            <div class="callout" style="margin-top:10px;">
+              <strong>Contoh Pembuktian Slide UMS:</strong><br>
+              Misalkan $f(x) = x - 1$ dan $g(x) = x^2 + 1$.<br>
+              &bull; $(f \circ g)(x) = f(x^2 + 1) = (x^2 + 1) - 1 = x^2$<br>
+              &bull; $(g \circ f)(x) = g(x - 1) = (x - 1)^2 + 1 = x^2 - 2x + 2$<br>
+              Uji numerik untuk $x = 2$:<br>
+              $(f \circ g)(2) = 2^2 = \mathbf{4}$, sedangkan $(g \circ f)(2) = 2^2 - 2(2) + 2 = \mathbf{2}$.<br>
+              Terbukti $4 
+eq 2 \implies f \circ g 
+eq g \circ f$.
+            </div>
           </div>
           <div class="sub-card">
-            <h3>Fungsi Modulo ($a \bmod m$) & Dividen Negatif</h3>
-            <p>Berdasarkan Algoritma Pembagian Euclid, untuk $a \in \mathbb{Z}$ dan $m \in \mathbb{N}$:<br>
-            $$a = m \cdot q + r \quad \text{dengan } 0 \le r < m \text{ dan } q = \lfloor a / m \rfloor$$
-            Contoh krusial di slide kuliah:<br>
-            $$-25 = 7 \cdot (-4) + 3 \implies -25 \bmod 7 = 3$$
-            $$-38 = 7 \cdot (-6) + 4 \implies -38 \bmod 7 = 4$$</p>
+            <h3>Domain Komposisi Fungsi</h3>
+            <p>Domain dari $(f \circ g)(x)$ adalah himpunan semua $x \in D_g$ sedemikian rupa sehingga $g(x) \in D_f$:</p>
+            $$D_{f \circ g} = \{x \in D_g \mid g(x) \in D_f\}$$
+            <p style="margin-top:8px; font-size:13.5px;">Syarat ini sangat krusial pada fungsi pecahan rasional dan bentuk akar, agar nilai di dalam akar tidak negatif dan pembagi tidak nol.</p>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:32px;">3. Fungsi-Fungsi Khusus Kalkulus &amp; Komputasi (Slide 7–8 UMS)</h2>
+        <div class="grid-3">
+          <div class="sub-card">
+            <h3>Floor ($\lfloor x floor$) &amp; Ceiling ($\lceil x ceil$)</h3>
+            <p>&bull; <strong>Floor:</strong> Bilangan bulat terbesar yang $\le x$.<br>
+               &bull; <strong>Ceiling:</strong> Bilangan bulat terkecil yang $\ge x$.</p>
+            <div style="font-family:var(--font-mono); font-size:12.5px; background:#fafaf7; padding:8px; border-radius:4px; margin-top:8px;">
+              &bull; $\lfloor 3.5 floor = 3, \quad \lceil 3.5 ceil = 4$<br>
+              &bull; $\lfloor -0.5 floor = -1, \quad \lceil -0.5 ceil = 0$<br>
+              &bull; $\lfloor -3.5 floor = -4, \quad \lceil -3.5 ceil = -3$<br>
+              &bull; $\lfloor -7.8 floor = -8, \quad \lceil 3.4 ceil = 4$
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3 style="color:var(--accent);">Modulo: Kasus Dividen Negatif</h3>
+            <p>Definisi formal Euclid: $a = mq + r$ dengan syarat mutlak $\mathbf{0 \le r < m}$.</p>
+            <div class="callout" style="margin-top:8px; font-size:13px;">
+              <strong>Mengapa $-25 mod 7 = 3$? (Slide 8):</strong><br>
+              Jika $q = -3 \implies -25 = 7(-3) - 4$. Sisa $r = -4$ <em>salah</em> karena syarat $r \ge 0$.<br>
+              Maka ambil $q = -4 \implies -25 = 7(-4) + r = -28 + r \implies \mathbf{r = 3}$.<br>
+              Sisa $3$ memenuhi $0 \le 3 < 7$.
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>Faktorial, Eksponen &amp; Rekursif</h3>
+            <p>&bull; <strong>Faktorial:</strong> $0! = 1$, $n! = n 	imes (n-1)!$<br>
+               &bull; <strong>Eksponen Negatif:</strong> $a^{-n} = rac{1}{a^n}$ (contoh: $3^{-2} = rac{1}{9}$)<br>
+               &bull; <strong>Logaritma:</strong> $y = \log_a x \iff x = a^y$</p>
+            <div style="font-size:13px; margin-top:8px;">
+              Fungsi rekursif mengacu pada definisinya sendiri dengan kondisi basis batas penghenti agar tidak infinite loop.
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Simulator: Negative Modulo & Floor Lab -->
+    <!-- macOS Mockup 2: Contoh Soal Terbimbing -->
+    <div class="window-card">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="window-title">contoh_soal_fungsi_terbimbing.tex</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--accent);">Pedagogi Aktif</div>
+      </div>
+      <div class="window-body">
+        <h2 class="section-title">Contoh Soal Terbimbing (Step-by-Step Worked Examples)</h2>
+        <p class="section-desc">Kuasai metode terstruktur mencari rumus invers fungsi pecahan, eliminasi komposisi, dan evaluasi modulo negatif.</p>
+
+        <!-- Contoh 1 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="example-title">Contoh 1: Menentukan Fungsi Invers dari Bentuk Rasional Linear Pecahan</span>
+            <span class="example-tag">Fungsi Invers</span>
+          </div>
+          <p><strong>Soal:</strong> Diberikan fungsi rasional $f(x) = rac{3x - 2}{x + 1}$ dengan $x 
+eq -1$. Tentukan rumus fungsi invers $f^{-1}(x)$, lalu evaluasi nilai $f^{-1}(5)$.</p>
+          
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>Ubah notasi $f(x)$ menjadi variabel $y$:</strong><br>
+                $$y = rac{3x - 2}{x + 1}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Kalikan silang penyebut untuk mengisolasi variabel $x$:</strong><br>
+                $$y(x + 1) = 3x - 2 \iff xy + y = 3x - 2$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>Kumpulkan semua suku yang memuat $x$ di satu ruas:</strong><br>
+                $$xy - 3x = -y - 2 \iff x(y - 3) = -(y + 2)$$
+                $$x = rac{-(y + 2)}{y - 3} = rac{y + 2}{3 - y}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>Ganti variabel $y$ menjadi $x$ untuk mendapatkan rumus invers:</strong><br>
+                $$\mathbf{f^{-1}(x) = rac{x + 2}{3 - x}, \quad x 
+eq 3}$$
+                Evaluasi untuk $x = 5$:<br>
+                $$f^{-1}(5) = rac{5 + 2}{3 - 5} = rac{7}{-2} = \mathbf{-3.5}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contoh 2 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="example-title">Contoh 2: Modulo Bilangan Negatif Ekstrem Menggunakan Algoritma Euclid</span>
+            <span class="example-tag">Teori Bilangan &amp; Modulo</span>
+          </div>
+          <p><strong>Soal:</strong> Hitung nilai dari $-47 mod 6$ dan $-38 mod 7$ menggunakan definisi formal sisa pembagian bulat.</p>
+          
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>Ingat syarat sisa mutlak:</strong> $a = mq + r$ dengan $0 \le r < m$.
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Untuk kasus $-47 mod 6$:</strong><br>
+                Bagi $-47$ dengan $6$: $-47 / 6 = -7.833...$<br>
+                Ambil bilangan bulat di bawahnya (fungsi floor): $q = \lfloor -7.833... floor = -8$.<br>
+                Hitung sisa $r$: $-47 = 6(-8) + r \iff -47 = -48 + r \implies \mathbf{r = 1}$.<br>
+                Karena $0 \le 1 < 6$, maka $\mathbf{-47 mod 6 = 1}$.
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>Untuk kasus $-38 mod 7$ (Sesuai Slide 9 UMS):</strong><br>
+                Bagi $-38$ dengan $7$: $-38 / 7 = -5.428...$<br>
+                Ambil $q = \lfloor -5.428 floor = -6$.<br>
+                Hitung sisa: $-38 = 7(-6) + r \iff -38 = -42 + r \implies \mathbf{r = 4}$.<br>
+                Maka $\mathbf{-38 mod 7 = 4}$.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- macOS Mockup 3: Pembahasan Lengkap Latihan Soal Slide UMS (Games 1-7) -->
+    <div class="window-card">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="window-title">latihan_slide_ums_games_fungsi.tex</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--text); font-weight:600;">Slide 9 &amp; 10 &bull; Total 71 Poin Lengkap</div>
+      </div>
+      <div class="window-body">
+        <h2 class="section-title">Pembahasan Lengkap Games Fungsi Asli Slide Dosen UMS</h2>
+        <p class="section-desc">Berikut adalah seluruh paket latihan interaktif dari slide dosen (Games Fungsi 1 s.d. 7) dengan bobot total 71 poin, disertai solusi aljabar analitis.</p>
+
+        <!-- Game 1 -->
+        <div class="slide-exercise-card" id="slide_func_1">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_1')">
+            <div>
+              <span class="slide-badge">GAME 1</span>
+              <strong>Hitung Operasi Campuran Floor &amp; Ceiling</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">3 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Hitung nilai dari ekspresi berikut:<br>
+            $$\lfloor -7.8 floor + \lceil 3.4 ceil - \lfloor 2.6 floor$$</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li>$\lfloor -7.8 floor$: Bilangan bulat terbesar yang $\le -7.8$ adalah <strong>$-8$</strong> (ingat pada bilangan negatif bergerak ke kiri).</li>
+                <li>$\lceil 3.4 ceil$: Bilangan bulat terkecil yang $\ge 3.4$ adalah <strong>$4$</strong>.</li>
+                <li>$\lfloor 2.6 floor$: Bilangan bulat terbesar yang $\le 2.6$ adalah <strong>$2$</strong>.</li>
+                <li>Gabungkan hasil: $(-8) + 4 - 2 = -4 - 2 = \mathbf{-6}$.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 2 -->
+        <div class="slide-exercise-card" id="slide_func_2">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_2')">
+            <div>
+              <span class="slide-badge">GAME 2</span>
+              <strong>Hitung Sisa Modulo Negatif</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">5 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Hitung: $$-38 mod 7$$</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong><br>
+              Berdasarkan teorema pembagian bulat: $a = mq + r$ dengan $0 \le r < 7$.<br>
+              Kita mencari kelipatan $7$ yang lebih kecil atau sama dengan $-38$:<br>
+              Kelipatan $7 	imes (-5) = -35$ (lebih besar dari $-38$, menghasilkan sisa negatif $-3$, tidak boleh).<br>
+              Kelipatan $7 	imes (-6) = -42$ (lebih kecil dari $-38$).<br>
+              $$-38 = 7(-6) + r \iff -38 = -42 + r \implies r = -38 + 42 = \mathbf{4}$$
+              Karena $0 \le 4 < 7$, maka $\mathbf{-38 mod 7 = 4}$.
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 3 -->
+        <div class="slide-exercise-card" id="slide_func_3">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_3')">
+            <div>
+              <span class="slide-badge">GAME 3</span>
+              <strong>Hitung Operasi Faktorial &amp; Eksponen Negatif</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">7 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Hitung nilai eksak dari: $$rac{6!}{4!} + 3^{-2}$$</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li>Sederhanakan bagian faktorial: $rac{6!}{4!} = rac{6 	imes 5 	imes 4!}{4!} = 6 	imes 5 = 30$.</li>
+                <li>Sederhanakan bagian eksponen negatif: $3^{-2} = rac{1}{3^2} = rac{1}{9}$.</li>
+                <li>Jumlahkan keduanya: $30 + rac{1}{9} = \mathbf{rac{271}{9}} pprox 30.111...$</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 4 -->
+        <div class="slide-exercise-card" id="slide_func_4">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_4')">
+            <div>
+              <span class="slide-badge">GAME 4</span>
+              <strong>Menentukan Rumus Invers &amp; Evaluasi Titik</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">9 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Diberikan $f(x) = 2x - 3$. Tentukan rumus $f^{-1}(x)$, kemudian hitung nilai dari $f^{-1}(11)$.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <div style="margin-top:8px;">
+                1. Tentukan $f^{-1}(x)$:<br>
+                $$y = 2x - 3 \implies 2x = y + 3 \implies x = rac{y + 3}{2}$$
+                Maka rumus inversnya adalah: $$\mathbf{f^{-1}(x) = rac{x + 3}{2}}$$
+                2. Evaluasi $f^{-1}(11)$:<br>
+                $$f^{-1}(11) = rac{11 + 3}{2} = rac{14}{2} = \mathbf{7}$$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 5 -->
+        <div class="slide-exercise-card" id="slide_func_5">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_5')">
+            <div>
+              <span class="slide-badge">GAME 5</span>
+              <strong>Komposisi Fungsi Polinomial Dua Arah</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">12 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Diberikan $f(x) = x - 1$ dan $g(x) = x^2 + 1$. Hitunglah:<br>
+            (a) $(f \circ g)(3)$<br>
+            (b) $(g \circ f)(3)$<br>
+            (c) $(f \circ g)(3) - (g \circ f)(3)$</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>(a) $(f \circ g)(3)$:</strong><br>
+                  Hitung $g(3) = 3^2 + 1 = 9 + 1 = 10$.<br>
+                  Maka $f(g(3)) = f(10) = 10 - 1 = \mathbf{9}$.
+                </li>
+                <li style="margin-top:8px;"><strong>(b) $(g \circ f)(3)$:</strong><br>
+                  Hitung $f(3) = 3 - 1 = 2$.<br>
+                  Maka $g(f(3)) = g(2) = 2^2 + 1 = 4 + 1 = \mathbf{5}$.
+                </li>
+                <li style="margin-top:8px;"><strong>(c) Selisih $(f \circ g)(3) - (g \circ f)(3)$:</strong><br>
+                  $$9 - 5 = \mathbf{4}$$
+                  (Ini menegaskan bahwa urutan komposisi menghasilkan nilai yang berbeda).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 6 -->
+        <div class="slide-exercise-card" id="slide_func_6">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_6')">
+            <div>
+              <span class="slide-badge">GAME 6</span>
+              <strong>Komposisi Fungsi Pecahan Rasional (Slide 10 UMS)</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">15 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Diberikan $f(x) = rac{2x - 3}{x + 1}$ dan $g(x) = x^2 - 4$. Hitunglah:<br>
+            (a) $(f \circ g)(2)$<br>
+            (b) $(g \circ f)(2)$<br>
+            (c) $(f \circ g)(2) - (g \circ f)(2)$</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>(a) $(f \circ g)(2)$:</strong><br>
+                  Hitung fungsi dalam: $g(2) = 2^2 - 4 = 0$.<br>
+                  Maka: $f(0) = rac{2(0) - 3}{0 + 1} = rac{-3}{1} = \mathbf{-3}$.
+                </li>
+                <li style="margin-top:8px;"><strong>(b) $(g \circ f)(2)$:</strong><br>
+                  Hitung fungsi dalam: $f(2) = rac{2(2) - 3}{2 + 1} = rac{4 - 3}{3} = rac{1}{3}$.<br>
+                  Maka: $g\left(rac{1}{3}ight) = \left(rac{1}{3}ight)^2 - 4 = rac{1}{9} - 4 = rac{1 - 36}{9} = \mathbf{-rac{35}{9}}$.
+                </li>
+                <li style="margin-top:8px;"><strong>(c) Selisih $(f \circ g)(2) - (g \circ f)(2)$:</strong><br>
+                  $$-3 - \left(-rac{35}{9}ight) = -3 + rac{35}{9} = -rac{27}{9} + rac{35}{9} = \mathbf{rac{8}{9}}$$
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 7 -->
+        <div class="slide-exercise-card" id="slide_func_7">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_func_7')">
+            <div>
+              <span class="slide-badge">GAME 7</span>
+              <strong>Invers Pecahan Rasional &amp; Pembuktian Identitas (Slide 10 UMS)</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">20 Point</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Diberikan fungsi $f(x) = rac{3x - 2}{x + 1}$.<br>
+            (a) Tentukan rumus fungsi invers $f^{-1}(x)$.<br>
+            (b) Hitung nilai dari $f^{-1}\left(rac{7}{3}ight)$.<br>
+            (c) Tentukan nilai dari $(f \circ f^{-1})\left(rac{7}{3}ight)$!</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <div style="margin-top:8px;">
+                <p><strong>(a) Mencari $f^{-1}(x)$:</strong><br>
+                  $$y = rac{3x - 2}{x + 1} \implies y(x + 1) = 3x - 2 \implies xy + y = 3x - 2$$
+                  $$xy - 3x = -y - 2 \implies x(y - 3) = -(y + 2) \implies x = rac{y + 2}{3 - y}$$
+                  Maka: $$\mathbf{f^{-1}(x) = rac{x + 2}{3 - x}, \quad x 
+eq 3}$$
+                </p>
+                <p style="margin-top:10px;"><strong>(b) Menghitung $f^{-1}\left(rac{7}{3}ight)$:</strong><br>
+                  $$f^{-1}\left(rac{7}{3}ight) = rac{rac{7}{3} + 2}{3 - rac{7}{3}} = rac{rac{7 + 6}{3}}{rac{9 - 7}{3}} = rac{rac{13}{3}}{rac{2}{3}} = \mathbf{rac{13}{2} = 6.5}$$
+                </p>
+                <p style="margin-top:10px;"><strong>(c) Menghitung $(f \circ f^{-1})\left(rac{7}{3}ight)$:</strong><br>
+                  Berdasarkan sifat dasar aksioma fungsi invers, untuk setiap $x$ dalam domain yang valid, komposisi fungsi dengan balikan inversnya selalu menghasilkan nilai identitas semula:<br>
+                  $$(f \circ f^{-1})(x) = x$$
+                  Dengan demikian, tanpa perlu menghitung berbelit-belit:<br>
+                  $$(f \circ f^{-1})\left(rac{7}{3}ight) = \mathbf{rac{7}{3}}$$
+                  <em>(Dapat diverifikasi: $f(6.5) = rac{3(6.5)-2}{6.5+1} = rac{17.5}{7.5} = rac{35}{15} = rac{7}{3}$, terbukti sempurna!)</em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulator 1: Euclid Modulo Laboratory -->
     <div class="sim-panel">
       <div class="sim-header">
         <div>
           <h3 style="font-size:17px; font-weight:600;">Simulator 1: Laboratorium Modulo Algoritma Euclid (Dividen Negatif)</h3>
-          <p style="font-size:13px; color:var(--text-muted);">Uji perhitungan modulus matematika murni $a \bmod m$ dan perhatikan bagaimana kuosien $q = \lfloor a/m \rfloor$ menjaga sisa $r \ge 0$.</p>
+          <p style="font-size:13px; color:var(--text-muted);">Eksplorasi pembagian bulat matematis $a = mq + r$ dengan syarat mutlak sisa tak-negatif ($0 \le r < m$).</p>
         </div>
-        <span class="sim-tag">EUCLIDEAN ALGORITHM</span>
+        <span class="sim-tag">EUCLID ENGINE</span>
       </div>
 
-      <div class="input-row">
-        <div>
-          <label style="font-size:12px; font-weight:600; display:block; margin-bottom:4px;">Dividen $a$:</label>
-          <input type="number" id="inputA" class="input-field" value="-25">
+      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-end;">
+        <div class="form-group" style="flex:1; min-width:160px; margin-bottom:0;">
+          <label class="form-label" for="modA">Bilangan yang Dibagi ($a$):</label>
+          <input type="number" id="modA" class="input-text" value="-38">
         </div>
-        <div>
-          <label style="font-size:12px; font-weight:600; display:block; margin-bottom:4px;">Pembagi $m$ ($> 0$):</label>
-          <input type="number" id="inputM" class="input-field" value="7" min="1">
+        <div class="form-group" style="flex:1; min-width:160px; margin-bottom:0;">
+          <label class="form-label" for="modM">Bilangan Pembagi ($m > 0$):</label>
+          <input type="number" id="modM" class="input-text" value="7" min="1">
         </div>
-        <div style="align-self:flex-end;">
-          <button class="btn-action" onclick="calcModulo()">Hitung Algoritma Euclid</button>
-        </div>
+        <button class="btn-action" onclick="calcModulo()" style="height:42px;">Hitung Modulo</button>
       </div>
 
-      <div class="modulo-proof-box" id="moduloOutput">
-        $$-25 = 7 \times (-4) + 3 \implies \mathbf{-25 \bmod 7 = 3}$$
+      <div id="moduloResultBox" style="margin-top:16px; padding:16px; background:#ffffff; border:1px solid var(--border); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:14px; line-height:1.7;">
       </div>
     </div>
 
-    <!-- Simulator 2: Step Function Visualizer -->
+    <!-- Simulator 2: Step Function Floor & Ceiling Canvas -->
     <div class="sim-panel">
       <div class="sim-header">
         <div>
-          <h3 style="font-size:17px; font-weight:600;">Simulator 2: Visualisator Dinamis Tangga Floor ($\lfloor x \rfloor$) & Ceiling ($\lceil x \rceil$)</h3>
-          <p style="font-size:13px; color:var(--text-muted);">Geser nilai $x$ real untuk melihat lompatan nilai tangga diskrit dan posisinya terhadap garis $y = x$.</p>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 2: Visualisator Dinamis Tangga Floor ($\lfloor x floor$) &amp; Ceiling ($\lceil x ceil$)</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Amati grafik fungsi diskret bertangga dan lompatan titik diskontinuitas bulat pada selang $[-5, 5]$.</p>
         </div>
-        <span class="sim-tag">CANVAS DISKRET</span>
+        <span class="sim-tag">CANVAS 2D</span>
       </div>
 
-      <div style="margin-bottom:14px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
-        <label style="font-family:var(--font-mono); font-size:13px;">Nilai $x$ real:</label>
-        <input type="range" id="realSlider" min="-4" max="4" step="0.1" value="1.4" style="width:260px;" oninput="updateStepCanvas()">
-        <span id="realValDisplay" style="font-family:var(--font-mono); font-weight:700; color:var(--accent);">x = 1.40</span>
-        <span id="stepValuesDisplay" style="font-family:var(--font-mono); font-size:13px; background:#ffffff; padding:4px 10px; border:1px solid var(--border); border-radius:4px;">
-          $\lfloor 1.4 \rfloor = 1$ | $\lceil 1.4 \rceil = 2$
-        </span>
+      <div style="display:flex; gap:16px; align-items:center; margin-bottom:12px;">
+        <label style="font-size:13.5px; font-weight:500;">Pilih Fungsi Tangga:</label>
+        <select id="stepType" onchange="drawStepFunction()" style="padding:6px 12px; border-radius:4px; border:1px solid var(--border); font-family:var(--font-mono);">
+          <option value="floor">Floor Function: f(x) = ⌊x⌋</option>
+          <option value="ceiling">Ceiling Function: f(x) = ⌈x⌉</option>
+        </select>
       </div>
 
-      <div style="text-align:center;">
-        <canvas id="stepCanvas" width="560" height="280"></canvas>
+      <div class="canvas-container">
+        <canvas id="stepCanvas" width="480" height="300"></canvas>
       </div>
     </div>
 
@@ -574,8 +1131,8 @@
     <div class="quiz-section">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px;">
         <div>
-          <h2 class="section-title">Latihan Soal Uji Kompetensi (Medium to High)</h2>
-          <p class="section-desc" style="margin-bottom:0;">10 soal terkalibrasi mencakup modulo negatif, invers fungsi pecahan, fungsi tangga, dan komposisi rekursif.</p>
+          <h2 class="section-title">Latihan Soal Uji Kompetensi Mandiri (Medium to High)</h2>
+          <p class="section-desc" style="margin-bottom:0;">10 butir soal terkalibrasi mencakup domain berakar, injektivitas, komposisi bertingkat, dan invers pecahan.</p>
         </div>
         <div style="text-align:right;">
           <span style="font-family:var(--font-mono); font-size:13px; color:var(--text-muted);">Skor Anda: </span>
@@ -590,23 +1147,22 @@
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Sesuai teorema pembagian Euclid $a = m \cdot q + r$ dengan syarat sisa pembagian $0 \le r < m$, berapakah hasil operasi modulo dari $(-25) \bmod 7$ dan $(-38) \bmod 7$?
+          Domain alami ($D_f$) dari fungsi $f(x) = rac{\sqrt{2x + 6}}{x - 1}$ pada bilangan real adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q1" value="A"> A. 3 dan 4</label>
-          <label class="option-label"><input type="radio" name="opt_q1" value="B"> B. $-4$ dan $-3$</label>
-          <label class="option-label"><input type="radio" name="opt_q1" value="C"> C. 4 dan 3</label>
-          <label class="option-label"><input type="radio" name="opt_q1" value="D"> D. 2 dan 5</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="A"> A. $[-3, \infty)$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q1" value="B"> B. $[-3, 1) \cup (1, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="C"> C. $(-3, 1) \cup (1, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="D"> D. $(1, \infty)$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q1')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q1">
-          <strong>Bukti Algoritma Pembagian Euclid:</strong><br>
-          1) Untuk $-25$ dan pembagi $7$:<br>
-          Kita mencari kelipatan 7 yang lebih kecil atau sama dengan $-25$. Kelipatan tersebut adalah $7 \times (-4) = -28$.<br>
-          Maka: $-25 = 7 \times (-4) + 3$. Karena $0 \le 3 < 7$, maka $(-25) \bmod 7 = \mathbf{3}$.<br><br>
-          2) Untuk $-38$ dan pembagi $7$:<br>
-          Kelipatan 7 terdekat ke kiri adalah $7 \times (-6) = -42$.<br>
-          Maka: $-38 = 7 \times (-6) + 4$. Karena $0 \le 4 < 7$, maka $(-38) \bmod 7 = \mathbf{4}$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Syarat 1 (dalam akar harus non-negatif): $2x + 6 \ge 0 \implies x \ge -3$.<br>
+          Syarat 2 (penyebut tidak boleh nol): $x - 1 
+eq 0 \implies x 
+eq 1$.<br>
+          Irisan kedua syarat menghasilkan interval: $[-3, 1) \cup (1, \infty)$.
         </div>
       </div>
 
@@ -617,25 +1173,18 @@
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Domain alami (daerah asal) dari fungsi aljabar pecahan bentuk akar $f(x) = \sqrt{\frac{x - 3}{x + 2}}$ pada himpunan bilangan real $\mathbb{R}$ adalah...
+          Manakah dari fungsi berikut yang bersifat <strong>INJEKTIF</strong> (Satu-ke-Satu) pada seluruh domain real $\mathbb{R}$?
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="A"> A. $(-\infty, -2) \cup [3, \infty)$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="B"> B. $[-2, 3]$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. $(-\infty, -2] \cup [3, \infty)$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. $(-2, 3]$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="A"> A. $f(x) = x^2 - 4x + 5$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="B"> B. $f(x) = |x - 2|$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="C"> C. $f(x) = 3x - 7$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. $f(x) = \cos(x)$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q2')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q2">
-          <strong>Analisis Syarat Domain:</strong><br>
-          1) Di bawah tanda akar genap harus tak negatif: $\frac{x - 3}{x + 2} \ge 0$.<br>
-          2) Penyebut tidak boleh bernilai nol: $x + 2 \neq 0 \implies x \neq -2$.<br>
-          Pembuat nol: $x = -2$ dan $x = 3$.<br>
-          Uji tanda garis bilangan:
-          - $x < -2$: $(-)/(-) = (+)$ (Memenuhi)
-          - $-2 < x < 3$: $(-)/(+) = (-)$ (Gagal)
-          - $x \ge 3$: $(+)/(+) = (+)$ (Memenuhi)<br>
-          Karena $x = -2$ membuat penyebut nol, interval di $-2$ terbuka. Jadi domainnya adalah $(-\infty, -2) \cup [3, \infty)$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Fungsi linear $f(x) = 3x - 7$ selalu naik monotonik sempurna (garis lurus dengan gradien 3). Uji aljabar: $3x_1 - 7 = 3x_2 - 7 \implies 3x_1 = 3x_2 \implies x_1 = x_2$. Sedangkan fungsi kuadrat, nilai mutlak, dan trigonometri gagal uji garis horizontal.
         </div>
       </div>
 
@@ -643,22 +1192,22 @@
       <div class="quiz-card" id="q3">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 03</span>
-          <span class="difficulty-badge difficulty-medium">Medium</span>
+          <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan fungsi polinomial $f: \mathbb{R} \to \mathbb{R}$ dengan aturan $f(x) = x^3 - 3x$. Sifat pemetaan fungsi tersebut pada seluruh domain bilangan real adalah...
+          Diberikan $f(x) = rac{2x - 3}{x + 1}$ dan $g(x) = x^2 - 4$. Berapakah nilai dari $(g \circ f)(2)$?
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q3" value="A"> A. Injektif tetapi tidak surjektif</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. Surjektif tetapi tidak injektif</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. Bijektif (korespondensi satu-satu)</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. Bukan fungsi</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="A"> A. $-3$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. $-rac{35}{9}$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $rac{8}{9}$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. $0$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q3')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q3">
-          <strong>Uji Sifat Pemetaan:</strong><br>
-          1) Uji Injektif: Hitung $f(0) = 0^3 - 3(0) = 0$. Hitung $f(\sqrt{3}) = (\sqrt{3})^3 - 3\sqrt{3} = 3\sqrt{3} - 3\sqrt{3} = 0$. Karena terdapat $x_1 \neq x_2$ dengan $f(x_1) = f(x_2) = 0$, fungsi <strong>TIDAK INJEKTIF</strong>.<br>
-          2) Uji Surjektif: Karena $\lim_{x\to\infty} f(x) = +\infty$ dan $\lim_{x\to-\infty} f(x) = -\infty$, dan $f(x)$ kontinu pada $\mathbb{R}$, berdasarkan Teorema Nilai Antara, seluruh nilai $y \in \mathbb{R}$ terjangkau ($\text{Range} = \mathbb{R} = \text{Kodomain}$). Jadi fungsi <strong>SURJEKTIF</strong>.
+          <strong>Pembahasan Mendalam (Slide 10 UMS):</strong><br>
+          Hitung fungsi dalam terlebih dahulu: $f(2) = rac{2(2) - 3}{2 + 1} = rac{1}{3}$.<br>
+          Maka $(g \circ f)(2) = g(1/3) = (1/3)^2 - 4 = rac{1}{9} - 4 = -rac{35}{9}$.
         </div>
       </div>
 
@@ -669,22 +1218,20 @@
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Hitung nilai dari ekspresi fungsi tangga berikut:
-          $$\lfloor -4.3 \rfloor + \lceil -4.3 \rceil - \lfloor 7.9 \rfloor$$
+          Nilai dari $-25 mod 7$ dalam sistem aritmatika matematika murni adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="A"> A. $-16$</label>
-          <label class="option-label"><input type="radio" name="opt_q4" value="B"> B. $-15$</label>
-          <label class="option-label"><input type="radio" name="opt_q4" value="C"> C. $-14$</label>
-          <label class="option-label"><input type="radio" name="opt_q4" value="D"> D. $-17$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="A"> A. $-4$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="B"> B. $3$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="C"> C. $4$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="D"> D. $-3$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q4')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q4">
-          <strong>Evaluasi Fungsi Tangga:</strong><br>
-          1) $\lfloor -4.3 \rfloor$: bilangan bulat terbesar $\le -4.3$ adalah $-5$.<br>
-          2) $\lceil -4.3 \rceil$: bilangan bulat terkecil $\ge -4.3$ adalah $-4$.<br>
-          3) $\lfloor 7.9 \rfloor$: bilangan bulat terbesar $\le 7.9$ adalah $7$.<br>
-          Maka: $(-5) + (-4) - 7 = -9 - 7 = -16$.
+          <strong>Pembahasan Mendalam (Slide 8 UMS):</strong><br>
+          $a = mq + r$ dengan syarat $0 \le r < m$.<br>
+          $-25 = 7(-4) + r = -28 + r \implies r = 3$.<br>
+          Sisa tidak boleh negatif, sehingga jawabannya adalah $3$.
         </div>
       </div>
 
@@ -692,25 +1239,22 @@
       <div class="quiz-card" id="q5">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 05</span>
-          <span class="difficulty-badge difficulty-medium">Medium</span>
+          <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Jika $f(x) = \frac{3x - 5}{2x + 1}$ untuk $x \neq -\frac{1}{2}$, maka rumus fungsi invers $f^{-1}(x)$ adalah...
+          Jika $f(x) = rac{3x - 2}{x + 1}$, maka rumus fungsi balikan $f^{-1}(x)$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. $f^{-1}(x) = \frac{x + 5}{3 - 2x}$</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. $f^{-1}(x) = \frac{2x + 1}{3x - 5}$</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. $f^{-1}(x) = \frac{3x + 1}{2x - 5}$</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. $f^{-1}(x) = \frac{-2x - 1}{3x + 5}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. $rac{x + 2}{3 - x}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. $rac{x - 2}{3 + x}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. $rac{3x + 1}{x - 2}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. $rac{x + 1}{3x - 2}$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q5')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q5">
-          <strong>Aljabar Invers:</strong><br>
-          Misalkan $y = \frac{3x - 5}{2x + 1}$.<br>
-          $y(2x + 1) = 3x - 5 \implies 2xy + y = 3x - 5$.<br>
-          Pindahkan suku bervariabel $x$ ke ruas kiri:<br>
-          $2xy - 3x = -y - 5 \implies x(2y - 3) = -(y + 5) \implies x = \frac{-(y + 5)}{2y - 3} = \frac{y + 5}{3 - 2y}$.<br>
-          Ganti variabel menjadi $x$: $f^{-1}(x) = \frac{x + 5}{3 - 2x}$.
+          <strong>Pembahasan Mendalam (Slide 10 UMS):</strong><br>
+          $y(x + 1) = 3x - 2 \implies xy - 3x = -y - 2 \implies x(y - 3) = -(y + 2) \implies x = rac{y + 2}{3 - y}$.<br>
+          Sehingga $f^{-1}(x) = rac{x + 2}{3 - x}$.
         </div>
       </div>
 
@@ -718,26 +1262,22 @@
       <div class="quiz-card" id="q6">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 06</span>
-          <span class="difficulty-badge difficulty-high">High</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Diketahui komposisi $(f \circ g)(x) = 4x^2 - 12x + 14$ dan $f(x) = x^2 + 5$. Jika diketahui fungsi $g(x)$ memiliki gradien positif, maka rumus eksplisit $g(x)$ adalah...
+          Hasil evaluasi dari $\lfloor -7.8 floor + \lceil 3.4 ceil$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="A"> A. $g(x) = 2x - 3$</label>
-          <label class="option-label"><input type="radio" name="opt_q6" value="B"> B. $g(x) = 2x + 3$</label>
-          <label class="option-label"><input type="radio" name="opt_q6" value="C"> C. $g(x) = 4x - 6$</label>
-          <label class="option-label"><input type="radio" name="opt_q6" value="D"> D. $g(x) = -2x + 3$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="A"> A. $-5$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="B"> B. $-4$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="C"> C. $-3$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="D"> D. $-6$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q6')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q6">
-          <strong>Pembahasan:</strong><br>
-          $$(f \circ g)(x) = f(g(x)) = (g(x))^2 + 5$$
-          Maka:
-          $$(g(x))^2 + 5 = 4x^2 - 12x + 14 \implies (g(x))^2 = 4x^2 - 12x + 9$$
-          Perhatikan bahwa ruas kanan adalah bentuk kuadrat sempurna:
-          $$(g(x))^2 = (2x - 3)^2$$
-          Maka $g(x) = \pm (2x - 3)$. Karena diketahui $g(x)$ bergradien positif, maka $g(x) = 2x - 3$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          $\lfloor -7.8 floor = -8$. $\lceil 3.4 ceil = 4$.<br>
+          $(-8) + 4 = -4$.
         </div>
       </div>
 
@@ -748,27 +1288,22 @@
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Tentukan himpunan penyelesaian bilangan real $x \in \mathbb{R}$ yang memenuhi persamaan fungsi tangga:
-          $$2\lfloor x \rfloor = x + 3$$
+          Jika $(f \circ g)(x) = 4x^2 + 8x - 3$ dan $g(x) = 2x + 1$, maka rumus fungsi $f(x)$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q7" value="A"> A. $\{3\}$ (solusi tunggal)</label>
-          <label class="option-label"><input type="radio" name="opt_q7" value="B"> B. $\{3, 5\}$</label>
-          <label class="option-label"><input type="radio" name="opt_q7" value="C"> C. $\{1, 3\}$</label>
-          <label class="option-label"><input type="radio" name="opt_q7" value="D"> D. Tidak ada penyelesaian real</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="A"> A. $x^2 + 2x - 4$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q7" value="B"> B. $x^2 + 2x - 6$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="C"> C. $2x^2 + 4x - 5$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="D"> D. $x^2 - 4$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q7')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q7">
-          <strong>Analisis Definisi Formal Floor:</strong><br>
-          Misalkan $\lfloor x \rfloor = n$ dengan $n \in \mathbb{Z}$. Maka $x = 2n - 3$.<br>
-          Berdasarkan definisi fungsi floor: $n \le x < n + 1$.<br>
-          Substitusi $x = 2n - 3$:
-          $$n \le 2n - 3 < n + 1$$
-          1) Dari $n \le 2n - 3 \implies n \ge 3$.<br>
-          2) Dari $2n - 3 < n + 1 \implies n < 4$.<br>
-          Karena $n \in \mathbb{Z}$ dan $3 \le n < 4$, maka satu-satunya nilai bulat yang mungkin adalah $n = 3$.<br>
-          Substitusi $n = 3$ ke rumus $x$: $x = 2(3) - 3 = 3$.<br>
-          Uji: $2\lfloor 3 \rfloor = 2(3) = 6$ dan $3 + 3 = 6$ (Valid). Solusi tunggal adalah $\{3\}$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Misalkan $u = g(x) = 2x + 1 \implies x = rac{u - 1}{2}$.<br>
+          Substitusi ke $(f \circ g)(x)$:<br>
+          $$f(u) = 4\left(rac{u - 1}{2}ight)^2 + 8\left(rac{u - 1}{2}ight) - 3$$
+          $$= 4\left(rac{u^2 - 2u + 1}{4}ight) + 4(u - 1) - 3 = (u^2 - 2u + 1) + (4u - 4) - 3$$
+          $$= u^2 + 2u - 6 \implies f(x) = x^2 + 2x - 6$$
         </div>
       </div>
 
@@ -776,29 +1311,21 @@
       <div class="quiz-card" id="q8">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 08</span>
-          <span class="difficulty-badge difficulty-high">High</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan fungsi rekursif diskrit:
-          $$F(n) = \begin{cases} 1, & n = 0 \\ (n \cdot F(n-1) + 1) \bmod 10, & n \ge 1 \end{cases}$$
-          Nilai dari $F(6)$ adalah...
+          Berapakah nilai dari $(f \circ f^{-1})(99.5)$ untuk sembarang fungsi bijektif $f$?
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q8" value="A"> A. 3</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="B"> B. 7</label>
-          <label class="option-label"><input type="radio" name="opt_q8" value="C"> C. 9</label>
-          <label class="option-label"><input type="radio" name="opt_q8" value="D"> D. 1</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="A"> A. $99.5$</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="B"> B. $1$</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="C"> C. $0$</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="D"> D. Tidak dapat ditentukan tanpa rumus $f$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q8')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q8">
-          <strong>Pelacakan Langkah Rekursif:</strong><br>
-          $F(0) = 1$<br>
-          $F(1) = (1 \times 1 + 1) \bmod 10 = 2 \bmod 10 = 2$<br>
-          $F(2) = (2 \times 2 + 1) \bmod 10 = 5 \bmod 10 = 5$<br>
-          $F(3) = (3 \times 5 + 1) \bmod 10 = 16 \bmod 10 = 6$<br>
-          $F(4) = (4 \times 6 + 1) \bmod 10 = 25 \bmod 10 = 5$<br>
-          $F(5) = (5 \times 5 + 1) \bmod 10 = 26 \bmod 10 = 6$<br>
-          $F(6) = (6 \times 6 + 1) \bmod 10 = 37 \bmod 10 = \mathbf{7}$.
+          <strong>Pembahasan Mendalam (Slide 10 UMS):</strong><br>
+          Berdasarkan definisi aksioma fungsi balikan (invers): $(f \circ f^{-1})(x) = x$. Nilai masukan akan kembali secara identik.
         </div>
       </div>
 
@@ -809,23 +1336,21 @@
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan fungsi rasional $g(x) = \frac{1}{1 - x}$ untuk $x \neq 0, 1$. Tentukan nilai dari komposisi berulang $g^{2026}(2)$ di mana $g^n$ menyatakan komposisi $n$ kali.
+          Diberikan fungsi rekursif $f(n) = n 	imes f(n - 1)$ dengan basis $f(0) = 1$. Nilai dari $rac{f(6)}{f(4)} + 2^{-3}$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="A"> A. $-1$</label>
-          <label class="option-label"><input type="radio" name="opt_q9" value="B"> B. $\frac{1}{2}$</label>
-          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. 2</label>
-          <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. 0</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="A"> A. $30.125$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="B"> B. $30.25$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. $24.125$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. $36.125$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q9')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q9">
-          <strong>Pola Siklus Komposisi Fungsi:</strong><br>
-          1) $g^1(2) = \frac{1}{1 - 2} = -1$<br>
-          2) $g^2(2) = g(-1) = \frac{1}{1 - (-1)} = \frac{1}{2}$<br>
-          3) $g^3(2) = g(1/2) = \frac{1}{1 - 1/2} = 2$<br>
-          Fungsi berulang kembali ke input awal $x = 2$ setelah 3 kali komposisi (periode siklis $T = 3$).<br>
-          Hitung sisa pangkat: $2026 \bmod 3 = 1$ (karena $2025$ habis dibagi 3).<br>
-          Maka $g^{2026}(2) = g^1(2) = \mathbf{-1}$.
+          <strong>Pembahasan Mendalam (Slide 7 &amp; 9 UMS):</strong><br>
+          Fungsi rekursif tersebut adalah fungsi faktorial: $f(n) = n!$.<br>
+          $rac{6!}{4!} = 6 	imes 5 = 30$.<br>
+          $2^{-3} = rac{1}{2^3} = rac{1}{8} = 0.125$.<br>
+          Total: $30 + 0.125 = 30.125$.
         </div>
       </div>
 
@@ -836,41 +1361,37 @@
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan fungsi bijektif sepotong-sepotong (piecewise):
-          $$f(x) = \begin{cases} 2x + 4, & \text{jika } x \le 1 \\ x^2 + 5, & \text{jika } x > 1 \end{cases}$$
-          Nilai dari $f^{-1}(14) + f^{-1}(2)$ adalah...
+          Fungsi $f(x) = x^2 + 1$ dengan kodomain $\mathbb{R}$ tidak memiliki fungsi invers karena...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q10" value="A"> A. 2</label>
-          <label class="option-label"><input type="radio" name="opt_q10" value="B"> B. 4</label>
-          <label class="option-label"><input type="radio" name="opt_q10" value="C"> C. 5</label>
-          <label class="option-label"><input type="radio" name="opt_q10" value="D"> D. 1</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="A"> A. Fungsinya diskontinu di $x = 0$</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="B"> B. Fungsinya tidak memiliki turunan</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q10" value="C"> C. Fungsinya bukan satu-ke-satu (injektif) dan bukan surjektif</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="D"> D. Nilai minimum fungsinya berada di atas sumbu-X</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q10')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q10">
-          <strong>Analisis Invers Cabang Sepotong:</strong><br>
-          Perhatikan batas nilai di titik pisah $x = 1$:<br>
-          Untuk cabang pertama $x \le 1$: $f(x) \le 2(1) + 4 = 6$. Maka rentang cabang pertama adalah $(-\infty, 6]$.<br>
-          Untuk cabang kedua $x > 1$: $f(x) > 1^2 + 5 = 6$. Maka rentang cabang kedua adalah $(6, \infty)$.<br><br>
-          1) Untuk $y = 14$: karena $14 > 6$, nilai ini berasal dari cabang kedua:<br>
-          $x^2 + 5 = 14 \implies x^2 = 9 \implies x = 3$ (karena $x > 1$). Jadi $f^{-1}(14) = 3$.<br><br>
-          2) Untuk $y = 2$: karena $2 \le 6$, nilai ini berasal dari cabang pertama:<br>
-          $2x + 4 = 2 \implies 2x = -2 \implies x = -1 \le 1$. Jadi $f^{-1}(2) = -1$.<br><br>
-          Hasil akhir: $f^{-1}(14) + f^{-1}(2) = 3 + (-1) = \mathbf{2}$.
+          <strong>Pembahasan Mendalam (Slide 3 &amp; 5 UMS):</strong><br>
+          Fungsi $f(x) = x^2 + 1$ memetakan nilai simetris ke bayangan yang sama ($f(-2) = f(2) = 5$), sehingga gagal sifat satu-ke-satu (injektif). Selain itu, nilainya selalu $\ge 1$ sehingga elemen di bawah $1$ tidak terpetakan (bukan surjektif). Karena tidak bijektif, fungsi inversnya tidak ada pada $\mathbb{R}$.
         </div>
       </div>
 
-      <!-- Summary Card -->
-      <div class="summary-card">
+      <!-- Final Evaluation Card -->
+      <div class="quiz-card" style="text-align:center; background:var(--surface-subtle);">
         <h3 style="font-size:16px; margin-bottom:8px;">Hasil Evaluasi Mandiri Week 3</h3>
-        <div class="summary-score" id="finalScore">0 / 10</div>
-        <p style="color:var(--text-muted); font-size:14px; margin-top:8px;">Kuasai materi puncak analisis kalkulus pada limit fungsi dan uji 3 syarat kontinuitas.</p>
-        <div style="margin-top:16px; display:flex; justify-content:center; gap:12px;">
-          <a href="week4-limit.html" class="btn-action" style="text-decoration:none; display:inline-block;">Lanjut ke Week 4: Limit & Kontinuitas →</a>
-          <a href="index.html" class="btn-action" style="text-decoration:none; display:inline-block; background:transparent; color:var(--text); border:1px solid var(--border);">Ke Hub Utama</a>
+        <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">Pastikan Anda telah menguasai pemetaan aljabar sebelum masuk ke materi pamungkas: Teorema Limit &amp; Kontinuitas.</p>
+        <div style="font-family:var(--font-mono); font-size:28px; font-weight:700; color:var(--accent);" id="finalScore">0 / 10</div>
+        <div style="margin-top:16px;">
+          <a href="week4-limit.html" class="btn-action" style="text-decoration:none; display:inline-block;">Lanjut ke Modul Week 4: Limit &rarr;</a>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Tim Pengampu Kalkulus 1 &bull; Program Studi Informatika / FKI UMS</p>
+      <p style="font-size:12px; margin-top:4px;">Disusun berbasis KaTeX Math Engine &amp; Standar Cursor Design System</p>
+    </footer>
   </div>
 
   <script>
@@ -880,132 +1401,174 @@
           delimiters: [
             {left: "$$", right: "$$", display: true},
             {left: "$", right: "$", display: false}
-          ]
+          ],
+          throwOnError: false
         });
       }
       calcModulo();
-      updateStepCanvas();
+      drawStepFunction();
     });
 
-    function calcModulo() {
-      const a = parseInt(document.getElementById("inputA").value);
-      const m = parseInt(document.getElementById("inputM").value);
-      const out = document.getElementById("moduloOutput");
-
-      if (isNaN(a) || isNaN(m) || m <= 0) {
-        out.textContent = "Pembagi m harus berupa bilangan bulat positif (> 0).";
-        return;
+    // Toggle Collapsible Slide Exercise
+    function toggleSlideExercise(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle("active");
+      const label = card.querySelector(".slide-exercise-header span:last-child");
+      if (card.classList.contains("active")) {
+        label.innerHTML = "Tutup Solusi &uarr;";
+      } else {
+        label.innerHTML = "Buka Solusi &darr;";
       }
-
-      // Euclidean division: q = floor(a / m), r = a - m * q
-      const q = Math.floor(a / m);
-      const r = a - m * q;
-
-      out.innerHTML = `$$${a} = ${m} \\times (${q}) + ${r} \\implies \\mathbf{${a} \\bmod ${m} = ${r}}$$
-      <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
-        Kuosien bulat pembagian ke bawah: $q = \\lfloor ${a}/${m} \\rfloor = ${q}$. Sisa tak-negatif: $0 \\le ${r} < ${m}$.
-      </div>`;
-
       if (window.renderMathInElement) {
-        renderMathInElement(out, {delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}]});
+        renderMathInElement(card, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ],
+          throwOnError: false
+        });
       }
     }
 
-    function updateStepCanvas() {
-      const x = parseFloat(document.getElementById("realSlider").value);
-      const fl = Math.floor(x);
-      const ce = Math.ceil(x);
+    // Simulator 1: Euclid Modulo Calculator
+    function calcModulo() {
+      const a = parseInt(document.getElementById("modA").value);
+      const m = parseInt(document.getElementById("modM").value);
+      const resBox = document.getElementById("moduloResultBox");
 
-      document.getElementById("realValDisplay").textContent = `x = ${x.toFixed(2)}`;
-      const stepVal = document.getElementById("stepValuesDisplay");
-      stepVal.innerHTML = `$\\lfloor ${x.toFixed(1)} \\rfloor = ${fl}$ | $\\lceil ${x.toFixed(1)} \\rceil = ${ce}$`;
-      if (window.renderMathInElement) {
-        renderMathInElement(stepVal, {delimiters: [{left: "$", right: "$", display: false}]});
+      if (isNaN(a) || isNaN(m) || m <= 0) {
+        resBox.innerHTML = "<span style='color:var(--danger);'>Masukkan nilai bilangan bulat valid dengan pembagi $m > 0$.</span>";
+        return;
       }
 
+      // Mathematical Euclidean division: 0 <= r < m
+      let r = a % m;
+      if (r < 0) {
+        r += m;
+      }
+      const q = (a - r) / m;
+
+      let explanation = "";
+      if (a < 0) {
+        const naiveQ = Math.trunc(a / m);
+        const naiveR = a - m * naiveQ;
+        explanation = `&bull; Perhitungan Langsung Biasa: $${a} = ${m}(${naiveQ}) + (${naiveR})$. <span style='color:var(--danger);'>Sisa ${naiveR} DITOLAK karena negatif!</span><br>
+                       &bull; Koreksi Aksioma Euclid ($0 \le r < ${m}$): Pilih $q = ${q}$ sehingga $r = ${a} - ${m}(${q}) = \mathbf{${r}}$.`;
+      } else {
+        explanation = `&bull; Kasus positif standar: $${a} = ${m}(${q}) + ${r}$. Sisa pembagian memenuhi $0 \le ${r} < ${m}$.`;
+      }
+
+      resBox.innerHTML = `
+        <div style="font-size:16px; font-weight:700; color:var(--accent); margin-bottom:8px;">
+          Hasil Evaluasi: $${a} \bmod ${m} = ${r}$
+        </div>
+        <div>
+          <strong>Bentuk Persamaan Euclid:</strong> $${a} = ${m} \times (${q}) + ${r}$<br>
+          <strong>Hasil Bagi Bulat ($q$):</strong> ${q}<br>
+          <strong>Sisa Pembagian ($r$):</strong> ${r}<br>
+          <div style="margin-top:6px; font-size:13px; color:#55544e;">${explanation}</div>
+        </div>
+      `;
+
+      if (window.renderMathInElement) {
+        renderMathInElement(resBox, {delimiters: [{left: "$", right: "$", display: false}]});
+      }
+    }
+
+    // Simulator 2: Step Function Canvas
+    function drawStepFunction() {
+      const type = document.getElementById("stepType").value;
       const canvas = document.getElementById("stepCanvas");
       const ctx = canvas.getContext("2d");
       const w = canvas.width;
       const h = canvas.height;
       const cx = w / 2;
       const cy = h / 2;
-      const scale = 32;
+      const scale = 28;
 
       ctx.clearRect(0, 0, w, h);
 
       // Grid
-      ctx.strokeStyle = "#ebeae4";
+      ctx.strokeStyle = "#ebeae6";
       ctx.lineWidth = 1;
-      for (let px = 0; px <= w; px += scale) {
-        ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke();
+      for (let x = 0; x <= w; x += scale) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
       }
-      for (let py = 0; py <= h; py += scale) {
-        ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke();
+      for (let y = 0; y <= h; y += scale) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
       }
 
       // Axes
-      ctx.strokeStyle = "#8f8e89";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
-
-      // Floor steps (green)
-      ctx.strokeStyle = "#34785c";
-      ctx.lineWidth = 2.5;
-      for (let n = -8; n <= 8; n++) {
-        const x1 = cx + n * scale;
-        const x2 = cx + (n + 1) * scale;
-        const yCoord = cy - n * scale;
-
-        ctx.beginPath();
-        ctx.moveTo(x1, yCoord);
-        ctx.lineTo(x2, yCoord);
-        ctx.stroke();
-
-        // Solid dot at left
-        ctx.fillStyle = "#34785c";
-        ctx.beginPath();
-        ctx.arc(x1, yCoord, 3.5, 0, 2 * Math.PI);
-        ctx.fill();
-
-        // Open circle at right
-        ctx.strokeStyle = "#34785c";
-        ctx.fillStyle = "#ffffff";
-        ctx.beginPath();
-        ctx.arc(x2, yCoord, 3, 0, 2 * Math.PI);
-        ctx.fill();
-        ctx.stroke();
-      }
-
-      // Indicator for current x (orange vertical line)
-      const curPx = cx + x * scale;
-      ctx.strokeStyle = "rgba(245, 78, 0, 0.4)";
+      ctx.strokeStyle = "#73726c";
       ctx.lineWidth = 1.5;
-      ctx.setLineDash([4, 4]);
-      ctx.beginPath(); ctx.moveTo(curPx, 0); ctx.lineTo(curPx, h); ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Point on floor
-      const floorPy = cy - fl * scale;
-      ctx.fillStyle = "#f54e00";
       ctx.beginPath();
-      ctx.arc(curPx, floorPy, 5, 0, 2 * Math.PI);
-      ctx.fill();
-      ctx.strokeStyle = "#ffffff";
-      ctx.lineWidth = 1.5;
+      ctx.moveTo(0, cy); ctx.lineTo(w, cy);
+      ctx.moveTo(cx, 0); ctx.lineTo(cx, h);
       ctx.stroke();
+
+      // Step curves
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = "#f54e00";
+
+      const minK = -6;
+      const maxK = 6;
+
+      for (let k = minK; k <= maxK; k++) {
+        let yVal = (type === "floor") ? k : (k + 1);
+        let xStart = k;
+        let xEnd = k + 1;
+
+        const screenX1 = cx + xStart * scale;
+        const screenX2 = cx + xEnd * scale;
+        const screenY = cy - yVal * scale;
+
+        // Draw horizontal line segment
+        ctx.beginPath();
+        ctx.moveTo(screenX1, screenY);
+        ctx.lineTo(screenX2, screenY);
+        ctx.stroke();
+
+        // Closed circle
+        ctx.fillStyle = "#f54e00";
+        ctx.beginPath();
+        if (type === "floor") {
+          ctx.arc(screenX1, screenY, 4, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.arc(screenX2, screenY, 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Open circle
+        ctx.fillStyle = "#ffffff";
+        ctx.strokeStyle = "#f54e00";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        if (type === "floor") {
+          ctx.arc(screenX2, screenY, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+        } else {
+          ctx.arc(screenX1, screenY, 3.5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+        }
+      }
     }
 
+    // Quiz evaluation engine
     const userAnswers = {};
     function checkAnswer(qid) {
       const card = document.getElementById(qid);
       const options = card.querySelectorAll("input[type='radio']");
+      let selected = null;
       let isCorrect = false;
 
       options.forEach(opt => {
         const label = opt.closest(".option-label");
         label.classList.remove("correct", "incorrect");
         if (opt.checked) {
+          selected = opt.value;
           if (label.getAttribute("data-correct") === "true") {
             isCorrect = true;
             label.classList.add("correct");

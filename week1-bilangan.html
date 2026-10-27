@@ -27,6 +27,8 @@
       --success-bg: rgba(52, 120, 92, 0.1);
       --danger: #cf2d56;
       --danger-bg: rgba(207, 45, 86, 0.1);
+      --info: #0284c7;
+      --info-bg: rgba(2, 132, 199, 0.08);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'Newsreader', Georgia, serif;
       --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
@@ -134,7 +136,7 @@
       background: var(--accent);
     }
     .hero h1 {
-      font-size: 46px;
+      font-size: 44px;
       font-weight: 600;
       letter-spacing: -1.2px;
       line-height: 1.15;
@@ -142,11 +144,11 @@
       margin-bottom: 16px;
     }
     .hero p {
-      font-size: 18px;
+      font-size: 17px;
       color: var(--text-muted);
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto 28px auto;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .hero-quote {
       font-family: var(--font-serif);
@@ -155,8 +157,8 @@
       color: #55544e;
       background: #fafaf8;
       border-left: 3px solid var(--accent);
-      padding: 10px 18px;
-      max-width: 640px;
+      padding: 12px 20px;
+      max-width: 680px;
       margin: 0 auto;
       text-align: left;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -204,7 +206,7 @@
 
     /* Content Typography */
     h2.section-title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 600;
       letter-spacing: -0.6px;
       margin-bottom: 8px;
@@ -233,8 +235,14 @@
       gap: 20px;
       margin-bottom: 24px;
     }
-    @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 820px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .hero h1 { font-size: 32px; }
     }
 
@@ -256,6 +264,30 @@
       line-height: 1.55;
     }
 
+    .callout {
+      background: #fafaf7;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Tree Diagram */
+    .tree-box {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin: 20px 0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
     /* Hierarchy diagram */
     .hierarchy-diagram {
       display: flex;
@@ -264,7 +296,7 @@
       margin: 20px 0;
     }
     .hierarchy-level {
-      padding: 12px 18px;
+      padding: 14px 18px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
       background: #fafaf7;
@@ -281,12 +313,137 @@
     .hierarchy-symbol {
       font-family: var(--font-mono);
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
       color: var(--text);
     }
     .hierarchy-desc {
       font-size: 13px;
       color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Worked Example Card */
+    .example-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .example-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+    }
+    .example-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .step-list {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      flex-shrink: 0;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .step-content {
+      flex: 1;
+    }
+
+    /* Slide Exercise Cards (Collapsible) */
+    .slide-exercise-card {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 18px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .slide-exercise-card.active {
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+    .slide-exercise-header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .slide-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: #ffede6;
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      margin-right: 8px;
+    }
+    .slide-points {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--surface);
+    }
+    .slide-exercise-body {
+      padding: 0 20px 20px 20px;
+      display: none;
+      border-top: 1px dashed var(--border);
+      margin-top: 4px;
+      padding-top: 16px;
+    }
+    .slide-exercise-card.active .slide-exercise-body {
+      display: block;
+    }
+    .solution-box {
+      background: #fdfdfc;
+      border-left: 3px solid var(--success);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 14px;
+      margin-top: 12px;
+      line-height: 1.6;
     }
 
     /* Interactive Simulator */
@@ -300,115 +457,115 @@
     .sim-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
     }
     .sim-tag {
       font-family: var(--font-mono);
       font-size: 11px;
-      padding: 3px 8px;
-      background: rgba(245, 78, 0, 0.1);
       color: var(--accent);
+      background: rgba(245, 78, 0, 0.1);
+      padding: 2px 8px;
       border-radius: var(--radius-pill);
       font-weight: 600;
     }
-
     .form-group {
       margin-bottom: 16px;
     }
     .form-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
       display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
     .input-text {
       width: 100%;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
+      padding: 10px 14px;
       border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #ffffff;
       font-family: var(--font-mono);
       font-size: 14px;
-      background: #ffffff;
-      color: var(--text);
       outline: none;
-      transition: border-color 0.15s ease;
+      transition: border 0.15s ease;
     }
     .input-text:focus {
       border-color: var(--accent);
     }
     .btn-action {
+      padding: 10px 18px;
       background: var(--text);
       color: #ffffff;
       border: none;
-      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 500;
-      border-radius: var(--radius-pill);
       cursor: pointer;
-      transition: background 0.15s ease;
+      transition: opacity 0.15s ease;
+      white-space: nowrap;
     }
     .btn-action:hover {
-      background: #3f3e36;
+      opacity: 0.9;
     }
-
-    /* Venn Result Badges */
     .set-badges {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
+      flex-wrap: wrap;
       margin-top: 14px;
     }
     .set-badge {
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border);
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
       background: #ffffff;
+      color: var(--text-muted);
       transition: all 0.2s ease;
     }
     .set-badge.active {
-      background: var(--success-bg);
-      border-color: var(--success);
-      color: var(--success);
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
       font-weight: 600;
     }
 
-    /* 2D Region Canvas */
+    /* Canvas styling */
     .canvas-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
-      margin-top: 20px;
+      gap: 12px;
+      margin-top: 16px;
     }
     canvas {
+      background: #ffffff;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      background: #ffffff;
       box-shadow: var(--shadow-sm);
+      max-width: 100%;
     }
     .slider-row {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
+      margin-bottom: 12px;
+      font-size: 13px;
     }
     .slider-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 13px;
     }
 
-    /* Quiz Component */
+    /* Quiz Cards */
     .quiz-section {
-      margin-top: 50px;
+      margin-top: 48px;
     }
     .quiz-card {
       background: var(--surface);
@@ -416,41 +573,34 @@
       border-radius: var(--radius-md);
       padding: 24px;
       margin-bottom: 24px;
-      transition: box-shadow 0.15s ease;
+      box-shadow: var(--shadow-sm);
     }
     .quiz-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 14px;
     }
     .quiz-number {
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--accent);
     }
     .difficulty-badge {
       font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
+      font-size: 11px;
       padding: 2px 8px;
       border-radius: var(--radius-pill);
-      text-transform: uppercase;
+      font-weight: 500;
     }
-    .difficulty-medium {
-      background: rgba(52, 120, 92, 0.12);
-      color: var(--success);
-    }
-    .difficulty-high {
-      background: rgba(245, 78, 0, 0.12);
-      color: var(--accent);
-    }
+    .difficulty-medium { background: #fff4e5; color: #b76e00; }
+    .difficulty-high { background: #ffebeb; color: #c92a2a; }
     .quiz-prompt {
       font-size: 15px;
       font-weight: 500;
-      color: var(--text);
       margin-bottom: 16px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     .quiz-options {
       display: flex;
@@ -462,20 +612,19 @@
       display: flex;
       align-items: center;
       padding: 10px 14px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border);
       border-radius: var(--radius-sm);
+      font-size: 14px;
       cursor: pointer;
       transition: all 0.15s ease;
-      background: var(--surface-subtle);
-      font-size: 14px;
+      background: #fafaf8;
     }
     .option-label:hover {
-      border-color: var(--border);
-      background: #eae9e4;
+      background: #ffffff;
+      border-color: #a0a09c;
     }
     .option-label input {
-      margin-right: 12px;
-      accent-color: var(--text);
+      margin-right: 10px;
     }
     .option-label.correct {
       background: var(--success-bg) !important;
@@ -489,52 +638,40 @@
       color: var(--danger);
     }
     .explanation-box {
-      background: #fafaf8;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      padding: 14px 18px;
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      font-size: 13.5px;
       display: none;
-      margin-top: 12px;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-subtle);
+      border-left: 3px solid var(--accent);
+      font-size: 13.5px;
       line-height: 1.6;
+      margin-top: 14px;
     }
     .explanation-box.show {
       display: block;
-      animation: fadeIn 0.2s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
-    .summary-card {
-      background: var(--surface-subtle);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
+    /* Footer */
+    footer {
       text-align: center;
-      margin-top: 30px;
-    }
-    .summary-score {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--text);
-      font-family: var(--font-mono);
-      letter-spacing: -1px;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Island Navigation -->
+  <!-- Floating Island Nav -->
   <div class="nav-wrapper">
     <nav class="nav-island">
-      <a href="index.html" class="nav-link">← Hub Utama</a>
-      <a href="week1-bilangan.html" class="nav-link active">Week 1 <span class="nav-badge">Bilangan</span></a>
-      <a href="week2-trigonometri.html" class="nav-link">Week 2</a>
-      <a href="week3-fungsi.html" class="nav-link">Week 3</a>
-      <a href="week4-limit.html" class="nav-link">Week 4</a>
+      <a href="index.html" class="nav-link">Simulasi UTS <span class="nav-badge">Hub</span></a>
+      <a href="week1-bilangan.html" class="nav-link active">Week 1: Bilangan</a>
+      <a href="week2-trigonometri.html" class="nav-link">Week 2: Trigonometri</a>
+      <a href="week3-fungsi.html" class="nav-link">Week 3: Fungsi</a>
+      <a href="week4-limit.html" class="nav-link">Week 4: Limit</a>
     </nav>
   </div>
 
@@ -542,16 +679,16 @@
     <!-- Hero Header -->
     <header class="hero">
       <div class="hero-badge">
-        <span></span> KALKULUS 1 — UNIVERSITAS MUHAMMADIYAH SURAKARTA
+        <span></span> MODUL KALKULUS 1 — FAKULTAS KOMUNIKASI & INFORMATIKA UMS
       </div>
-      <h1>Week 1: Bilangan & Representasi</h1>
-      <p>Fondasi rigor matematika kalkulus: hierarki himpunan bilangan, perbedaan bilangan dan angka, representasi geometris titik hingga daerah pertidaksamaan 2D, serta operasi aljabar akar.</p>
+      <h1>Week 1: Bilangan &amp; Representasi Bilangan</h1>
+      <p>Kajian mendalam hakikat bilangan, hierarki pohon himpunan aljabar, representasi geometris dimensi 0–2, contoh soal terbimbing, serta kunci pembahasan lengkap 8 latihan soal slide dosen.</p>
       <div class="hero-quote">
-        "Angka adalah simbol penulisan (seperti aksara atau glif), sedangkan bilangan adalah konsep abstrak matematis tentang kuantitas nilai. Fondasi kalkulus berakar pada himpunan bilangan real $\mathbb{R}$."
+        "Angka adalah simbol penulisan glif grafis, sedangkan bilangan adalah konsep abstrak matematis tentang kuantitas nilai. Fondasi seluruh kalkulus berakar pada aksioma kelengkapan kontinum bilangan real $\mathbb{R}$."
       </div>
     </header>
 
-    <!-- macOS Mockup 1: Teori & Hierarki -->
+    <!-- macOS Mockup 1: Teori Mendalam & Rantai Himpunan -->
     <div class="window-card">
       <div class="window-header">
         <div class="window-dots">
@@ -559,62 +696,483 @@
           <span class="dot dot-yellow"></span>
           <span class="dot dot-green"></span>
         </div>
-        <div class="window-title">teori_himpunan_bilangan.tex</div>
-        <div></div>
+        <div class="window-title">teori_bilangan_lengkap.tex</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">Bab 01 &bull; Hal 1–4</div>
       </div>
       <div class="window-body">
-        <h2 class="section-title">1. Hierarki Rantai Himpunan Bilangan</h2>
-        <p class="section-desc">Setiap himpunan merupakan bagian murni (subset) dari himpunan di atasnya: $\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$.</p>
-
-        <div class="hierarchy-diagram">
-          <div class="hierarchy-level">
-            <div>
-              <span class="hierarchy-symbol">$\mathbb{N}$ (Bilangan Asli / Natural Numbers)</span>
-              <div class="hierarchy-desc">Bilangan bulat positif yang digunakan untuk mencacah objek: $\{1, 2, 3, 4, 5, \dots\}$. Memuat bilangan prima dan komposit.</div>
-            </div>
-            <div style="font-family: var(--font-mono); font-size:12px; color: var(--accent);">Terkecil</div>
-          </div>
-          <div class="hierarchy-level">
-            <div>
-              <span class="hierarchy-symbol">$\mathbb{W}$ (Bilangan Cacah / Whole Numbers)</span>
-              <div class="hierarchy-desc">Himpunan bilangan asli ditambah elemen identitas penjumlahan nol ($0$): $\{0, 1, 2, 3, \dots\}$.</div>
-            </div>
-          </div>
-          <div class="hierarchy-level">
-            <div>
-              <span class="hierarchy-symbol">$\mathbb{Z}$ (Bilangan Bulat / Integers)</span>
-              <div class="hierarchy-desc">Dari bahasa Jerman <em>Zahlen</em>. Memuat bilangan bulat negatif, nol, dan bulat positif: $\{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}$.</div>
-            </div>
-          </div>
-          <div class="hierarchy-level">
-            <div>
-              <span class="hierarchy-symbol">$\mathbb{Q}$ (Bilangan Rasional / Rational Numbers)</span>
-              <div class="hierarchy-desc">Bilangan yang dapat dinyatakan dalam bentuk $\frac{a}{b}$ dengan $a, b \in \mathbb{Z}$ dan $b \neq 0$. Menghasilkan desimal berhenti ($0.25$) atau berulang ($0.\overline{3}$).</div>
-            </div>
-          </div>
-          <div class="hierarchy-level">
-            <div>
-              <span class="hierarchy-symbol">$\mathbb{R}$ (Bilangan Real / Real Numbers)</span>
-              <div class="hierarchy-desc">Gabungan bilangan rasional ($\mathbb{Q}$) dan irasional ($\mathbb{I} = \mathbb{R}\setminus\mathbb{Q}$, desimal tak berhenti & tak berulang seperti $\pi, e, \sqrt{2}$). Memenuhi aksioma kelengkapan kontinum garis real.</div>
-            </div>
-          </div>
-          <div class="hierarchy-level">
-            <div>
-              <span class="hierarchy-symbol">$\mathbb{C}$ (Bilangan Kompleks / Complex Numbers)</span>
-              <div class="hierarchy-desc">Bentuk $z = a + bi$ dengan $a, b \in \mathbb{R}$ dan $i = \sqrt{-1}$. Menutup secara aljabar seluruh persamaan polinomial.</div>
-            </div>
-            <div style="font-family: var(--font-mono); font-size:12px; color: var(--accent);">Universal</div>
-          </div>
-        </div>
+        <h2 class="section-title">1. Teori Mendalam: Hakikat Bilangan &amp; Angka</h2>
+        <p class="section-desc">Berdasarkan silabus perkuliahan Kalkulus 1 UMS, pemahaman kalkulus diawali dengan membedakan entitas konseptual kuantitas dan sistem notasi simboliknya.</p>
 
         <div class="grid-2">
           <div class="sub-card">
-            <h3>Prima vs Komposit</h3>
-            <p><strong>Bilangan Prima:</strong> Bilangan bulat $> 1$ yang hanya memiliki tepat 2 pembagi positif (1 dan dirinya sendiri), misal $2, 3, 5, 7, 11$. Angka 2 adalah satu-satunya bilangan prima genap.<br><strong>Bilangan Komposit:</strong> Bilangan bulat $> 1$ yang memiliki lebih dari 2 faktor positif (misal $4, 6, 8, 9, 12$). Angka 1 bukan prima dan bukan komposit.</p>
+            <h3>Apa itu Bilangan? (Number)</h3>
+            <p>Bilangan adalah <strong>ide / konsep abstrak</strong> dalam pikiran manusia untuk menyatakan suatu jumlah, kuantitas, urutan, atau ukuran fisik. Bilangan tidak berwujud fisik namun memiliki sifat matematis yang pasti.</p>
+            <div class="callout" style="margin-top:10px;">
+              <strong>Contoh Nyata:</strong>
+              <ul style="margin-left:18px; margin-top:4px;">
+                <li>Pencacahan objek diskret: $5$ buku di atas meja.</li>
+                <li>Pengukuran kontinu: Panjang meja $2$ meter.</li>
+                <li>Derajat skala: Suhu ruangan dingin $-3^\circ\text{C}$.</li>
+              </ul>
+            </div>
           </div>
           <div class="sub-card">
-            <h3>Representasi Geometris & Dimensi</h3>
-            <p><strong>1D (Garis Bilangan):</strong> Setiap titik mewakili tepat 1 bilangan real. Interval tertutup $[a, b]$ vs terbuka $(a, b)$.<br><strong>2D (Bidang Kartesius $\mathbb{R}^2$):</strong> Pasangan berurutan $(x, y)$ dan daerah solusi pertidaksamaan seperti $x + y \ge 3$.<br><strong>3D (Ruang $\mathbb{R}^3$):</strong> Titik berkoordinat $(x, y, z)$ yang merepresentasikan posisi spasial fisik.</p>
+            <h3>Apa itu Angka? (Numeral)</h3>
+            <p>Angka atau numeral adalah <strong>simbol, glif, atau lambang grafis</strong> yang digunakan untuk menuliskan atau merepresentasikan suatu bilangan. Satu konsep bilangan yang sama dapat dituliskan dengan berbagai numeral berbeda.</p>
+            <div class="callout" style="margin-top:10px;">
+              <strong>Variasi Lambang Bilangan "Lima":</strong>
+              <ul style="margin-left:18px; margin-top:4px;">
+                <li>Hindu-Arab: <code>5</code> (Standar komputasi)</li>
+                <li>Romawi Kuno: <code>V</code></li>
+                <li>Arab Timur: <code>٥</code></li>
+                <li>Biner Komputer: <code>101$_2$</code> | Heksadesimal: <code>0x5</code></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:32px;">2. Taksonomi Rantai Pohon Himpunan Bilangan</h2>
+        <p class="section-desc">Hubungan inklusi subset dari rantai terkecil hingga semesta aljabar: $\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$.</p>
+
+        <div class="tree-box">
+          <strong>STRUKTUR POHON HIMPUNAN BILANGAN (Slide 3 UMS):</strong><br>
+          &boxvr;&minus;&minus; <strong>Bilangan Kompleks ($\mathbb{C}$)</strong>: Bentuk $a + bi$ ($a, b \in \mathbb{R}, i = \sqrt{-1}$)<br>
+          &nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Bilangan Imajiner</strong>: Memuat $bi$ dengan $b 
+eq 0$ (contoh: $\sqrt{-4} = 2i$)<br>
+          &nbsp;&nbsp;&boxur;&minus;&minus; <strong>Bilangan Real ($\mathbb{R}$)</strong>: Titik-titik kontinu pada garis bilangan riil<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Bilangan Irasional ($\mathbb{I}$)</strong>: Desimal tak berulang tanpa akhir ($\sqrt{2}, \pi, e$)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&boxur;&minus;&minus; <strong>Bilangan Rasional ($\mathbb{Q}$)</strong>: Bentuk $rac{a}{b}$ ($a,b \in \mathbb{Z}, b 
+eq 0$)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Pecahan Murni / Desimal Berulang</strong>: $rac{1}{2}, rac{3}{5}, 0.75, 0.\overline{3}$<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxur;&minus;&minus; <strong>Bilangan Bulat ($\mathbb{Z}$)</strong>: $\{\dots, -2, -1, 0, 1, 2, \dots\}$<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Bilangan Bulat Negatif</strong>: $\{-1, -2, -3, \dots\}$<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxur;&minus;&minus; <strong>Bilangan Cacah ($\mathbb{W}$)</strong>: $\{0, 1, 2, 3, \dots\}$<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Nol ($0$)</strong>: Netral penjumlahan, genap, bukan prima & bukan komposit<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxur;&minus;&minus; <strong>Bilangan Asli ($\mathbb{N}$)</strong>: $\{1, 2, 3, 4, \dots\}$<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Bilangan Prima</strong>: $\{2, 3, 5, 7, 11, \dots\}$ (Tepat 2 faktor pembagi positif)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Bilangan Komposit</strong>: $\{4, 6, 8, 9, 10, \dots\}$ (Lebih dari 2 faktor)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxvr;&minus;&minus; <strong>Bilangan Genap</strong>: Bentuk $2k, k \in \mathbb{Z}$<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&boxur;&minus;&minus; <strong>Bilangan Ganjil</strong>: Bentuk $2k+1, k \in \mathbb{Z}$
+        </div>
+
+        <div class="grid-3">
+          <div class="sub-card">
+            <h3 style="color:var(--accent);">Kasus Batas Angka 0</h3>
+            <p>Nol ($0$) adalah bilangan genap karena habis dibagi $2$ ($0 = 2 \times 0$). Namun $0$ <strong>bukan bilangan prima</strong> dan <strong>bukan bilangan komposit</strong> karena tidak memenuhi syarat pembagi positif $> 1$.</p>
+          </div>
+          <div class="sub-card">
+            <h3 style="color:var(--accent);">Kasus Batas Angka 1</h3>
+            <p>Angka $1$ adalah satuan unit aritmatika. $1$ <strong>bukan prima</strong> karena hanya memiliki $1$ faktor pembagi (dirinya sendiri). $1$ juga bukan komposit. Satu-satunya bilangan prima genap adalah $2$.</p>
+          </div>
+          <div class="sub-card">
+            <h3 style="color:var(--accent);">Rasional vs Irasional</h3>
+            <p>Bilangan rasional $\mathbb{Q}$ selalu menghasilkan desimal yang berhingga atau berulang. Bilangan irasional $\mathbb{I}$ tidak memiliki pola berulang dan tidak dapat ditulis sebagai $\frac{a}{b}$.</p>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:32px;">3. Representasi Geometris &amp; Dimensi (Slide 4)</h2>
+        <p class="section-desc">Kalkulus memetakan bilangan ke dalam entitas geometris dari dimensi 0, 1, hingga 2 dimensi.</p>
+
+        <div class="grid-3">
+          <div class="sub-card">
+            <h3>Dimensi 0 (Titik Tunggal)</h3>
+            <p>Sebuah titik $P(2, 3)$ pada bidang Cartesius merepresentasikan posisi nol-dimensi yang ditentukan oleh absis $x = 2$ dan ordinat $y = 3$. Terletak di Kuadran I karena kedua koordinat bernilai positif.</p>
+          </div>
+          <div class="sub-card">
+            <h3>Dimensi 1 (Garis Bilangan Riil)</h3>
+            <p>Garis 1D merepresentasikan seluruh bilangan real $\mathbb{R}$ secara kontinum. Memuat titik-titik diskret seperti $-4, 0, \frac{1}{2}, 3$ serta interval selang $[a, b]$ atau $(a, b)$.</p>
+          </div>
+          <div class="sub-card">
+            <h3>Dimensi 2 (Bidang Pertidaksamaan)</h3>
+            <p>Pertaksamaan linear dua variabel seperti $x + y \ge 3$ membagi bidang $\mathbb{R}^2$ menjadi dua daerah melalui garis batas $x + y = 3$ dengan tabel titik potong $(3,0)$ dan $(0,3)$.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- macOS Mockup 2: Contoh Soal Terbimbing -->
+    <div class="window-card">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="window-title">contoh_soal_terbimbing.tex</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--accent);">Pedagogi Aktif</div>
+      </div>
+      <div class="window-body">
+        <h2 class="section-title">Contoh Soal Terbimbing (Step-by-Step Worked Examples)</h2>
+        <p class="section-desc">Pelajari langkah terstruktur menyelesaikan persoalan klasifikasi himpunan, pembuktian aljabar desimal, dan penentuan daerah himpunan penyelesaian.</p>
+
+        <!-- Contoh 1 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="example-title">Contoh 1: Konversi Desimal Berulang ke Bentuk Pecahan $rac{a}{b}$ dan Bukti $0.\overline{9} = 1$</span>
+            <span class="example-tag">Aljabar Rasional</span>
+          </div>
+          <p><strong>Soal:</strong> Buktikan bahwa desimal berulang $x = 0.272727... = 0.\overline{27}$ adalah bilangan rasional dengan mengubahnya menjadi bentuk pecahan murni $rac{a}{b}$. Kemudian buktikan mengapa $0.\overline{9} = 1$.</p>
+          
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>Definisikan variabel persamaan:</strong><br>
+                Misalkan $x = 0.272727...$ (Persamaan 1).
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Kalikan dengan $10^k$ di mana $k$ adalah periode desimal berulang:</strong><br>
+                Karena ada $2$ angka yang berulang ($2$ dan $7$), kalikan kedua ruas dengan $10^2 = 100$:<br>
+                $$100x = 27.272727... \quad 	ext{(Persamaan 2)}$$
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>Eliminasi ekor desimal dengan mengurangkan Persamaan 2 dengan Persamaan 1:</strong><br>
+                $$100x - x = (27.272727...) - (0.272727...)$$
+                $$99x = 27 \implies x = rac{27}{99} = rac{3}{11}$$
+                Karena $3, 11 \in \mathbb{Z}$ dan $11 
+eq 0$, terbukti $0.\overline{27} \in \mathbb{Q}$.
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <strong>Bukti Identitas $0.\overline{9} = 1$:</strong><br>
+                Misalkan $y = 0.999...$. Kalikan dengan $10$: $10y = 9.999...$.<br>
+                Kurangkan kedua persamaan: $10y - y = 9.999... - 0.999... \implies 9y = 9 \implies y = 1$.<br>
+                <em>Kesimpulan:</em> $0.\overline{9}$ bukan sekadar mendekati $1$, melainkan secara matematis identik bernilai $1$.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contoh 2 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="example-title">Contoh 2: Klasifikasi Himpunan Terkecil &amp; Terluar Suatu Bilangan</span>
+            <span class="example-tag">Hierarki Himpunan</span>
+          </div>
+          <p><strong>Soal:</strong> Tentukan himpunan terkecil (paling spesifik) dan himpunan terluar yang memuat bilangan-bilangan berikut: (a) $\sqrt{49}$, (b) $-rac{15}{3}$, (c) $\sqrt{7}$, (d) $\sqrt{-25}$.</p>
+          
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">a</div>
+              <div class="step-content">
+                <strong>Analisis $\sqrt{49}$</strong>: Sederhanakan $\sqrt{49} = 7$. Angka $7$ adalah bilangan bulat positif $> 0$.<br>
+                &bull; Himpunan Terkecil: Bilangan Asli / Natural ($\mathbb{N}$).<br>
+                &bull; Himpunan Terluar: Bilangan Kompleks ($\mathbb{C}$).
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">b</div>
+              <div class="step-content">
+                <strong>Analisis $-rac{15}{3}$</strong>: Sederhanakan $-rac{15}{3} = -5$. Meskipun dituliskan dalam pecahan, nilainya bilangan bulat negatif.<br>
+                &bull; Himpunan Terkecil: Bilangan Bulat ($\mathbb{Z}$). (Bukan $\mathbb{N}$ atau $\mathbb{W}$ karena negatif).<br>
+                &bull; Himpunan Terluar: Bilangan Kompleks ($\mathbb{C}$).
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">c</div>
+              <div class="step-content">
+                <strong>Analisis $\sqrt{7}$</strong>: Angka $7$ bukan kuadrat sempurna, desimalnya tak berakhir dan tak berulang ($2.64575...$).<br>
+                &bull; Himpunan Terkecil: Bilangan Irasional ($\mathbb{I} = \mathbb{R} \setminus \mathbb{Q}$).<br>
+                &bull; Himpunan Terluar: Bilangan Kompleks ($\mathbb{C}$).
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">d</div>
+              <div class="step-content">
+                <strong>Analisis $\sqrt{-25}$</strong>: Bentuk akar bilangan negatif dapat ditulis $\sqrt{25} 	imes \sqrt{-1} = 5i$.<br>
+                &bull; Himpunan Terkecil: Bilangan Imajiner Murni.<br>
+                &bull; Himpunan Terluar: Bilangan Kompleks ($\mathbb{C}$).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contoh 3 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="example-title">Contoh 3: Melukis Daerah Himpunan Penyelesaian (DHP) Pertidaksamaan Linear</span>
+            <span class="example-tag">Geometri 2D</span>
+          </div>
+          <p><strong>Soal:</strong> Tentukan Daerah Himpunan Penyelesaian dari pertidaksamaan linear $2x - 3y \le 6$ pada bidang Cartesius menggunakan metode tabel titik potong sumbu dan titik selidik.</p>
+          
+          <div class="step-list">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>Cari titik potong sumbu dengan mengubah menjadi persamaan garis batas $2x - 3y = 6$:</strong><br>
+                &bull; Titik potong sumbu-X (saat $y = 0$): $2x - 3(0) = 6 \implies 2x = 6 \implies x = 3 	o \mathbf{(3, 0)}$.<br>
+                &bull; Titik potong sumbu-Y (saat $x = 0$): $2(0) - 3y = 6 \implies -3y = 6 \implies y = -2 	o \mathbf{(0, -2)}$.
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>Garis Batas:</strong> Karena tandanya $\le$ (ada tanda sama dengan), garis digambar <strong>tegas (garis penuh)</strong>, bukan putus-putus.
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>Uji Titik Selidik Asal $(0, 0)$:</strong><br>
+                Substitusikan $(x, y) = (0, 0)$ ke pertidaksamaan asli:<br>
+                $$2(0) - 3(0) \le 6 \iff 0 \le 6 \quad \mathbf{(BENAR)}$$
+                Karena pernyataan bernilai benar, maka daerah yang memuat titik $(0,0)$ adalah <strong>Daerah Penyelesaian (DHP)</strong> yang diarsir.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- macOS Mockup 3: Pembahasan Lengkap Latihan Soal Slide UMS -->
+    <div class="window-card">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="window-title">latihan_soal_slide_ums_week1.tex</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--text); font-weight:600;">Slide 5 &bull; Total 23 Poin</div>
+      </div>
+      <div class="window-body">
+        <h2 class="section-title">Pembahasan Lengkap Latihan Soal Asli Slide Dosen UMS</h2>
+        <p class="section-desc">Berikut adalah 8 paket soal resmi dari slide perkuliahan Week 1 UMS beserta panduan langkah penyelesaian dan kunci jawaban lengkap.</p>
+
+        <!-- Soal 1 -->
+        <div class="slide-exercise-card" id="slide_w1_1">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_1')">
+            <div>
+              <span class="slide-badge">SOAL 1</span>
+              <strong>Klasifikasikan Kategori Bilangan Berikut</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">3 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Tentukan klasifikasi kategori bilangan selengkap-lengkapnya untuk: (a) $7$, (b) $-4$, (c) $0$, (d) $rac{3}{5}$, (e) $\sqrt{2}$, (f) $\pi$.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>(a) $7$:</strong> Bilangan Asli ($\mathbb{N}$), Cacah ($\mathbb{W}$), Bulat Positif ($\mathbb{Z}^+$), Rasional ($\mathbb{Q}$), Real ($\mathbb{R}$), Kompleks ($\mathbb{C}$). Termasuk bilangan prima dan ganjil.</li>
+                <li><strong>(b) $-4$:</strong> Bilangan Bulat Negatif ($\mathbb{Z}^-$), Rasional ($\mathbb{Q}$), Real ($\mathbb{R}$), Kompleks ($\mathbb{C}$). Termasuk bilangan genap negatif.</li>
+                <li><strong>(c) $0$:</strong> Bilangan Cacah ($\mathbb{W}$), Bulat ($\mathbb{Z}$), Rasional ($\mathbb{Q}$), Real ($\mathbb{R}$), Kompleks ($\mathbb{C}$). Genap, bukan prima, bukan komposit.</li>
+                <li><strong>(d) $rac{3}{5}$:</strong> Bilangan Pecahan / Rasional non-bulat ($\mathbb{Q}$), Real ($\mathbb{R}$), Kompleks ($\mathbb{C}$). Bentuk desimal berhingga: $0.6$.</li>
+                <li><strong>(e) $\sqrt{2}$:</strong> Bilangan Irasional ($\mathbb{I}$), Real ($\mathbb{R}$), Kompleks ($\mathbb{C}$). Desimal tak berulang: $1.41421356...$</li>
+                <li><strong>(f) $\pi$:</strong> Bilangan Irasional Transendental ($\mathbb{I}$), Real ($\mathbb{R}$), Kompleks ($\mathbb{C}$). Nilai rasio keliling terhadap diameter lingkaran ($3.14159265...$).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="slide-exercise-card" id="slide_w1_2">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_2')">
+            <div>
+              <span class="slide-badge">SOAL 2</span>
+              <strong>Kelompokkan: Bilangan Rasional vs Irasional</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">3 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Dari himpunan bilangan $\{rac{1}{2}, 0.75, \sqrt{3}, \pi, 0.3333..., \sqrt{9}\}$, kelompokkan mana yang termasuk bilangan rasional dan mana yang irasional!</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <div style="margin-top:6px;">
+                <p><strong>1. Kelompok Bilangan Rasional ($\mathbb{Q}$):</strong></p>
+                <ul style="margin-left:20px;">
+                  <li>$rac{1}{2}$ : pecahan murni dengan pembilang dan penyebut bulat ($b 
+eq 0$).</li>
+                  <li>$0.75$ : desimal berhingga yang bernilai $rac{75}{100} = rac{3}{4}$.</li>
+                  <li>$0.3333...$ : desimal berulang tak hingga yang bernilai tepat $rac{1}{3}$.</li>
+                  <li>$\sqrt{9}$ : akar kuadrat sempurna yang menghasilkan bilangan bulat $\sqrt{9} = 3 = rac{3}{1}$.</li>
+                </ul>
+                <p style="margin-top:8px;"><strong>2. Kelompok Bilangan Irasional ($\mathbb{I}$):</strong></p>
+                <ul style="margin-left:20px;">
+                  <li>$\sqrt{3}$ : bentuk akar bukan kuadrat sempurna ($1.73205...$), tidak dapat diubah ke $rac{a}{b}$.</li>
+                  <li>$\pi$ : konstanta lingkaran bernilai $3.14159...$ dengan desimal tak pernah berulang.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="slide-exercise-card" id="slide_w1_3">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_3')">
+            <div>
+              <span class="slide-badge">SOAL 3</span>
+              <strong>Tentukan: Bilangan Prima vs Komposit</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">2 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Tentukan apakah bilangan-bilangan berikut termasuk Prima atau Komposit: $2, 9, 13, 15, 21$.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>$2$: PRIMA</strong> &mdash; Faktor pembaginya tepat dua: $\{1, 2\}$. Merupakan satu-satunya prima genap.</li>
+                <li><strong>$9$: KOMPOSIT</strong> &mdash; Faktor pembagi: $\{1, 3, 9\}$ ($> 2$ faktor, karena $3 	imes 3 = 9$).</li>
+                <li><strong>$13$: PRIMA</strong> &mdash; Faktor pembaginya tepat dua: $\{1, 13\}$.</li>
+                <li><strong>$15$: KOMPOSIT</strong> &mdash; Faktor pembagi: $\{1, 3, 5, 15\}$ (karena $3 	imes 5 = 15$).</li>
+                <li><strong>$21$: KOMPOSIT</strong> &mdash; Faktor pembagi: $\{1, 3, 7, 21\}$ (karena $3 	imes 7 = 21$).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="slide-exercise-card" id="slide_w1_4">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_4')">
+            <div>
+              <span class="slide-badge">SOAL 4</span>
+              <strong>Menempatkan Bilangan pada Garis Bilangan 1D</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">2 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Gambarkan dan urutkan letak posisi bilangan $-4, 0, 3, rac{1}{2}$ pada garis bilangan riil.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <p>Pada garis bilangan riil 1D, nilai semakin ke kanan semakin besar ($a < b$). Urutan nilai dari terkecil ke terbesar adalah:</p>
+              $$\mathbf{-4 < 0 < rac{1}{2} < 3}$$
+              <div style="font-family:var(--font-mono); background:#ffffff; border:1px solid var(--border); padding:10px; margin-top:8px; border-radius:4px; text-align:center;">
+                &larr;---[&bull; -4]-------[&bull; 0]---[&bull; 1/2]-------[&bull; 3]---&rarr;
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="slide-exercise-card" id="slide_w1_5">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_5')">
+            <div>
+              <span class="slide-badge">SOAL 5</span>
+              <strong>Menentukan Koordinat Titik Spasial</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">3 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Tentukan koordinat titik $(x, y)$ jika dari titik acuan asal $(0,0)$ dilakukan pergerakan: (a) 3 langkah ke kanan, 2 langkah ke atas; (b) 4 langkah ke kiri, 1 langkah ke bawah.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>(a) 3 ke kanan, 2 ke atas:</strong> Sumbu horizontal $x = +3$, sumbu vertikal $y = +2$. Koordinat: $\mathbf{(3, 2)}$.</li>
+                <li><strong>(b) 4 ke kiri, 1 ke bawah:</strong> Bergerak ke kiri bernilai negatif ($x = -4$), bergerak ke bawah bernilai negatif ($y = -1$). Koordinat: $\mathbf{(-4, -1)}$.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="slide-exercise-card" id="slide_w1_6">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_6')">
+            <div>
+              <span class="slide-badge">SOAL 6</span>
+              <strong>Menentukan Posisi Kuadran Titik</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">3 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Tentukan posisi kuadran bidang Cartesius untuk titik-titik berikut: $(2, 3)$, $(-3, 2)$, $(-2, -4)$, dan $(4, -1)$.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>$(2, 3)$: KUADRAN I</strong> &mdash; karena $x > 0$ dan $y > 0$.</li>
+                <li><strong>$(-3, 2)$: KUADRAN II</strong> &mdash; karena $x < 0$ dan $y > 0$.</li>
+                <li><strong>$(-2, -4)$: KUADRAN III</strong> &mdash; karena $x < 0$ dan $y < 0$.</li>
+                <li><strong>$(4, -1)$: KUADRAN IV</strong> &mdash; karena $x > 0$ dan $y < 0$.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="slide-exercise-card" id="slide_w1_7">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_7')">
+            <div>
+              <span class="slide-badge">SOAL 7</span>
+              <strong>Sederhanakan Operasi Campuran (Hierarki PEMDAS)</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">3 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Sederhanakan nilai ekspresi berikut: (a) $5 - 3(2 - 6) + 4$, (b) $12 + 4(3 - 5) - 8$, (c) $-2[5 - (3 + 4)]$.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>(a) $5 - 3(2 - 6) + 4$:</strong><br>
+                  Kerjakan operasi dalam kurung terlebih dahulu: $(2 - 6) = -4$.<br>
+                  Operasi perkalian: $-3(-4) = +12$.<br>
+                  Maka: $5 + 12 + 4 = \mathbf{21}$.
+                </li>
+                <li style="margin-top:6px;"><strong>(b) $12 + 4(3 - 5) - 8$:</strong><br>
+                  Dalam kurung: $(3 - 5) = -2$.<br>
+                  Perkalian: $4(-2) = -8$.<br>
+                  Maka: $12 - 8 - 8 = 4 - 8 = \mathbf{-4}$.
+                </li>
+                <li style="margin-top:6px;"><strong>(c) $-2[5 - (3 + 4)]$:</strong><br>
+                  Kurung terdalam: $(3 + 4) = 7$.<br>
+                  Kurung siku: $[5 - 7] = -2$.<br>
+                  Perkalian luar: $-2 	imes (-2) = \mathbf{4}$.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="slide-exercise-card" id="slide_w1_8">
+          <div class="slide-exercise-header" onclick="toggleSlideExercise('slide_w1_8')">
+            <div>
+              <span class="slide-badge">SOAL 8</span>
+              <strong>Sederhanakan Operasi Bentuk Akar</strong>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="slide-points">4 Poin</span>
+              <span style="font-family:var(--font-mono); font-size:12px; color:var(--accent);">Buka Solusi &darr;</span>
+            </div>
+          </div>
+          <div class="slide-exercise-body">
+            <p><strong>Pertanyaan:</strong> Sederhanakan bentuk radikal berikut: (a) $\sqrt{25}$, (b) $\sqrt{50}$, (c) $(\sqrt{5} + \sqrt{3})(\sqrt{5} - \sqrt{3})$.</p>
+            <div class="solution-box">
+              <strong>Kunci Jawaban &amp; Pembahasan:</strong>
+              <ul style="margin-left:20px; margin-top:8px;">
+                <li><strong>(a) $\sqrt{25}$:</strong> Karena $5^2 = 25$, maka $\sqrt{25} = \mathbf{5}$.</li>
+                <li><strong>(b) $\sqrt{50}$:</strong> Faktorkan faktor kuadrat sempurna terbesar: $\sqrt{50} = \sqrt{25 	imes 2} = \sqrt{25} 	imes \sqrt{2} = \mathbf{5\sqrt{2}}$.</li>
+                <li><strong>(c) $(\sqrt{5} + \sqrt{3})(\sqrt{5} - \sqrt{3})$:</strong> Gunakan rumus selisih kuadrat $(a+b)(a-b) = a^2 - b^2$:<br>
+                  $$(\sqrt{5})^2 - (\sqrt{3})^2 = 5 - 3 = \mathbf{2}$$
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -678,8 +1236,8 @@
         <div class="slider-item">
           <label>Tanda:</label>
           <select id="ineqSign" onchange="drawInequality()" style="padding:4px 8px; border-radius:4px; border:1px solid var(--border); font-family:var(--font-mono);">
-            <option value="ge">$\ge$ (Lebih besar sama dengan)</option>
-            <option value="le">$\le$ (Lebih kecil sama dengan)</option>
+            <option value="ge">&ge; (Lebih besar sama dengan)</option>
+            <option value="le">&le; (Lebih kecil sama dengan)</option>
           </select>
         </div>
       </div>
@@ -696,8 +1254,8 @@
     <div class="quiz-section">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px;">
         <div>
-          <h2 class="section-title">Latihan Soal Uji Kompetensi (Medium to High)</h2>
-          <p class="section-desc" style="margin-bottom:0;">10 soal terkalibrasi mencakup kasus batas hierarki himpunan, pertidaksamaan nilai mutlak, dan penyederhanaan aljabar radikal.</p>
+          <h2 class="section-title">Latihan Soal Uji Kompetensi Mandiri (Medium to High)</h2>
+          <p class="section-desc" style="margin-bottom:0;">10 soal pilihan ganda terkalibrasi mencakup kasus batas hierarki himpunan, pertidaksamaan nilai mutlak, dan penyederhanaan aljabar radikal.</p>
         </div>
         <div style="text-align:right;">
           <span style="font-family:var(--font-mono); font-size:13px; color:var(--text-muted);">Skor Anda: </span>
@@ -718,11 +1276,12 @@
           <label class="option-label"><input type="radio" name="opt_q1" value="A"> A. Himpunan Bilangan Irasional ($\mathbb{R} \setminus \mathbb{Q}$)</label>
           <label class="option-label"><input type="radio" name="opt_q1" value="B"> B. Himpunan Bilangan Rasional non-bulat ($\mathbb{Q} \setminus \mathbb{Z}$)</label>
           <label class="option-label" data-correct="true"><input type="radio" name="opt_q1" value="C"> C. Himpunan Bilangan Asli ($\mathbb{N}$)</label>
-          <label class="option-label"><input type="radio" name="opt_q1" value="D"> D. Himpunan Bilangan Kompleks Imajiner Murni</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="D"> D. Bukan merupakan bilangan real yang valid</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q1')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q1">
-          <strong>Bukti Matematis:</strong> Misalkan $S = 0.999...$ Maka $10S = 9.999...$ Kurangkan kedua persamaan: $10S - S = 9.999... - 0.999... \implies 9S = 9 \implies S = 1$. Karena $1 \in \mathbb{N}$ (bilangan asli positif terkecil), maka himpunan terkecil tempat $0.\overline{9}$ bernaung adalah $\mathbb{N}$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Secara aljabar, jika $x = 0.999...$, maka $10x = 9.999...$. Mengurangkan kedua ruas menghasilkan $9x = 9 \implies x = 1$. Karena $x = 1$, maka himpunan terkecil yang memuat angka 1 adalah himpunan Bilangan Asli ($\mathbb{N} = \{1, 2, 3, \dots\}$).
         </div>
       </div>
 
@@ -733,18 +1292,18 @@
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Bentuk rasional penyebut dari pecahan bentuk akar $\frac{6}{\sqrt{7} - 2}$ adalah...
+          Manakah dari pernyataan berikut mengenai bilangan $0$ (nol) yang <strong>PALING TEPAT</strong> secara aksiomatik aljabar?
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="A"> A. $2\sqrt{7} + 4$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="B"> B. $2\sqrt{7} - 4$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. $\frac{6\sqrt{7} + 12}{5}$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. $3\sqrt{7} + 6$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="A"> A. Nol adalah bilangan ganjil karena tidak bernilai positif</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="B"> B. Nol adalah bilangan genap, bukan bilangan prima, dan bukan bilangan komposit</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. Nol adalah bilangan prima terkecil sebelum angka 2</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. Nol termasuk dalam himpunan bilangan asli $\mathbb{N}$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q2')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q2">
-          <strong>Pembahasan Lengkap:</strong> Kalikan pembilang dan penyebut dengan bentuk sekawan $(\sqrt{7} + 2)$:<br>
-          $$\frac{6}{\sqrt{7} - 2} \times \frac{\sqrt{7} + 2}{\sqrt{7} + 2} = \frac{6(\sqrt{7} + 2)}{(\sqrt{7})^2 - 2^2} = \frac{6(\sqrt{7} + 2)}{7 - 4} = \frac{6(\sqrt{7} + 2)}{3} = 2(\sqrt{7} + 2) = 2\sqrt{7} + 4.$$
+          <strong>Pembahasan Mendalam:</strong><br>
+          Nol memenuhi definisi genap karena $0 = 2 	imes 0$. Namun, definisi bilangan prima adalah bilangan bulat $> 1$ yang hanya memiliki tepat dua pembagi positif. Bilangan komposit adalah bilangan bulat $> 1$ yang memiliki lebih dari dua faktor. Oleh karena itu, $0$ genap, bukan prima, dan bukan komposit.
         </div>
       </div>
 
@@ -755,22 +1314,21 @@
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Himpunan penyelesaian dari pertidaksamaan nilai mutlak linear $|3x - 5| \le 7$ pada garis bilangan real adalah...
+          Himpunan penyelesaian dari pertidaksamaan nilai mutlak $|2x - 5| < 7$ pada garis bilangan real adalah interval...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="A"> A. $\left[-\frac{2}{3}, 4\right]$</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="B"> B. $\left(-\infty, -\frac{2}{3}\right] \cup [4, \infty)$</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $\left[-4, \frac{2}{3}\right]$</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. $\left(-\frac{2}{3}, 4\right)$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="A"> A. $(-1, 6)$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="B"> B. $[-1, 6]$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $(-\infty, -1) \cup (6, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. $(-6, 1)$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q3')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q3">
-          <strong>Pembahasan Lengkap:</strong> Sifat nilai mutlak $|u| \le k \iff -k \le u \le k$:<br>
-          $$-7 \le 3x - 5 \le 7$$
-          Tambahkan 5 pada ketiga ruas:
-          $$-2 \le 3x \le 12$$
-          Bagi dengan 3:
-          $$-\frac{2}{3} \le x \le 4 \iff x \in \left[-\frac{2}{3}, 4\right].$$
+          <strong>Pembahasan Mendalam:</strong><br>
+          Sesuai sifat nilai mutlak $|u| < a \iff -a < u < a$:<br>
+          $$-7 < 2x - 5 < 7$$
+          Tambahkan $5$ pada semua ruas: $-2 < 2x < 12$. Bagi dengan $2$: $-1 < x < 6$.<br>
+          Dalam notasi interval terbuka: $(-1, 6)$.
         </div>
       </div>
 
@@ -778,25 +1336,25 @@
       <div class="quiz-card" id="q4">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 04</span>
-          <span class="difficulty-badge difficulty-medium">Medium</span>
+          <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Titik koordinat manakah pada bidang Kartesius $\mathbb{R}^2$ yang berada di dalam daerah penyelesaian sistem pertidaksamaan:
-          $$\begin{cases} 2x + y \ge 4 \\ x - 2y < 2 \end{cases}$$
+          Diberikan bilangan $k = \sqrt{3 + 2\sqrt{2}} - \sqrt{3 - 2\sqrt{2}}$. Nilai sederhana dari $k$ dan keanggotaan himpunan terkecilnya adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q4" value="A"> A. $(1, 1)$</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="B"> B. $(3, 1)$</label>
-          <label class="option-label"><input type="radio" name="opt_q4" value="C"> C. $(0, 2)$</label>
-          <label class="option-label"><input type="radio" name="opt_q4" value="D"> D. $(4, 0)$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="A"> A. $2\sqrt{2}$, anggota Irasional ($\mathbb{R} \setminus \mathbb{Q}$)</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="B"> B. $2$, anggota Bilangan Asli ($\mathbb{N}$)</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="C"> C. $\sqrt{6}$, anggota Irasional ($\mathbb{R} \setminus \mathbb{Q}$)</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="D"> D. $4$, anggota Bilangan Bulat Positif</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q4')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q4">
-          <strong>Uji Substitusi:</strong><br>
-          Untuk titik $(3, 1)$:<br>
-          1) $2(3) + 1 = 7 \ge 4$ (Memenuhi pertidaksamaan pertama).<br>
-          2) $3 - 2(1) = 1 < 2$ (Memenuhi pertidaksamaan kedua).<br>
-          Titik $(4, 0)$ gagal karena $4 - 2(0) = 4 \not< 2$. Titik $(1,1)$ gagal karena $2(1)+1 = 3 < 4$. Titik $(0,2)$ gagal karena $2(0)+2 = 2 < 4$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Ingat bentuk akar bersarang $\sqrt{(a+b) \pm 2\sqrt{ab}} = \sqrt{a} \pm \sqrt{b}$.<br>
+          Di sini $a+b = 3$ dan $ab = 2 \implies a = 2, b = 1$.<br>
+          $\sqrt{3 + 2\sqrt{2}} = \sqrt{2} + 1$<br>
+          $\sqrt{3 - 2\sqrt{2}} = \sqrt{2} - 1$<br>
+          Maka $k = (\sqrt{2} + 1) - (\sqrt{2} - 1) = 2$. Angka $2$ memiliki himpunan terkecil Bilangan Asli ($\mathbb{N}$).
         </div>
       </div>
 
@@ -804,25 +1362,29 @@
       <div class="quiz-card" id="q5">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 05</span>
-          <span class="difficulty-badge difficulty-medium">Medium</span>
+          <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Evaluasi urutan hierarki operasi aljabar (PEMDAS) berikut:
-          $$18 - 3 \times \left(4 - (-2)^2\right) \div (-2) + \sqrt{144 \div 16}$$
+          Tentukan himpunan penyelesaian dari pertidaksamaan pecahan rasional $rac{x - 2}{x + 4} \ge 0$.
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. 21</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. 15</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. 27</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. 9</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="A"> A. $[-4, 2]$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="B"> B. $(-\infty, -4) \cup [2, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. $(-\infty, -4] \cup [2, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. $(-4, 2]$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q5')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q5">
-          <strong>Langkah Perhitungan:</strong><br>
-          1) Dalam kurung: $(-2)^2 = 4$, sehingga $(4 - 4) = 0$.<br>
-          2) Perkalian & pembagian: $3 \times 0 \div (-2) = 0$.<br>
-          3) Bentuk akar: $\sqrt{144 \div 16} = \sqrt{9} = 3$.<br>
-          4) Operasi penjumlahan: $18 - 0 + 3 = 21$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Pembuat nol pembilang: $x = 2$. Pembuat nol penyebut: $x = -4$.<br>
+          Syarat mutlak penyebut: $x + 4 
+eq 0 \implies x 
+eq -4$ (selang terbuka di $-4$).<br>
+          Uji garis bilangan:<br>
+          &bull; $x < -4$ (misal $x = -5$): $(-7)/(-1) = + > 0$ (Memenuhi)<br>
+          &bull; $-4 < x < 2$ (misal $x = 0$): $(-2)/(4) = - < 0$ (Tidak)<br>
+          &bull; $x \ge 2$ (misal $x = 3$): $(1)/(7) = + > 0$ (Memenuhi)<br>
+          Himpunan: $(-\infty, -4) \cup [2, \infty)$.
         </div>
       </div>
 
@@ -830,25 +1392,22 @@
       <div class="quiz-card" id="q6">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 06</span>
-          <span class="difficulty-badge difficulty-high">High</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Rasionalkan penyebut tiga suku bentuk akar $\frac{2}{\sqrt{2} + \sqrt{3} - \sqrt{5}}$. Bentuk paling sederhananya adalah...
+          Titik $P(-3, 2)$ dan $Q(4, -1)$ masing-masing terletak pada kuadran berapa pada bidang Cartesius?
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="A"> A. $\frac{2\sqrt{3} + 3\sqrt{2} + \sqrt{30}}{6}$</label>
-          <label class="option-label"><input type="radio" name="opt_q6" value="B"> B. $\frac{\sqrt{6} + \sqrt{10} + \sqrt{15}}{6}$</label>
-          <label class="option-label"><input type="radio" name="opt_q6" value="C"> C. $\frac{\sqrt{2} + \sqrt{3} + \sqrt{5}}{6}$</label>
-          <label class="option-label"><input type="radio" name="opt_q6" value="D"> D. $\frac{\sqrt{30} - \sqrt{6}}{3}$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="A"> A. P di Kuadran I dan Q di Kuadran III</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="B"> B. P di Kuadran II dan Q di Kuadran IV</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="C"> C. P di Kuadran IV dan Q di Kuadran II</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="D"> D. P di Kuadran III dan Q di Kuadran I</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q6')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q6">
-          <strong>Pembahasan Lengkap:</strong> Kelompokkan penyebut sebagai $((\sqrt{2}+\sqrt{3}) - \sqrt{5})$.<br>
-          Kalikan sekawan $((\sqrt{2}+\sqrt{3}) + \sqrt{5})$:<br>
-          Penyebut $= (\sqrt{2}+\sqrt{3})^2 - (\sqrt{5})^2 = (2 + 2\sqrt{6} + 3) - 5 = 2\sqrt{6}$.<br>
-          Pembilang $= 2(\sqrt{2} + \sqrt{3} + \sqrt{5})$.<br>
-          Pecahan menjadi:
-          $$\frac{2(\sqrt{2} + \sqrt{3} + \sqrt{5})}{2\sqrt{6}} = \frac{\sqrt{2} + \sqrt{3} + \sqrt{5}}{\sqrt{6}} = \frac{\sqrt{12} + \sqrt{18} + \sqrt{30}}{6} = \frac{2\sqrt{3} + 3\sqrt{2} + \sqrt{30}}{6}.$$
+          <strong>Pembahasan Mendalam:</strong><br>
+          &bull; Kuadran II: $x < 0$ dan $y > 0 \implies P(-3, 2) \in 	ext{Kuadran II}$.<br>
+          &bull; Kuadran IV: $x > 0$ dan $y < 0 \implies Q(4, -1) \in 	ext{Kuadran IV}$.
         </div>
       </div>
 
@@ -859,19 +1418,22 @@
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Jika $a \in \mathbb{Q}$ ($a \neq 0$) adalah bilangan rasional dan $b \in \mathbb{R} \setminus \mathbb{Q}$ adalah bilangan irasional, pernyataan manakah di bawah ini yang <strong>PASTI SELALU BENAR</strong> secara aljabar?
+          Jika $p$ dan $q$ adalah bilangan prima berbeda sedemikian sehingga $p^2 - q^2 = 21$, maka nilai dari $p + q$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q7" value="A"> A. $a + b$ bisa merupakan bilangan rasional</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q7" value="B"> B. Hasil kali $a \cdot b$ selalu merupakan bilangan irasional</label>
-          <label class="option-label"><input type="radio" name="opt_q7" value="C"> C. $b^2$ pasti selalu bilangan rasional</label>
-          <label class="option-label"><input type="radio" name="opt_q7" value="D"> D. Terdapat bilangan rasional terkecil yang lebih besar dari $b$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="A"> A. $5$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q7" value="B"> B. $7$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="C"> C. $9$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="D"> D. $11$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q7')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q7">
-          <strong>Bukti Kontradiksi:</strong> Andaikan $a \cdot b = r \in \mathbb{Q}$. Karena $a \neq 0$ dan $a \in \mathbb{Q}$, maka kita dapat membagi kedua ruas dengan $a$:
-          $$b = \frac{r}{a}$$
-          Karena hasil bagi dua bilangan rasional non-nol adalah bilangan rasional, maka $b \in \mathbb{Q}$. Ini bertentangan (kontradiksi) dengan hipotesis bahwa $b$ irasional. Jadi, pengandaian salah, dan $a \cdot b$ mutlak irasional.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Faktorkan: $(p - q)(p + q) = 21$. Karena $p, q$ bilangan prima, maka $(p + q) > (p - q) > 0$.<br>
+          Faktor positif dari $21$ adalah $(1, 21)$ atau $(3, 7)$.<br>
+          Kasus 1: $p + q = 21, p - q = 1 \implies 2p = 22 \implies p = 11 \implies q = 10$ ($10$ bukan prima).<br>
+          Kasus 2: $p + q = 7, p - q = 3 \implies 2p = 10 \implies p = 5 \implies q = 2$.<br>
+          Keduanya prima ($5$ dan $2$). Maka $p + q = 7$.
         </div>
       </div>
 
@@ -879,23 +1441,24 @@
       <div class="quiz-card" id="q8">
         <div class="quiz-header">
           <span class="quiz-number">SOAL 08</span>
-          <span class="difficulty-badge difficulty-high">High</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Luas daerah tertutup pada bidang Kartesius $\mathbb{R}^2$ yang dibatasi oleh pertidaksamaan nilai mutlak ganda $|x| + |y| \le 4$ adalah...
+          Hasil evaluasi aljabar dari operasi berjenjang $-2[5 - (3 + 4)]$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q8" value="A"> A. 16 satuan luas</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="B"> B. 32 satuan luas</label>
-          <label class="option-label"><input type="radio" name="opt_q8" value="C"> C. 64 satuan luas</label>
-          <label class="option-label"><input type="radio" name="opt_q8" value="D"> D. $16\sqrt{2}$ satuan luas</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="A"> A. $-4$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="B"> B. $4$</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="C"> C. $-12$</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="D"> D. $12$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q8')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q8">
-          <strong>Analisis Geometris:</strong> Pertidaksamaan $|x| + |y| \le 4$ membentuk persegi (belah ketupat) simetris dengan empat titik sudut di perpotongan sumbu: $(4, 0), (0, 4), (-4, 0), (0, -4)$.<br>
-          Panjang diagonal horizontal $d_1 = 4 - (-4) = 8$.<br>
-          Panjang diagonal vertikal $d_2 = 4 - (-4) = 8$.<br>
-          Luas belah ketupat $= \frac{1}{2} \times d_1 \times d_2 = \frac{1}{2} \times 8 \times 8 = 32$ satuan luas.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Sesuai aturan hierarki kurung:<br>
+          $3 + 4 = 7$<br>
+          $5 - 7 = -2$<br>
+          $-2 	imes (-2) = 4$.
         </div>
       </div>
 
@@ -906,26 +1469,19 @@
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Berapa banyak bilangan bulat positif $n \in \mathbb{N}$ sehingga pecahan aljabar $\frac{n^2 + 7}{n + 1}$ menghasilkan bilangan bulat?
+          Bentuk rasional dari $rac{6}{\sqrt{5} - \sqrt{2}}$ setelah penyebutnya dirasionalkan adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q9" value="A"> A. 2 bilangan</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="B"> B. 3 bilangan</label>
-          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. 4 bilangan</label>
-          <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. 8 bilangan</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="A"> A. $2\sqrt{5} - 2\sqrt{2}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="B"> B. $2(\sqrt{5} + \sqrt{2})$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. $6(\sqrt{5} + \sqrt{2})$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. $rac{2}{3}(\sqrt{5} + \sqrt{2})$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q9')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q9">
-          <strong>Pembagian Polinomial:</strong><br>
-          $$\frac{n^2 + 7}{n + 1} = \frac{n^2 - 1 + 8}{n + 1} = \frac{(n-1)(n+1) + 8}{n + 1} = n - 1 + \frac{8}{n + 1}$$
-          Agar hasil bagi merupakan bilangan bulat, maka $(n + 1)$ harus merupakan faktor positif dari 8.<br>
-          Faktor positif dari 8 adalah $\{1, 2, 4, 8\}$.<br>
-          Karena $n \in \mathbb{N} \implies n \ge 1 \implies n + 1 \ge 2$.<br>
-          Maka nilai $n + 1$ yang mungkin adalah $2, 4, 8$:<br>
-          - $n + 1 = 2 \implies n = 1$<br>
-          - $n + 1 = 4 \implies n = 3$<br>
-          - $n + 1 = 8 \implies n = 7$<br>
-          Jadi terdapat tepat <strong>3 bilangan bulat positif</strong>: $\{1, 3, 7\}$.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Kalikan pembilang dan penyebut dengan sekawannya $(\sqrt{5} + \sqrt{2})$:<br>
+          $$rac{6(\sqrt{5} + \sqrt{2})}{(\sqrt{5})^2 - (\sqrt{2})^2} = rac{6(\sqrt{5} + \sqrt{2})}{5 - 2} = rac{6(\sqrt{5} + \sqrt{2})}{3} = 2(\sqrt{5} + \sqrt{2})$$
         </div>
       </div>
 
@@ -936,58 +1492,78 @@
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Berapakah banyak solusi bilangan real $x \in \mathbb{R}$ yang memenuhi persamaan eksponensial berikut:
-          $$(x^2 - 7x + 11)^{x^2 - 13x + 42} = 1$$
+          Titik $(0,0)$ terletak di luar Daerah Himpunan Penyelesaian (DHP) dari pertidaksamaan...
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q10" value="A"> A. 4 solusi</label>
-          <label class="option-label"><input type="radio" name="opt_q10" value="B"> B. 5 solusi</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q10" value="C"> C. 6 solusi</label>
-          <label class="option-label"><input type="radio" name="opt_q10" value="D"> D. 7 solusi</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="A"> A. $2x + 3y \le 6$</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="B"> B. $x - y \ge -4$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q10" value="C"> C. $x + y \ge 3$</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="D"> D. $3x - 2y \le 0$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q10')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q10">
-          <strong>Analisis 3 Kasus Bentuk $u(x)^{v(x)} = 1$:</strong><br>
-          <strong>Kasus 1: Pangkat $v(x) = 0$ dan basis $u(x) \neq 0$:</strong><br>
-          $x^2 - 13x + 42 = 0 \implies (x-6)(x-7) = 0 \implies x = 6, 7$.<br>
-          Untuk $x=6$, basis $= 36-42+11 = 5 \neq 0$. Untuk $x=7$, basis $= 49-49+11 = 11 \neq 0$. (2 solusi: $6, 7$).<br><br>
-          <strong>Kasus 2: Basis $u(x) = 1$:</strong><br>
-          $x^2 - 7x + 11 = 1 \implies x^2 - 7x + 10 = 0 \implies (x-2)(x-5) = 0$. (2 solusi: $2, 5$).<br><br>
-          <strong>Kasus 3: Basis $u(x) = -1$ dengan syarat pangkat bernilai genap:</strong><br>
-          $x^2 - 7x + 11 = -1 \implies x^2 - 7x + 12 = 0 \implies (x-3)(x-4) = 0$.<br>
-          Uji $x = 3$: pangkat $= 3^2 - 13(3) + 42 = 9 - 39 + 42 = 12$ (GENAP, $(-1)^{12} = 1$, Valid!).<br>
-          Uji $x = 4$: pangkat $= 4^2 - 13(4) + 42 = 16 - 52 + 42 = 6$ (GENAP, $(-1)^6 = 1$, Valid!).<br><br>
-          Himpunan seluruh solusi real $= \{2, 3, 4, 5, 6, 7\}$. Ada tepat <strong>6 solusi real</strong>.
+          <strong>Pembahasan Mendalam:</strong><br>
+          Substitusikan titik selidik $(0, 0)$ ke setiap opsi:<br>
+          &bull; Pilihan A: $2(0) + 3(0) \le 6 \iff 0 \le 6$ (BENAR &rarr; Termasuk DHP)<br>
+          &bull; Pilihan B: $0 - 0 \ge -4 \iff 0 \ge -4$ (BENAR &rarr; Termasuk DHP)<br>
+          &bull; Pilihan C: $0 + 0 \ge 3 \iff 0 \ge 3$ (SALAH &rarr; Titik $(0,0)$ berada di LUAR DHP)<br>
+          &bull; Pilihan D: $3(0) - 2(0) \le 0 \iff 0 \le 0$ (BENAR &rarr; Tepat di garis batas).
         </div>
       </div>
 
-      <!-- Summary Card -->
-      <div class="summary-card">
+      <!-- Final Evaluation Card -->
+      <div class="quiz-card" style="text-align:center; background:var(--surface-subtle);">
         <h3 style="font-size:16px; margin-bottom:8px;">Hasil Evaluasi Mandiri Week 1</h3>
-        <div class="summary-score" id="finalScore">0 / 10</div>
-        <p style="color:var(--text-muted); font-size:14px; margin-top:8px;">Jelajahi materi berikutnya untuk memperdalam trigonometri dan rasio sudut.</p>
-        <div style="margin-top:16px; display:flex; justify-content:center; gap:12px;">
-          <a href="week2-trigonometri.html" class="btn-action" style="text-decoration:none; display:inline-block;">Lanjut ke Week 2: Trigonometri →</a>
-          <a href="index.html" class="btn-action" style="text-decoration:none; display:inline-block; background:transparent; color:var(--text); border:1px solid var(--border);">Ke Hub Utama</a>
+        <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">Pastikan Anda telah menguasai klasifikasi himpunan bilangan dan pemetaan geometris sebelum melanjutkan ke trigonometri.</p>
+        <div style="font-family:var(--font-mono); font-size:28px; font-weight:700; color:var(--accent);" id="finalScore">0 / 10</div>
+        <div style="margin-top:16px;">
+          <a href="week2-trigonometri.html" class="btn-action" style="text-decoration:none; display:inline-block;">Lanjut ke Modul Week 2: Trigonometri &rarr;</a>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Tim Pengampu Kalkulus 1 &bull; Program Studi Informatika / FKI UMS</p>
+      <p style="font-size:12px; margin-top:4px;">Disusun berbasis KaTeX Math Engine &amp; Standar Cursor Design System</p>
+    </footer>
   </div>
 
   <script>
-    // KaTeX render on load
     document.addEventListener("DOMContentLoaded", function() {
       if (window.renderMathInElement) {
         renderMathInElement(document.body, {
           delimiters: [
             {left: "$$", right: "$$", display: true},
             {left: "$", right: "$", display: false}
-          ]
+          ],
+          throwOnError: false
         });
       }
       classifyNumber();
       drawInequality();
     });
+
+    // Toggle Collapsible Slide Exercise
+    function toggleSlideExercise(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle("active");
+      const label = card.querySelector(".slide-exercise-header span:last-child");
+      if (card.classList.contains("active")) {
+        label.innerHTML = "Tutup Solusi &uarr;";
+      } else {
+        label.innerHTML = "Buka Solusi &darr;";
+      }
+      if (window.renderMathInElement) {
+        renderMathInElement(card, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
 
     // Simulator 1: Number Classifier
     function classifyNumber() {
@@ -1009,11 +1585,11 @@
 
       if (raw.includes("i")) {
         isN = isW = isZ = isQ = isR = false;
-        note = "Memuat satuan imajiner $i = \\sqrt{-1}$, merupakan Bilangan Kompleks murni / non-real ($\\mathbb{C}$).";
+        note = "Memuat satuan imajiner $i = \sqrt{-1}$, merupakan Bilangan Kompleks murni / non-real ($\mathbb{C}$).";
       } else if (raw.includes("pi") || raw.includes("e") || raw.includes("sqrt") || raw.includes("akar")) {
         isN = isW = isZ = isQ = false;
         isR = isC = true;
-        note = "Merupakan bilangan irasional (desimal tidak berulang dan tak terhingga) bagian dari Real ($\\mathbb{R}$) dan Kompleks ($\\mathbb{C}$).";
+        note = "Merupakan bilangan irasional (desimal tidak berulang dan tak terhingga) bagian dari Real ($\mathbb{R}$) dan Kompleks ($\mathbb{C}$).";
       } else if (raw.includes("/")) {
         const parts = raw.split("/");
         const num = parseFloat(parts[0]);
@@ -1027,7 +1603,7 @@
             note = `Pecahan dapat disederhanakan menjadi bilangan bulat ${val}.`;
           } else {
             isQ = isR = isC = true;
-            note = "Bentuk rasional $\\frac{a}{b}$ dengan $b \\neq 0$, anggota $\\mathbb{Q}, \\mathbb{R}, \\mathbb{C}$.";
+            note = "Bentuk rasional $\frac{a}{b}$ dengan $b \neq 0$, anggota $\mathbb{Q}, \mathbb{R}, \mathbb{C}$.";
           }
         } else {
           note = "Penyebut nol tidak terdefinisi.";
@@ -1077,11 +1653,11 @@
       document.getElementById("valB").textContent = b;
       document.getElementById("valC").textContent = c;
 
-      const signSymbol = sign === "ge" ? "\\ge" : "\\le";
-      const disp = document.getElementById("ineqEquationDisplay");
-      disp.innerHTML = `Pertidaksamaan: $${a}x + ${b}y ${signSymbol} ${c}$ | Garis Batas: $${a}x + ${b}y = ${c}$`;
+      const signSymbol = sign === "ge" ? "\ge" : "\le";
+      const displayElem = document.getElementById("ineqEquationDisplay");
+      displayElem.innerHTML = `Garis Batas: $${a}x + ${b}y = ${c}$ &bull; Pertidaksamaan: $${a}x + ${b}y ${signSymbol} ${c}$`;
       if (window.renderMathInElement) {
-        renderMathInElement(disp, {delimiters: [{left: "$", right: "$", display: false}]});
+        renderMathInElement(displayElem, {delimiters: [{left: "$", right: "$", display: false}]});
       }
 
       const canvas = document.getElementById("ineqCanvas");
@@ -1090,12 +1666,12 @@
       const h = canvas.height;
       const cx = w / 2;
       const cy = h / 2;
-      const scale = 25; // 25 px per unit
+      const scale = 32;
 
       ctx.clearRect(0, 0, w, h);
 
-      // Grid lines
-      ctx.strokeStyle = "#ebeae4";
+      // Grid
+      ctx.strokeStyle = "#ebeae6";
       ctx.lineWidth = 1;
       for (let x = 0; x <= w; x += scale) {
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
@@ -1104,49 +1680,33 @@
         ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
       }
 
-      // Axes
-      ctx.strokeStyle = "#8f8e89";
-      ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
-
-      // Axis labels
-      ctx.fillStyle = "#73726c";
-      ctx.font = "10px monospace";
-      ctx.fillText("x", w - 12, cy - 6);
-      ctx.fillText("y", cx + 6, 12);
-      ctx.fillText("O", cx - 12, cy + 12);
-
-      // Shading region
-      const imgData = ctx.createImageData(w, h);
-      const d = imgData.data;
-
-      for (let px = 0; px < w; px += 2) {
-        const mathX = (px - cx) / scale;
-        for (let py = 0; py < h; py += 2) {
-          const mathY = (cy - py) / scale;
-          const lhs = a * mathX + b * mathY;
-          const satisfied = sign === "ge" ? (lhs >= c) : (lhs <= c);
-          if (satisfied) {
-            for (let dx = 0; dx < 2; dx++) {
-              for (let dy = 0; dy < 2; dy++) {
-                const idx = ((py + dy) * w + (px + dx)) * 4;
-                d[idx] = 245;     // R
-                d[idx + 1] = 78;  // G
-                d[idx + 2] = 0;   // B
-                d[idx + 3] = 40;  // Alpha
-              }
-            }
+      // Shading Inequality
+      const imgData = ctx.getImageData(0, 0, w, h);
+      const data = imgData.data;
+      for (let py = 0; py < h; py += 2) {
+        const yVal = (cy - py) / scale;
+        for (let px = 0; px < w; px += 2) {
+          const xVal = (px - cx) / scale;
+          const lhs = a * xVal + b * yVal;
+          let inRegion = (sign === "ge") ? (lhs >= c) : (lhs <= c);
+          if (inRegion) {
+            const idx = (py * w + px) * 4;
+            data[idx] = 245;
+            data[idx + 1] = 78;
+            data[idx + 2] = 0;
+            data[idx + 3] = 45;
           }
         }
       }
       ctx.putImageData(imgData, 0, 0);
 
-      // Redraw axes on top of shading
-      ctx.strokeStyle = "#4f4e48";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
+      // Axes
+      ctx.strokeStyle = "#73726c";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(0, cy); ctx.lineTo(w, cy);
+      ctx.moveTo(cx, 0); ctx.lineTo(cx, h);
+      ctx.stroke();
 
       // Boundary Line ax + by = c
       ctx.strokeStyle = "#f54e00";
@@ -1188,7 +1748,6 @@
         }
       });
 
-      // Highlight correct answer if wrong
       if (!isCorrect) {
         options.forEach(opt => {
           const label = opt.closest(".option-label");
