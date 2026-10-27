@@ -624,7 +624,7 @@
         <span></span> MODUL KALKULUS 1 — FAKULTAS KOMUNIKASI & INFORMATIKA UMS
       </div>
       <h1>Week 3: Fungsi Bilangan &amp; Pemetaan Aljabar</h1>
-      <p>Kajian mendalam definisi pemetaan formal $f: A 	o B$, fungsi Injektif/Surjektif/Bijektif, fungsi invers &amp; komposisi, fungsi tangga Floor/Ceiling, aritmatika Modulo dividen negatif, contoh soal terbimbing, serta kunci pembahasan lengkap Games Fungsi 1–7 (71 Poin) slide dosen.</p>
+      <p>Kajian mendalam definisi pemetaan formal $f: A \to B$, fungsi Injektif/Surjektif/Bijektif, fungsi invers &amp; komposisi, fungsi tangga Floor/Ceiling, aritmatika Modulo dividen negatif, contoh soal terbimbing, serta kunci pembahasan lengkap Games Fungsi 1–7 (71 Poin) slide dosen.</p>
       <div class="hero-quote">
         "Sebuah fungsi $y = f(x)$ hanya memiliki balikan (invers) $f^{-1}$ jika dan hanya jika relasinya bersifat Bijektif (Injektif sekaligus Surjektif). Modulo bilangan negatif wajib mematuhi aksioma sisa tak-negatif: $a = mq + r$ dengan $0 \le r < m$."
       </div>
@@ -643,13 +643,13 @@
       </div>
       <div class="window-body">
         <h2 class="section-title">1. Definisi Formal Fungsi &amp; Tiga Klasifikasi Pemetaan</h2>
-        <p class="section-desc">Berdasarkan slide 2–5 UMS, fungsi $f: A 	o B$ adalah aturan yang mengaitkan setiap elemen $x \in A$ (Domain) dengan tepat satu elemen $y \in B$ (Kodomain). Himpunan nilai yang benar-benar tercapai disebut Range ($R_f \subseteq B$).</p>
+        <p class="section-desc">Berdasarkan slide 2–5 UMS, fungsi $f: A \to B$ adalah aturan yang mengaitkan setiap elemen $x \in A$ (Domain) dengan tepat satu elemen $y \in B$ (Kodomain). Himpunan nilai yang benar-benar tercapai disebut Range ($R_f \subseteq B$).</p>
 
         <div class="grid-3">
           <div class="sub-card">
             <h3 style="color:var(--accent);">1. Fungsi Injektif (One-to-One)</h3>
             <p><strong>Definisi:</strong> Tidak ada dua elemen domain berbeda yang memiliki bayangan sama.<br>
-            $$orall x_1, x_2 \in A, \quad f(x_1) = f(x_2) \implies x_1 = x_2$$</p>
+            $$\forall x_1, x_2 \in A, \quad f(x_1) = f(x_2) \implies x_1 = x_2$$</p>
             <p style="margin-top:8px; font-size:13px;">
               <strong>Uji Garis Horizontal:</strong> Jika setiap garis horizontal memotong kurva paling banyak di 1 titik, maka fungsi injektif.<br>
               <em>Contoh Gagal:</em> $f(x) = x^2 + 1$ (karena $f(-1) = f(1) = 2$).<br>
@@ -660,7 +660,7 @@
           <div class="sub-card">
             <h3 style="color:var(--accent);">2. Fungsi Surjektif (Onto)</h3>
             <p><strong>Definisi:</strong> Seluruh elemen di kodomain $B$ merupakan bayangan dari setidaknya satu elemen di domain $A$.<br>
-            $$	ext{Range}(f) = 	ext{Kodomain}(B)$$</p>
+            $$\text{Range}(f) = \text{Kodomain}(B)$$</p>
             <p style="margin-top:8px; font-size:13px;">
               Tidak ada elemen di $B$ yang menganggur/kosong. Jika kodomain didefinisikan sebagai seluruh $\mathbb{R}$, maka fungsi kuadrat $f(x) = x^2$ bukan surjektif karena tidak pernah menghasilkan nilai negatif.
             </p>
@@ -682,8 +682,7 @@
         <div class="grid-2">
           <div class="sub-card">
             <h3>Sifat Non-Komutatif</h3>
-            <p>Secara umum, operasi komposisi tidak bersifat komutatif: $\mathbf{(f \circ g)(x) 
-eq (g \circ f)(x)}$.</p>
+            <p>Secara umum, operasi komposisi tidak bersifat komutatif: $\mathbf{(f \circ g)(x) \neq (g \circ f)(x)}$.</p>
             <div class="callout" style="margin-top:10px;">
               <strong>Contoh Pembuktian Slide UMS:</strong><br>
               Misalkan $f(x) = x - 1$ dan $g(x) = x^2 + 1$.<br>
@@ -691,9 +690,7 @@ eq (g \circ f)(x)}$.</p>
               &bull; $(g \circ f)(x) = g(x - 1) = (x - 1)^2 + 1 = x^2 - 2x + 2$<br>
               Uji numerik untuk $x = 2$:<br>
               $(f \circ g)(2) = 2^2 = \mathbf{4}$, sedangkan $(g \circ f)(2) = 2^2 - 2(2) + 2 = \mathbf{2}$.<br>
-              Terbukti $4 
-eq 2 \implies f \circ g 
-eq g \circ f$.
+              Terbukti $4 \neq 2 \implies f \circ g \neq g \circ f$.
             </div>
           </div>
           <div class="sub-card">
@@ -707,14 +704,14 @@ eq g \circ f$.
         <h2 class="section-title" style="margin-top:32px;">3. Fungsi-Fungsi Khusus Kalkulus &amp; Komputasi (Slide 7–8 UMS)</h2>
         <div class="grid-3">
           <div class="sub-card">
-            <h3>Floor ($\lfloor x floor$) &amp; Ceiling ($\lceil x ceil$)</h3>
+            <h3>Floor ($\lfloor x \rfloor$) &amp; Ceiling ($\lceil x \rceil$)</h3>
             <p>&bull; <strong>Floor:</strong> Bilangan bulat terbesar yang $\le x$.<br>
                &bull; <strong>Ceiling:</strong> Bilangan bulat terkecil yang $\ge x$.</p>
             <div style="font-family:var(--font-mono); font-size:12.5px; background:#fafaf7; padding:8px; border-radius:4px; margin-top:8px;">
-              &bull; $\lfloor 3.5 floor = 3, \quad \lceil 3.5 ceil = 4$<br>
-              &bull; $\lfloor -0.5 floor = -1, \quad \lceil -0.5 ceil = 0$<br>
-              &bull; $\lfloor -3.5 floor = -4, \quad \lceil -3.5 ceil = -3$<br>
-              &bull; $\lfloor -7.8 floor = -8, \quad \lceil 3.4 ceil = 4$
+              &bull; $\lfloor 3.5 \rfloor = 3, \quad \lceil 3.5 \rceil = 4$<br>
+              &bull; $\lfloor -0.5 \rfloor = -1, \quad \lceil -0.5 \rceil = 0$<br>
+              &bull; $\lfloor -3.5 \rfloor = -4, \quad \lceil -3.5 \rceil = -3$<br>
+              &bull; $\lfloor -7.8 \rfloor = -8, \quad \lceil 3.4 \rceil = 4$
             </div>
           </div>
 
@@ -722,7 +719,7 @@ eq g \circ f$.
             <h3 style="color:var(--accent);">Modulo: Kasus Dividen Negatif</h3>
             <p>Definisi formal Euclid: $a = mq + r$ dengan syarat mutlak $\mathbf{0 \le r < m}$.</p>
             <div class="callout" style="margin-top:8px; font-size:13px;">
-              <strong>Mengapa $-25 mod 7 = 3$? (Slide 8):</strong><br>
+              <strong>Mengapa $-25 \bmod 7 = 3$? (Slide 8):</strong><br>
               Jika $q = -3 \implies -25 = 7(-3) - 4$. Sisa $r = -4$ <em>salah</em> karena syarat $r \ge 0$.<br>
               Maka ambil $q = -4 \implies -25 = 7(-4) + r = -28 + r \implies \mathbf{r = 3}$.<br>
               Sisa $3$ memenuhi $0 \le 3 < 7$.
@@ -731,8 +728,8 @@ eq g \circ f$.
 
           <div class="sub-card">
             <h3>Faktorial, Eksponen &amp; Rekursif</h3>
-            <p>&bull; <strong>Faktorial:</strong> $0! = 1$, $n! = n 	imes (n-1)!$<br>
-               &bull; <strong>Eksponen Negatif:</strong> $a^{-n} = rac{1}{a^n}$ (contoh: $3^{-2} = rac{1}{9}$)<br>
+            <p>&bull; <strong>Faktorial:</strong> $0! = 1$, $n! = n \times (n-1)!$<br>
+               &bull; <strong>Eksponen Negatif:</strong> $a^{-n} = \frac{1}{a^n}$ (contoh: $3^{-2} = \frac{1}{9}$)<br>
                &bull; <strong>Logaritma:</strong> $y = \log_a x \iff x = a^y$</p>
             <div style="font-size:13px; margin-top:8px;">
               Fungsi rekursif mengacu pada definisinya sendiri dengan kondisi basis batas penghenti agar tidak infinite loop.
@@ -763,15 +760,14 @@ eq g \circ f$.
             <span class="example-title">Contoh 1: Menentukan Fungsi Invers dari Bentuk Rasional Linear Pecahan</span>
             <span class="example-tag">Fungsi Invers</span>
           </div>
-          <p><strong>Soal:</strong> Diberikan fungsi rasional $f(x) = rac{3x - 2}{x + 1}$ dengan $x 
-eq -1$. Tentukan rumus fungsi invers $f^{-1}(x)$, lalu evaluasi nilai $f^{-1}(5)$.</p>
+          <p><strong>Soal:</strong> Diberikan fungsi rasional $f(x) = \frac{3x - 2}{x + 1}$ dengan $x \neq -1$. Tentukan rumus fungsi invers $f^{-1}(x)$, lalu evaluasi nilai $f^{-1}(5)$.</p>
           
           <div class="step-list">
             <div class="step-item">
               <div class="step-num">1</div>
               <div class="step-content">
                 <strong>Ubah notasi $f(x)$ menjadi variabel $y$:</strong><br>
-                $$y = rac{3x - 2}{x + 1}$$
+                $$y = \frac{3x - 2}{x + 1}$$
               </div>
             </div>
             <div class="step-item">
@@ -786,17 +782,16 @@ eq -1$. Tentukan rumus fungsi invers $f^{-1}(x)$, lalu evaluasi nilai $f^{-1}(5)
               <div class="step-content">
                 <strong>Kumpulkan semua suku yang memuat $x$ di satu ruas:</strong><br>
                 $$xy - 3x = -y - 2 \iff x(y - 3) = -(y + 2)$$
-                $$x = rac{-(y + 2)}{y - 3} = rac{y + 2}{3 - y}$$
+                $$x = \frac{-(y + 2)}{y - 3} = \frac{y + 2}{3 - y}$$
               </div>
             </div>
             <div class="step-item">
               <div class="step-num">4</div>
               <div class="step-content">
                 <strong>Ganti variabel $y$ menjadi $x$ untuk mendapatkan rumus invers:</strong><br>
-                $$\mathbf{f^{-1}(x) = rac{x + 2}{3 - x}, \quad x 
-eq 3}$$
+                $$\mathbf{f^{-1}(x) = \frac{x + 2}{3 - x}, \quad x \neq 3}$$
                 Evaluasi untuk $x = 5$:<br>
-                $$f^{-1}(5) = rac{5 + 2}{3 - 5} = rac{7}{-2} = \mathbf{-3.5}$$
+                $$f^{-1}(5) = \frac{5 + 2}{3 - 5} = \frac{7}{-2} = \mathbf{-3.5}$$
               </div>
             </div>
           </div>
@@ -808,7 +803,7 @@ eq 3}$$
             <span class="example-title">Contoh 2: Modulo Bilangan Negatif Ekstrem Menggunakan Algoritma Euclid</span>
             <span class="example-tag">Teori Bilangan &amp; Modulo</span>
           </div>
-          <p><strong>Soal:</strong> Hitung nilai dari $-47 mod 6$ dan $-38 mod 7$ menggunakan definisi formal sisa pembagian bulat.</p>
+          <p><strong>Soal:</strong> Hitung nilai dari $-47 \bmod 6$ dan $-38 \bmod 7$ menggunakan definisi formal sisa pembagian bulat.</p>
           
           <div class="step-list">
             <div class="step-item">
@@ -820,21 +815,21 @@ eq 3}$$
             <div class="step-item">
               <div class="step-num">2</div>
               <div class="step-content">
-                <strong>Untuk kasus $-47 mod 6$:</strong><br>
+                <strong>Untuk kasus $-47 \bmod 6$:</strong><br>
                 Bagi $-47$ dengan $6$: $-47 / 6 = -7.833...$<br>
-                Ambil bilangan bulat di bawahnya (fungsi floor): $q = \lfloor -7.833... floor = -8$.<br>
+                Ambil bilangan bulat di bawahnya (fungsi floor): $q = \lfloor -7.833... \rfloor = -8$.<br>
                 Hitung sisa $r$: $-47 = 6(-8) + r \iff -47 = -48 + r \implies \mathbf{r = 1}$.<br>
-                Karena $0 \le 1 < 6$, maka $\mathbf{-47 mod 6 = 1}$.
+                Karena $0 \le 1 < 6$, maka $\mathbf{-47 \bmod 6 = 1}$.
               </div>
             </div>
             <div class="step-item">
               <div class="step-num">3</div>
               <div class="step-content">
-                <strong>Untuk kasus $-38 mod 7$ (Sesuai Slide 9 UMS):</strong><br>
+                <strong>Untuk kasus $-38 \bmod 7$ (Sesuai Slide 9 UMS):</strong><br>
                 Bagi $-38$ dengan $7$: $-38 / 7 = -5.428...$<br>
-                Ambil $q = \lfloor -5.428 floor = -6$.<br>
+                Ambil $q = \lfloor -5.428 \rfloor = -6$.<br>
                 Hitung sisa: $-38 = 7(-6) + r \iff -38 = -42 + r \implies \mathbf{r = 4}$.<br>
-                Maka $\mathbf{-38 mod 7 = 4}$.
+                Maka $\mathbf{-38 \bmod 7 = 4}$.
               </div>
             </div>
           </div>
@@ -871,13 +866,13 @@ eq 3}$$
           </div>
           <div class="slide-exercise-body">
             <p><strong>Pertanyaan:</strong> Hitung nilai dari ekspresi berikut:<br>
-            $$\lfloor -7.8 floor + \lceil 3.4 ceil - \lfloor 2.6 floor$$</p>
+            $$\lfloor -7.8 \rfloor + \lceil 3.4 \rceil - \lfloor 2.6 \rfloor$$</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong>
               <ul style="margin-left:20px; margin-top:8px;">
-                <li>$\lfloor -7.8 floor$: Bilangan bulat terbesar yang $\le -7.8$ adalah <strong>$-8$</strong> (ingat pada bilangan negatif bergerak ke kiri).</li>
-                <li>$\lceil 3.4 ceil$: Bilangan bulat terkecil yang $\ge 3.4$ adalah <strong>$4$</strong>.</li>
-                <li>$\lfloor 2.6 floor$: Bilangan bulat terbesar yang $\le 2.6$ adalah <strong>$2$</strong>.</li>
+                <li>$\lfloor -7.8 \rfloor$: Bilangan bulat terbesar yang $\le -7.8$ adalah <strong>$-8$</strong> (ingat pada bilangan negatif bergerak ke kiri).</li>
+                <li>$\lceil 3.4 \rceil$: Bilangan bulat terkecil yang $\ge 3.4$ adalah <strong>$4$</strong>.</li>
+                <li>$\lfloor 2.6 \rfloor$: Bilangan bulat terbesar yang $\le 2.6$ adalah <strong>$2$</strong>.</li>
                 <li>Gabungkan hasil: $(-8) + 4 - 2 = -4 - 2 = \mathbf{-6}$.</li>
               </ul>
             </div>
@@ -897,15 +892,15 @@ eq 3}$$
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Hitung: $$-38 mod 7$$</p>
+            <p><strong>Pertanyaan:</strong> Hitung: $$-38 \bmod 7$$</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong><br>
               Berdasarkan teorema pembagian bulat: $a = mq + r$ dengan $0 \le r < 7$.<br>
               Kita mencari kelipatan $7$ yang lebih kecil atau sama dengan $-38$:<br>
-              Kelipatan $7 	imes (-5) = -35$ (lebih besar dari $-38$, menghasilkan sisa negatif $-3$, tidak boleh).<br>
-              Kelipatan $7 	imes (-6) = -42$ (lebih kecil dari $-38$).<br>
+              Kelipatan $7 \times (-5) = -35$ (lebih besar dari $-38$, menghasilkan sisa negatif $-3$, tidak boleh).<br>
+              Kelipatan $7 \times (-6) = -42$ (lebih kecil dari $-38$).<br>
               $$-38 = 7(-6) + r \iff -38 = -42 + r \implies r = -38 + 42 = \mathbf{4}$$
-              Karena $0 \le 4 < 7$, maka $\mathbf{-38 mod 7 = 4}$.
+              Karena $0 \le 4 < 7$, maka $\mathbf{-38 \bmod 7 = 4}$.
             </div>
           </div>
         </div>
@@ -923,13 +918,13 @@ eq 3}$$
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Hitung nilai eksak dari: $$rac{6!}{4!} + 3^{-2}$$</p>
+            <p><strong>Pertanyaan:</strong> Hitung nilai eksak dari: $$\frac{6!}{4!} + 3^{-2}$$</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong>
               <ul style="margin-left:20px; margin-top:8px;">
-                <li>Sederhanakan bagian faktorial: $rac{6!}{4!} = rac{6 	imes 5 	imes 4!}{4!} = 6 	imes 5 = 30$.</li>
-                <li>Sederhanakan bagian eksponen negatif: $3^{-2} = rac{1}{3^2} = rac{1}{9}$.</li>
-                <li>Jumlahkan keduanya: $30 + rac{1}{9} = \mathbf{rac{271}{9}} pprox 30.111...$</li>
+                <li>Sederhanakan bagian faktorial: $\frac{6!}{4!} = \frac{6 \times 5 \times 4!}{4!} = 6 \times 5 = 30$.</li>
+                <li>Sederhanakan bagian eksponen negatif: $3^{-2} = \frac{1}{3^2} = \frac{1}{9}$.</li>
+                <li>Jumlahkan keduanya: $30 + \frac{1}{9} = \mathbf{\frac{271}{9}} \approx 30.111...$</li>
               </ul>
             </div>
           </div>
@@ -953,10 +948,10 @@ eq 3}$$
               <strong>Kunci Jawaban &amp; Pembahasan:</strong>
               <div style="margin-top:8px;">
                 1. Tentukan $f^{-1}(x)$:<br>
-                $$y = 2x - 3 \implies 2x = y + 3 \implies x = rac{y + 3}{2}$$
-                Maka rumus inversnya adalah: $$\mathbf{f^{-1}(x) = rac{x + 3}{2}}$$
+                $$y = 2x - 3 \implies 2x = y + 3 \implies x = \frac{y + 3}{2}$$
+                Maka rumus inversnya adalah: $$\mathbf{f^{-1}(x) = \frac{x + 3}{2}}$$
                 2. Evaluasi $f^{-1}(11)$:<br>
-                $$f^{-1}(11) = rac{11 + 3}{2} = rac{14}{2} = \mathbf{7}$$
+                $$f^{-1}(11) = \frac{11 + 3}{2} = \frac{14}{2} = \mathbf{7}$$
               </div>
             </div>
           </div>
@@ -1012,7 +1007,7 @@ eq 3}$$
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Diberikan $f(x) = rac{2x - 3}{x + 1}$ dan $g(x) = x^2 - 4$. Hitunglah:<br>
+            <p><strong>Pertanyaan:</strong> Diberikan $f(x) = \frac{2x - 3}{x + 1}$ dan $g(x) = x^2 - 4$. Hitunglah:<br>
             (a) $(f \circ g)(2)$<br>
             (b) $(g \circ f)(2)$<br>
             (c) $(f \circ g)(2) - (g \circ f)(2)$</p>
@@ -1021,14 +1016,14 @@ eq 3}$$
               <ul style="margin-left:20px; margin-top:8px;">
                 <li><strong>(a) $(f \circ g)(2)$:</strong><br>
                   Hitung fungsi dalam: $g(2) = 2^2 - 4 = 0$.<br>
-                  Maka: $f(0) = rac{2(0) - 3}{0 + 1} = rac{-3}{1} = \mathbf{-3}$.
+                  Maka: $f(0) = \frac{2(0) - 3}{0 + 1} = \frac{-3}{1} = \mathbf{-3}$.
                 </li>
                 <li style="margin-top:8px;"><strong>(b) $(g \circ f)(2)$:</strong><br>
-                  Hitung fungsi dalam: $f(2) = rac{2(2) - 3}{2 + 1} = rac{4 - 3}{3} = rac{1}{3}$.<br>
-                  Maka: $g\left(rac{1}{3}ight) = \left(rac{1}{3}ight)^2 - 4 = rac{1}{9} - 4 = rac{1 - 36}{9} = \mathbf{-rac{35}{9}}$.
+                  Hitung fungsi dalam: $f(2) = \frac{2(2) - 3}{2 + 1} = \frac{4 - 3}{3} = \frac{1}{3}$.<br>
+                  Maka: $g\left(\frac{1}{3}\right) = \left(\frac{1}{3}\right)^2 - 4 = \frac{1}{9} - 4 = \frac{1 - 36}{9} = \mathbf{-\frac{35}{9}}$.
                 </li>
                 <li style="margin-top:8px;"><strong>(c) Selisih $(f \circ g)(2) - (g \circ f)(2)$:</strong><br>
-                  $$-3 - \left(-rac{35}{9}ight) = -3 + rac{35}{9} = -rac{27}{9} + rac{35}{9} = \mathbf{rac{8}{9}}$$
+                  $$-3 - \left(-\frac{35}{9}\right) = -3 + \frac{35}{9} = -\frac{27}{9} + \frac{35}{9} = \mathbf{\frac{8}{9}}$$
                 </li>
               </ul>
             </div>
@@ -1048,28 +1043,27 @@ eq 3}$$
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Diberikan fungsi $f(x) = rac{3x - 2}{x + 1}$.<br>
+            <p><strong>Pertanyaan:</strong> Diberikan fungsi $f(x) = \frac{3x - 2}{x + 1}$.<br>
             (a) Tentukan rumus fungsi invers $f^{-1}(x)$.<br>
-            (b) Hitung nilai dari $f^{-1}\left(rac{7}{3}ight)$.<br>
-            (c) Tentukan nilai dari $(f \circ f^{-1})\left(rac{7}{3}ight)$!</p>
+            (b) Hitung nilai dari $f^{-1}\left(\frac{7}{3}\right)$.<br>
+            (c) Tentukan nilai dari $(f \circ f^{-1})\left(\frac{7}{3}\right)$!</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong>
               <div style="margin-top:8px;">
                 <p><strong>(a) Mencari $f^{-1}(x)$:</strong><br>
-                  $$y = rac{3x - 2}{x + 1} \implies y(x + 1) = 3x - 2 \implies xy + y = 3x - 2$$
-                  $$xy - 3x = -y - 2 \implies x(y - 3) = -(y + 2) \implies x = rac{y + 2}{3 - y}$$
-                  Maka: $$\mathbf{f^{-1}(x) = rac{x + 2}{3 - x}, \quad x 
-eq 3}$$
+                  $$y = \frac{3x - 2}{x + 1} \implies y(x + 1) = 3x - 2 \implies xy + y = 3x - 2$$
+                  $$xy - 3x = -y - 2 \implies x(y - 3) = -(y + 2) \implies x = \frac{y + 2}{3 - y}$$
+                  Maka: $$\mathbf{f^{-1}(x) = \frac{x + 2}{3 - x}, \quad x \neq 3}$$
                 </p>
-                <p style="margin-top:10px;"><strong>(b) Menghitung $f^{-1}\left(rac{7}{3}ight)$:</strong><br>
-                  $$f^{-1}\left(rac{7}{3}ight) = rac{rac{7}{3} + 2}{3 - rac{7}{3}} = rac{rac{7 + 6}{3}}{rac{9 - 7}{3}} = rac{rac{13}{3}}{rac{2}{3}} = \mathbf{rac{13}{2} = 6.5}$$
+                <p style="margin-top:10px;"><strong>(b) Menghitung $f^{-1}\left(\frac{7}{3}\right)$:</strong><br>
+                  $$f^{-1}\left(\frac{7}{3}\right) = \frac{\frac{7}{3} + 2}{3 - \frac{7}{3}} = \frac{\frac{7 + 6}{3}}{\frac{9 - 7}{3}} = \frac{\frac{13}{3}}{\frac{2}{3}} = \mathbf{\frac{13}{2} = 6.5}$$
                 </p>
-                <p style="margin-top:10px;"><strong>(c) Menghitung $(f \circ f^{-1})\left(rac{7}{3}ight)$:</strong><br>
+                <p style="margin-top:10px;"><strong>(c) Menghitung $(f \circ f^{-1})\left(\frac{7}{3}\right)$:</strong><br>
                   Berdasarkan sifat dasar aksioma fungsi invers, untuk setiap $x$ dalam domain yang valid, komposisi fungsi dengan balikan inversnya selalu menghasilkan nilai identitas semula:<br>
                   $$(f \circ f^{-1})(x) = x$$
                   Dengan demikian, tanpa perlu menghitung berbelit-belit:<br>
-                  $$(f \circ f^{-1})\left(rac{7}{3}ight) = \mathbf{rac{7}{3}}$$
-                  <em>(Dapat diverifikasi: $f(6.5) = rac{3(6.5)-2}{6.5+1} = rac{17.5}{7.5} = rac{35}{15} = rac{7}{3}$, terbukti sempurna!)</em>
+                  $$(f \circ f^{-1})\left(\frac{7}{3}\right) = \mathbf{\frac{7}{3}}$$
+                  <em>(Dapat diverifikasi: $f(6.5) = \frac{3(6.5)-2}{6.5+1} = \frac{17.5}{7.5} = \frac{35}{15} = \frac{7}{3}$, terbukti sempurna!)</em>
                 </p>
               </div>
             </div>
@@ -1108,7 +1102,7 @@ eq 3}$$
     <div class="sim-panel">
       <div class="sim-header">
         <div>
-          <h3 style="font-size:17px; font-weight:600;">Simulator 2: Visualisator Dinamis Tangga Floor ($\lfloor x floor$) &amp; Ceiling ($\lceil x ceil$)</h3>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 2: Visualisator Dinamis Tangga Floor ($\lfloor x \rfloor$) &amp; Ceiling ($\lceil x \rceil$)</h3>
           <p style="font-size:13px; color:var(--text-muted);">Amati grafik fungsi diskret bertangga dan lompatan titik diskontinuitas bulat pada selang $[-5, 5]$.</p>
         </div>
         <span class="sim-tag">CANVAS 2D</span>
@@ -1147,7 +1141,7 @@ eq 3}$$
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Domain alami ($D_f$) dari fungsi $f(x) = rac{\sqrt{2x + 6}}{x - 1}$ pada bilangan real adalah...
+          Domain alami ($D_f$) dari fungsi $f(x) = \frac{\sqrt{2x + 6}}{x - 1}$ pada bilangan real adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q1" value="A"> A. $[-3, \infty)$</label>
@@ -1159,9 +1153,7 @@ eq 3}$$
         <div class="explanation-box" id="exp_q1">
           <strong>Pembahasan Mendalam:</strong><br>
           Syarat 1 (dalam akar harus non-negatif): $2x + 6 \ge 0 \implies x \ge -3$.<br>
-          Syarat 2 (penyebut tidak boleh nol): $x - 1 
-eq 0 \implies x 
-eq 1$.<br>
+          Syarat 2 (penyebut tidak boleh nol): $x - 1 \neq 0 \implies x \neq 1$.<br>
           Irisan kedua syarat menghasilkan interval: $[-3, 1) \cup (1, \infty)$.
         </div>
       </div>
@@ -1195,19 +1187,19 @@ eq 1$.<br>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan $f(x) = rac{2x - 3}{x + 1}$ dan $g(x) = x^2 - 4$. Berapakah nilai dari $(g \circ f)(2)$?
+          Diberikan $f(x) = \frac{2x - 3}{x + 1}$ dan $g(x) = x^2 - 4$. Berapakah nilai dari $(g \circ f)(2)$?
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q3" value="A"> A. $-3$</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. $-rac{35}{9}$</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $rac{8}{9}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. $-\frac{35}{9}$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $\frac{8}{9}$</label>
           <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. $0$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q3')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q3">
           <strong>Pembahasan Mendalam (Slide 10 UMS):</strong><br>
-          Hitung fungsi dalam terlebih dahulu: $f(2) = rac{2(2) - 3}{2 + 1} = rac{1}{3}$.<br>
-          Maka $(g \circ f)(2) = g(1/3) = (1/3)^2 - 4 = rac{1}{9} - 4 = -rac{35}{9}$.
+          Hitung fungsi dalam terlebih dahulu: $f(2) = \frac{2(2) - 3}{2 + 1} = \frac{1}{3}$.<br>
+          Maka $(g \circ f)(2) = g(1/3) = (1/3)^2 - 4 = \frac{1}{9} - 4 = -\frac{35}{9}$.
         </div>
       </div>
 
@@ -1218,7 +1210,7 @@ eq 1$.<br>
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $-25 mod 7$ dalam sistem aritmatika matematika murni adalah...
+          Nilai dari $-25 \bmod 7$ dalam sistem aritmatika matematika murni adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q4" value="A"> A. $-4$</label>
@@ -1242,19 +1234,19 @@ eq 1$.<br>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Jika $f(x) = rac{3x - 2}{x + 1}$, maka rumus fungsi balikan $f^{-1}(x)$ adalah...
+          Jika $f(x) = \frac{3x - 2}{x + 1}$, maka rumus fungsi balikan $f^{-1}(x)$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. $rac{x + 2}{3 - x}$</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. $rac{x - 2}{3 + x}$</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. $rac{3x + 1}{x - 2}$</label>
-          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. $rac{x + 1}{3x - 2}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. $\frac{x + 2}{3 - x}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. $\frac{x - 2}{3 + x}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. $\frac{3x + 1}{x - 2}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. $\frac{x + 1}{3x - 2}$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q5')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q5">
           <strong>Pembahasan Mendalam (Slide 10 UMS):</strong><br>
-          $y(x + 1) = 3x - 2 \implies xy - 3x = -y - 2 \implies x(y - 3) = -(y + 2) \implies x = rac{y + 2}{3 - y}$.<br>
-          Sehingga $f^{-1}(x) = rac{x + 2}{3 - x}$.
+          $y(x + 1) = 3x - 2 \implies xy - 3x = -y - 2 \implies x(y - 3) = -(y + 2) \implies x = \frac{y + 2}{3 - y}$.<br>
+          Sehingga $f^{-1}(x) = \frac{x + 2}{3 - x}$.
         </div>
       </div>
 
@@ -1265,7 +1257,7 @@ eq 1$.<br>
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Hasil evaluasi dari $\lfloor -7.8 floor + \lceil 3.4 ceil$ adalah...
+          Hasil evaluasi dari $\lfloor -7.8 \rfloor + \lceil 3.4 \rceil$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q6" value="A"> A. $-5$</label>
@@ -1276,7 +1268,7 @@ eq 1$.<br>
         <button class="btn-action" onclick="checkAnswer('q6')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q6">
           <strong>Pembahasan Mendalam:</strong><br>
-          $\lfloor -7.8 floor = -8$. $\lceil 3.4 ceil = 4$.<br>
+          $\lfloor -7.8 \rfloor = -8$. $\lceil 3.4 \rceil = 4$.<br>
           $(-8) + 4 = -4$.
         </div>
       </div>
@@ -1299,10 +1291,10 @@ eq 1$.<br>
         <button class="btn-action" onclick="checkAnswer('q7')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q7">
           <strong>Pembahasan Mendalam:</strong><br>
-          Misalkan $u = g(x) = 2x + 1 \implies x = rac{u - 1}{2}$.<br>
+          Misalkan $u = g(x) = 2x + 1 \implies x = \frac{u - 1}{2}$.<br>
           Substitusi ke $(f \circ g)(x)$:<br>
-          $$f(u) = 4\left(rac{u - 1}{2}ight)^2 + 8\left(rac{u - 1}{2}ight) - 3$$
-          $$= 4\left(rac{u^2 - 2u + 1}{4}ight) + 4(u - 1) - 3 = (u^2 - 2u + 1) + (4u - 4) - 3$$
+          $$f(u) = 4\left(\frac{u - 1}{2}\right)^2 + 8\left(\frac{u - 1}{2}\right) - 3$$
+          $$= 4\left(\frac{u^2 - 2u + 1}{4}\right) + 4(u - 1) - 3 = (u^2 - 2u + 1) + (4u - 4) - 3$$
           $$= u^2 + 2u - 6 \implies f(x) = x^2 + 2x - 6$$
         </div>
       </div>
@@ -1336,7 +1328,7 @@ eq 1$.<br>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan fungsi rekursif $f(n) = n 	imes f(n - 1)$ dengan basis $f(0) = 1$. Nilai dari $rac{f(6)}{f(4)} + 2^{-3}$ adalah...
+          Diberikan fungsi rekursif $f(n) = n \times f(n - 1)$ dengan basis $f(0) = 1$. Nilai dari $\frac{f(6)}{f(4)} + 2^{-3}$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="A"> A. $30.125$</label>
@@ -1348,8 +1340,8 @@ eq 1$.<br>
         <div class="explanation-box" id="exp_q9">
           <strong>Pembahasan Mendalam (Slide 7 &amp; 9 UMS):</strong><br>
           Fungsi rekursif tersebut adalah fungsi faktorial: $f(n) = n!$.<br>
-          $rac{6!}{4!} = 6 	imes 5 = 30$.<br>
-          $2^{-3} = rac{1}{2^3} = rac{1}{8} = 0.125$.<br>
+          $\frac{6!}{4!} = 6 \times 5 = 30$.<br>
+          $2^{-3} = \frac{1}{2^3} = \frac{1}{8} = 0.125$.<br>
           Total: $30 + 0.125 = 30.125$.
         </div>
       </div>
@@ -1453,17 +1445,17 @@ eq 1$.<br>
         const naiveQ = Math.trunc(a / m);
         const naiveR = a - m * naiveQ;
         explanation = `&bull; Perhitungan Langsung Biasa: $${a} = ${m}(${naiveQ}) + (${naiveR})$. <span style='color:var(--danger);'>Sisa ${naiveR} DITOLAK karena negatif!</span><br>
-                       &bull; Koreksi Aksioma Euclid ($0 \le r < ${m}$): Pilih $q = ${q}$ sehingga $r = ${a} - ${m}(${q}) = \mathbf{${r}}$.`;
+                       &bull; Koreksi Aksioma Euclid ($0 \\le r < ${m}$): Pilih $q = ${q}$ sehingga $r = ${a} - ${m}(${q}) = \\mathbf{${r}}$.`;
       } else {
-        explanation = `&bull; Kasus positif standar: $${a} = ${m}(${q}) + ${r}$. Sisa pembagian memenuhi $0 \le ${r} < ${m}$.`;
+        explanation = `&bull; Kasus positif standar: $${a} = ${m}(${q}) + ${r}$. Sisa pembagian memenuhi $0 \\le ${r} < ${m}$.`;
       }
 
       resBox.innerHTML = `
         <div style="font-size:16px; font-weight:700; color:var(--accent); margin-bottom:8px;">
-          Hasil Evaluasi: $${a} \bmod ${m} = ${r}$
+          Hasil Evaluasi: $${a} \\bmod ${m} = ${r}$
         </div>
         <div>
-          <strong>Bentuk Persamaan Euclid:</strong> $${a} = ${m} \times (${q}) + ${r}$<br>
+          <strong>Bentuk Persamaan Euclid:</strong> $${a} = ${m} \\times (${q}) + ${r}$<br>
           <strong>Hasil Bagi Bulat ($q$):</strong> ${q}<br>
           <strong>Sisa Pembagian ($r$):</strong> ${r}<br>
           <div style="margin-top:6px; font-size:13px; color:#55544e;">${explanation}</div>

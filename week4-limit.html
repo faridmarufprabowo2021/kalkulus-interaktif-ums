@@ -629,34 +629,30 @@
       </div>
       <div class="window-body">
         <h2 class="section-title">1. Pengertian Limit &amp; Interpretasi Grafik (Slide 2–3)</h2>
-        <p class="section-desc">Limit membahas perilaku nilai yang didekati oleh suatu fungsi ketika variabel masukan $x$ bergerak sangat dekat menuju suatu titik $c$ (namun $x 
-eq c$).</p>
+        <p class="section-desc">Limit membahas perilaku nilai yang didekati oleh suatu fungsi ketika variabel masukan $x$ bergerak sangat dekat menuju suatu titik $c$ (namun $x \neq c$).</p>
 
         <div class="grid-2">
           <div class="sub-card">
             <h3>Definisi &amp; Nilai Limit vs Nilai Fungsi (Slide 2)</h3>
-            <p>Dituliskan dengan notasi: $$\lim_{x 	o c} f(x) = L$$</p>
+            <p>Dituliskan dengan notasi: $$\lim_{x \to c} f(x) = L$$</p>
             <div class="callout" style="margin-top:10px;">
               <strong>Poin Krusial UMS: Nilai Limit &ne; Nilai Fungsi!</strong><br>
               Misalkan fungsi sepotong:
-              $$f(x) = egin{cases} x + 1, & x 
-eq 2 \ 5, & x = 2 \end{cases}$$
+              $$f(x) = \begin{cases} x + 1, & x \neq 2 \\ 5, & x = 2 \end{cases}$$
               Saat $x$ mendekati $2$, nilai $f(x)$ mendekati $3$ (ada lingkaran berlubang di $(2, 3)$). Nilai tepat di $x = 2$ adalah $5$ (titik penuh di $(2, 5)$).<br>
-              Dengan demikian: $\mathbf{\lim_{x 	o 2} f(x) = 3}$, sedangkan $\mathbf{f(2) = 5}$.
+              Dengan demikian: $\mathbf{\lim_{x \to 2} f(x) = 3}$, sedangkan $\mathbf{f(2) = 5}$.
             </div>
           </div>
 
           <div class="sub-card">
             <h3>Teorema Keberadaan Limit Satu Arah (Slide 3)</h3>
-            <p>Suatu limit dua arah $\lim_{x 	o c} f(x)$ <strong>ADA dan bernilai $L$</strong> jika dan hanya jika limit dari kiri sama dengan limit dari kanan:</p>
-            $$\lim_{x 	o c} f(x) = L \iff \lim_{x 	o c^-} f(x) = \lim_{x 	o c^+} f(x) = L$$
+            <p>Suatu limit dua arah $\lim_{x \to c} f(x)$ <strong>ADA dan bernilai $L$</strong> jika dan hanya jika limit dari kiri sama dengan limit dari kanan:</p>
+            $$\lim_{x \to c} f(x) = L \iff \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = L$$
             <div class="callout" style="margin-top:10px;">
               <strong>Contoh Limit Tidak Ada:</strong><br>
               Jika $f(x) = 1$ untuk $x < 2$ dan $f(x) = 3$ untuk $x > 2$.<br>
-              $\lim_{x 	o 2^-} f(x) = 1 
-eq \lim_{x 	o 2^+} f(x) = 3$.<br>
-              Karena $1 
-eq 3$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.
+              $\lim_{x \to 2^-} f(x) = 1 \neq \lim_{x \to 2^+} f(x) = 3$.<br>
+              Karena $1 \neq 3$, maka $\mathbf{\lim_{x \to 2} f(x)\text{ TIDAK ADA}}$.
             </div>
           </div>
         </div>
@@ -667,41 +663,40 @@ eq 3$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.
         <div class="grid-3">
           <div class="sub-card">
             <h3 style="color:var(--accent);">1. Limit Sinus Dasar</h3>
-            $$\lim_{x 	o 0} rac{\sin x}{x} = 1$$
-            $$\lim_{x 	o 0} rac{\sin(ax)}{x} = a$$
+            $$\lim_{x \to 0} \frac{\sin x}{x} = 1$$
+            $$\lim_{x \to 0} \frac{\sin(ax)}{x} = a$$
           </div>
           <div class="sub-card">
             <h3 style="color:var(--accent);">2. Rasio Sinus &amp; Tangen</h3>
-            $$\lim_{x 	o 0} rac{	an x}{x} = 1$$
-            $$\lim_{x 	o 0} rac{\sin(ax)}{\sin(bx)} = rac{a}{b} \quad (b 
-eq 0)$$
+            $$\lim_{x \to 0} \frac{\tan x}{x} = 1$$
+            $$\lim_{x \to 0} \frac{\sin(ax)}{\sin(bx)} = \frac{a}{b} \quad (b \neq 0)$$
           </div>
           <div class="sub-card">
             <h3 style="color:var(--accent);">3. Identitas Kosinus</h3>
-            $$\lim_{x 	o 0} rac{1 - \cos x}{x} = 0$$
-            $$\lim_{x 	o 0} rac{1 - \cos(ax)}{x^2} = rac{a^2}{2}$$
+            $$\lim_{x \to 0} \frac{1 - \cos x}{x} = 0$$
+            $$\lim_{x \to 0} \frac{1 - \cos(ax)}{x^2} = \frac{a^2}{2}$$
           </div>
         </div>
 
         <h2 class="section-title" style="margin-top:32px;">3. Limit di Titik Tak Hingga &amp; Limit Tak Berhingga (Slide 10–12 UMS)</h2>
         <div class="grid-2">
           <div class="sub-card">
-            <h3>Limit di Titik Tak Hingga ($x 	o \pm\infty$) &mdash; Slide 10</h3>
-            <p>Membahas perilaku nilai fungsi saat nilai $x$ membesar tanpa batas. Berlaku aturan derajat polinomial $rac{P(x)}{Q(x)}$:</p>
+            <h3>Limit di Titik Tak Hingga ($x \to \pm\infty$) &mdash; Slide 10</h3>
+            <p>Membahas perilaku nilai fungsi saat nilai $x$ membesar tanpa batas. Berlaku aturan derajat polinomial $\frac{P(x)}{Q(x)}$:</p>
             <ul style="margin-left:20px; font-size:13.5px; margin-top:8px; line-height:1.7;">
-              <li><strong>Derajat Pembilang &lt; Penyebut:</strong> Limit bernilai $0$ ($\lim_{x 	o \infty} rac{1}{x} = 0$). Garis $y = 0$ adalah Asimtot Datar.</li>
-              <li><strong>Derajat Pembilang = Penyebut:</strong> Limit bernilai rasio koefisien tertinggi: $\lim_{x 	o \infty} rac{ax^n + \dots}{bx^n + \dots} = rac{a}{b}$. Asimtot datar di $y = rac{a}{b}$.</li>
+              <li><strong>Derajat Pembilang &lt; Penyebut:</strong> Limit bernilai $0$ ($\lim_{x \to \infty} \frac{1}{x} = 0$). Garis $y = 0$ adalah Asimtot Datar.</li>
+              <li><strong>Derajat Pembilang = Penyebut:</strong> Limit bernilai rasio koefisien tertinggi: $\lim_{x \to \infty} \frac{ax^n + \dots}{bx^n + \dots} = \frac{a}{b}$. Asimtot datar di $y = \frac{a}{b}$.</li>
               <li><strong>Derajat Pembilang &gt; Penyebut:</strong> Limit menuju $\pm\infty$ (tidak memiliki asimtot datar horizontal).</li>
             </ul>
           </div>
 
           <div class="sub-card">
-            <h3>Limit Tak Berhingga &amp; Asimtot Tegak ($x 	o c$) &mdash; Slide 12</h3>
+            <h3>Limit Tak Berhingga &amp; Asimtot Tegak ($x \to c$) &mdash; Slide 12</h3>
             <p>Ketika nilai fungsi membesar/mengecil tanpa batas saat $x$ mendekati suatu bilangan real $c$:</p>
             <div class="callout" style="margin-top:8px; font-size:13px;">
               <strong>Asimtot Tegak vs Lubang (Hole):</strong><br>
-              &bull; <strong>Asimtot Tegak ($x = c$):</strong> Penyebut bernilai $0$ namun pembilang tidak nol. Contoh: $f(x) = rac{3}{x - 4}$ memiliki asimtot tegak di $x = 4$.<br>
-              &bull; <strong>Titik Berlubang (Hole):</strong> Penyebut dan pembilang sama-sama nol dan faktornya dapat dicoret. Contoh: $f(x) = rac{x^2 - 1}{x - 1} = x + 1$ memiliki lubang di titik $(1, 2)$, <em>bukan</em> asimtot tegak!
+              &bull; <strong>Asimtot Tegak ($x = c$):</strong> Penyebut bernilai $0$ namun pembilang tidak nol. Contoh: $f(x) = \frac{3}{x - 4}$ memiliki asimtot tegak di $x = 4$.<br>
+              &bull; <strong>Titik Berlubang (Hole):</strong> Penyebut dan pembilang sama-sama nol dan faktornya dapat dicoret. Contoh: $f(x) = \frac{x^2 - 1}{x - 1} = x + 1$ memiliki lubang di titik $(1, 2)$, <em>bukan</em> asimtot tegak!
             </div>
           </div>
         </div>
@@ -710,17 +705,17 @@ eq 0)$$
         <div class="grid-3">
           <div class="sub-card">
             <h3 style="color:var(--accent);">Syarat 1: Nilai Fungsi Ada</h3>
-            <p>$$f(c) 	ext{ terdefinisi (ada)}$$</p>
-            <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Titik $c$ harus berada di dalam domain alami fungsi. Jika menghasilkan $rac{0}{0}$ atau pembagi nol, fungsi langsung dinyatakan diskontinu.</p>
+            <p>$$f(c) \text{ terdefinisi (ada)}$$</p>
+            <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Titik $c$ harus berada di dalam domain alami fungsi. Jika menghasilkan $\frac{0}{0}$ atau pembagi nol, fungsi langsung dinyatakan diskontinu.</p>
           </div>
           <div class="sub-card">
             <h3 style="color:var(--accent);">Syarat 2: Nilai Limit Ada</h3>
-            <p>$$\lim_{x 	o c} f(x) 	ext{ ada}$$</p>
-            <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Limit dari sebelah kiri dan limit dari sebelah kanan harus sama: $\lim_{x 	o c^-} f(x) = \lim_{x 	o c^+} f(x) = L$.</p>
+            <p>$$\lim_{x \to c} f(x) \text{ ada}$$</p>
+            <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Limit dari sebelah kiri dan limit dari sebelah kanan harus sama: $\lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = L$.</p>
           </div>
           <div class="sub-card">
             <h3 style="color:var(--accent);">Syarat 3: Keduanya Sama</h3>
-            <p>$$\lim_{x 	o c} f(x) = f(c)$$</p>
+            <p>$$\lim_{x \to c} f(x) = f(c)$$</p>
             <p style="font-size:13px; color:var(--text-muted); margin-top:6px;">Nilai yang didekati oleh grafik harus persis sama dengan nilai titik yang terdefinisi pada fungsi di titik tersebut.</p>
           </div>
         </div>
@@ -748,31 +743,30 @@ eq 0)$$
             <span class="example-title">Contoh Soal No. 1: Uji Limit Sepihak (Slide 4 UMS)</span>
             <span class="example-tag">Limit Kiri &amp; Kanan</span>
           </div>
-          <p><strong>Soal 1a (Limit Ada):</strong> Diberikan $f(x) = egin{cases} x + 2, & x < 1 \ 2x + 1, & x \ge 1 \end{cases}$. Tentukan apakah $\lim_{x 	o 1} f(x)$ ada!</p>
+          <p><strong>Soal 1a (Limit Ada):</strong> Diberikan $f(x) = \begin{cases} x + 2, & x < 1 \\ 2x + 1, & x \ge 1 \end{cases}$. Tentukan apakah $\lim_{x \to 1} f(x)$ ada!</p>
           <div class="step-list">
             <div class="step-item">
               <div class="step-num">1</div>
-              <div class="step-content"><strong>Limit kiri ($x 	o 1^-$):</strong> Gunakan rumus $x + 2 \implies \lim_{x 	o 1^-} (x + 2) = 1 + 2 = \mathbf{3}$.</div>
+              <div class="step-content"><strong>Limit kiri ($x \to 1^-$):</strong> Gunakan rumus $x + 2 \implies \lim_{x \to 1^-} (x + 2) = 1 + 2 = \mathbf{3}$.</div>
             </div>
             <div class="step-item">
               <div class="step-num">2</div>
-              <div class="step-content"><strong>Limit kanan ($x 	o 1^+$):</strong> Gunakan rumus $2x + 1 \implies \lim_{x 	o 1^+} (2x + 1) = 2(1) + 1 = \mathbf{3}$.</div>
+              <div class="step-content"><strong>Limit kanan ($x \to 1^+$):</strong> Gunakan rumus $2x + 1 \implies \lim_{x \to 1^+} (2x + 1) = 2(1) + 1 = \mathbf{3}$.</div>
             </div>
             <div class="step-item">
               <div class="step-num">3</div>
-              <div class="step-content"><strong>Kesimpulan:</strong> Karena limit kiri = limit kanan = 3, maka $\mathbf{\lim_{x 	o 1} f(x) = 3}$ (Limit dua arah ADA).</div>
+              <div class="step-content"><strong>Kesimpulan:</strong> Karena limit kiri = limit kanan = 3, maka $\mathbf{\lim_{x \to 1} f(x) = 3}$ (Limit dua arah ADA).</div>
             </div>
           </div>
-          <p style="margin-top:16px;"><strong>Soal 1b (Limit Tidak Ada):</strong> Diberikan $f(x) = egin{cases} x + 1, & x < 2 \ x + 4, & x \ge 2 \end{cases}$. Tentukan apakah $\lim_{x 	o 2} f(x)$ ada!</p>
+          <p style="margin-top:16px;"><strong>Soal 1b (Limit Tidak Ada):</strong> Diberikan $f(x) = \begin{cases} x + 1, & x < 2 \\ x + 4, & x \ge 2 \end{cases}$. Tentukan apakah $\lim_{x \to 2} f(x)$ ada!</p>
           <div class="step-list">
             <div class="step-item">
               <div class="step-num">1</div>
-              <div class="step-content">Limit kiri: $\lim_{x 	o 2^-} (x + 1) = 2 + 1 = 3$. Limit kanan: $\lim_{x 	o 2^+} (x + 4) = 2 + 4 = 6$.</div>
+              <div class="step-content">Limit kiri: $\lim_{x \to 2^-} (x + 1) = 2 + 1 = 3$. Limit kanan: $\lim_{x \to 2^+} (x + 4) = 2 + 4 = 6$.</div>
             </div>
             <div class="step-item">
               <div class="step-num">2</div>
-              <div class="step-content"><strong>Kesimpulan:</strong> Karena $3 
-eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
+              <div class="step-content"><strong>Kesimpulan:</strong> Karena $3 \neq 6$, maka $\mathbf{\lim_{x \to 2} f(x)\text{ TIDAK ADA}}$.</div>
             </div>
           </div>
         </div>
@@ -783,12 +777,12 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
             <span class="example-title">Contoh Soal No. 2: Substitusi Langsung vs Bentuk Tak Tentu $0/0$ (Slide 6 UMS)</span>
             <span class="example-tag">Aljabar Pemfaktoran</span>
           </div>
-          <p><strong>Soal 2a:</strong> Tentukan $\lim_{x 	o 3} rac{x^2 + 2x - 1}{x + 1}$.<br>
-          <em>Penyelesaian:</em> Substitusi $x = 3 \implies rac{3^2 + 2(3) - 1}{3 + 1} = rac{9 + 6 - 1}{4} = rac{14}{4} = \mathbf{rac{7}{2}}$. (Penyebut tidak nol, substitusi berhasil).</p>
+          <p><strong>Soal 2a:</strong> Tentukan $\lim_{x \to 3} \frac{x^2 + 2x - 1}{x + 1}$.<br>
+          <em>Penyelesaian:</em> Substitusi $x = 3 \implies \frac{3^2 + 2(3) - 1}{3 + 1} = \frac{9 + 6 - 1}{4} = \frac{14}{4} = \mathbf{\frac{7}{2}}$. (Penyebut tidak nol, substitusi berhasil).</p>
           
-          <p style="margin-top:14px;"><strong>Soal 2b:</strong> Tentukan $\lim_{x 	o 2} rac{x^2 - 4}{x - 2}$.<br>
-          <em>Penyelesaian:</em> Substitusi $x = 2$ menghasilkan bentuk tak tentu $rac{0}{0}$. Faktorkan pembilang:
-          $$\lim_{x 	o 2} rac{(x - 2)(x + 2)}{x - 2} = \lim_{x 	o 2} (x + 2) = 2 + 2 = \mathbf{4}$$</p>
+          <p style="margin-top:14px;"><strong>Soal 2b:</strong> Tentukan $\lim_{x \to 2} \frac{x^2 - 4}{x - 2}$.<br>
+          <em>Penyelesaian:</em> Substitusi $x = 2$ menghasilkan bentuk tak tentu $\frac{0}{0}$. Faktorkan pembilang:
+          $$\lim_{x \to 2} \frac{(x - 2)(x + 2)}{x - 2} = \lim_{x \to 2} (x + 2) = 2 + 2 = \mathbf{4}$$</p>
         </div>
 
         <!-- Contoh Slide 3 -->
@@ -799,12 +793,12 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
           </div>
           <div class="grid-2">
             <div>
-              <p><strong>3a.</strong> $\lim_{x 	o 0} rac{\sin 4x}{x} = 4 \lim_{x 	o 0} rac{\sin 4x}{4x} = 4(1) = \mathbf{4}$.</p>
-              <p style="margin-top:8px;"><strong>3b.</strong> $\lim_{x 	o 0} rac{1 - \cos 2x}{x} = \lim_{x 	o 0} rac{2\sin^2 x}{x} = 2 \lim_{x 	o 0} \left(rac{\sin x}{x}ight) \cdot \sin x = 2(1)(0) = \mathbf{0}$.</p>
+              <p><strong>3a.</strong> $\lim_{x \to 0} \frac{\sin 4x}{x} = 4 \lim_{x \to 0} \frac{\sin 4x}{4x} = 4(1) = \mathbf{4}$.</p>
+              <p style="margin-top:8px;"><strong>3b.</strong> $\lim_{x \to 0} \frac{1 - \cos 2x}{x} = \lim_{x \to 0} \frac{2\sin^2 x}{x} = 2 \lim_{x \to 0} \left(\frac{\sin x}{x}\right) \cdot \sin x = 2(1)(0) = \mathbf{0}$.</p>
             </div>
             <div>
-              <p><strong>3c.</strong> $\lim_{x 	o 0} rac{\sin 3x}{\sin 2x} = \lim_{x 	o 0} rac{\sin 3x}{3x} \cdot rac{2x}{\sin 2x} \cdot rac{3}{2} = 1 \cdot 1 \cdot rac{3}{2} = \mathbf{rac{3}{2}}$.</p>
-              <p style="margin-top:8px;"><strong>3d.</strong> $\lim_{x 	o 0} rac{1 - \cos 3x}{x^2} = 2\left(rac{3}{2}ight)^2 \lim_{u 	o 0} \left(rac{\sin u}{u}ight)^2 = 2 \cdot rac{9}{4} \cdot 1 = \mathbf{rac{9}{2}}$.</p>
+              <p><strong>3c.</strong> $\lim_{x \to 0} \frac{\sin 3x}{\sin 2x} = \lim_{x \to 0} \frac{\sin 3x}{3x} \cdot \frac{2x}{\sin 2x} \cdot \frac{3}{2} = 1 \cdot 1 \cdot \frac{3}{2} = \mathbf{\frac{3}{2}}$.</p>
+              <p style="margin-top:8px;"><strong>3d.</strong> $\lim_{x \to 0} \frac{1 - \cos 3x}{x^2} = 2\left(\frac{3}{2}\right)^2 \lim_{u \to 0} \left(\frac{\sin u}{u}\right)^2 = 2 \cdot \frac{9}{4} \cdot 1 = \mathbf{\frac{9}{2}}$.</p>
             </div>
           </div>
         </div>
@@ -815,13 +809,13 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
             <span class="example-title">Contoh Soal No. 4 &amp; 5: Limit Tak Hingga &amp; Asimtot Tegak (Slide 11 &amp; 13 UMS)</span>
             <span class="example-tag">Asimtotik</span>
           </div>
-          <p><strong>Soal 4 (Limit di Tak Hingga):</strong> Hitung $\lim_{x 	o +\infty} rac{3x^2 + 4x - 1}{2x^2 - 5x + 3}$.<br>
+          <p><strong>Soal 4 (Limit di Tak Hingga):</strong> Hitung $\lim_{x \to +\infty} \frac{3x^2 + 4x - 1}{2x^2 - 5x + 3}$.<br>
           <em>Penyelesaian:</em> Bagi pembilang dan penyebut dengan pangkat tertinggi $x^2$:
-          $$\lim_{x 	o \infty} rac{3 + rac{4}{x} - rac{1}{x^2}}{2 - rac{5}{x} + rac{3}{x^2}} = rac{3 + 0 - 0}{2 - 0 + 0} = \mathbf{rac{3}{2}}$$</p>
+          $$\lim_{x \to \infty} \frac{3 + \frac{4}{x} - \frac{1}{x^2}}{2 - \frac{5}{x} + \frac{3}{x^2}} = \frac{3 + 0 - 0}{2 - 0 + 0} = \mathbf{\frac{3}{2}}$$</p>
           
-          <p style="margin-top:14px;"><strong>Soal 5 (Limit Tak Berhingga &amp; Asimtot Tegak):</strong> Diberikan $f(x) = rac{3}{x - 4}$.<br>
-          1. Dari kiri ($x 	o 4^-$): $x - 4$ bernilai negatif mendekati nol $\implies \lim_{x 	o 4^-} rac{3}{x - 4} = \mathbf{-\infty}$.<br>
-          2. Dari kanan ($x 	o 4^+$): $x - 4$ bernilai positif mendekati nol $\implies \lim_{x 	o 4^+} rac{3}{x - 4} = \mathbf{+\infty}$.<br>
+          <p style="margin-top:14px;"><strong>Soal 5 (Limit Tak Berhingga &amp; Asimtot Tegak):</strong> Diberikan $f(x) = \frac{3}{x - 4}$.<br>
+          1. Dari kiri ($x \to 4^-$): $x - 4$ bernilai negatif mendekati nol $\implies \lim_{x \to 4^-} \frac{3}{x - 4} = \mathbf{-\infty}$.<br>
+          2. Dari kanan ($x \to 4^+$): $x - 4$ bernilai positif mendekati nol $\implies \lim_{x \to 4^+} \frac{3}{x - 4} = \mathbf{+\infty}$.<br>
           3. Asimtot tegak adalah garis vertikal: $\mathbf{x = 4}$.</p>
         </div>
 
@@ -831,15 +825,15 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
             <span class="example-title">Contoh Soal No. 6: Uji Kontinuitas Fungsi (Slide 15 UMS)</span>
             <span class="example-tag">Kontinuitas</span>
           </div>
-          <p><strong>Soal:</strong> Periksa apakah fungsi $f(x) = rac{x^2 - 9}{x - 3}$ kontinu di titik $x = 3$!</p>
+          <p><strong>Soal:</strong> Periksa apakah fungsi $f(x) = \frac{x^2 - 9}{x - 3}$ kontinu di titik $x = 3$!</p>
           <div class="step-list">
             <div class="step-item">
               <div class="step-num">1</div>
-              <div class="step-content"><strong>Syarat 1 (Nilai fungsi $f(3)$):</strong> $f(3) = rac{3^2 - 9}{3 - 3} = rac{0}{0}$ &rarr; <span style="color:var(--danger); font-weight:600;">TIDAK TERDEFINISI (GAGAL)</span>.</div>
+              <div class="step-content"><strong>Syarat 1 (Nilai fungsi $f(3)$):</strong> $f(3) = \frac{3^2 - 9}{3 - 3} = \frac{0}{0}$ &rarr; <span style="color:var(--danger); font-weight:600;">TIDAK TERDEFINISI (GAGAL)</span>.</div>
             </div>
             <div class="step-item">
               <div class="step-num">2</div>
-              <div class="step-content"><strong>Syarat 2 (Nilai limit):</strong> $\lim_{x 	o 3} rac{(x-3)(x+3)}{x-3} = \lim_{x 	o 3} (x+3) = 6$ &rarr; <span style="color:var(--success); font-weight:600;">TERPENUHI</span>.</div>
+              <div class="step-content"><strong>Syarat 2 (Nilai limit):</strong> $\lim_{x \to 3} \frac{(x-3)(x+3)}{x-3} = \lim_{x \to 3} (x+3) = 6$ &rarr; <span style="color:var(--success); font-weight:600;">TERPENUHI</span>.</div>
             </div>
             <div class="step-item">
               <div class="step-num">3</div>
@@ -878,11 +872,11 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Tentukan nilai dari: $$\lim_{x 	o 3} (2x^2 - x + 4)$$</p>
+            <p><strong>Pertanyaan:</strong> Tentukan nilai dari: $$\lim_{x \to 3} (2x^2 - x + 4)$$</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong><br>
               Karena fungsi adalah polinomial derajat dua yang kontinu di setiap bilangan real, gunakan metode substitusi langsung $x = 3$:
-              $$\lim_{x 	o 3} (2x^2 - x + 4) = 2(3^2) - 3 + 4 = 2(9) - 3 + 4 = 18 - 3 + 4 = \mathbf{19}$$
+              $$\lim_{x \to 3} (2x^2 - x + 4) = 2(3^2) - 3 + 4 = 2(9) - 3 + 4 = 18 - 3 + 4 = \mathbf{19}$$
             </div>
           </div>
         </div>
@@ -901,21 +895,21 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
           </div>
           <div class="slide-exercise-body">
             <p><strong>Pertanyaan:</strong> Diketahui fungsi:
-            $$f(x) = egin{cases} 3x - 1, & x < 2 \ x^2 + 1, & x \ge 2 \end{cases}$$
-            a. Tentukan $\lim_{x 	o 2^-} f(x)$ dan $\lim_{x 	o 2^+} f(x)$.<br>
-            b. Apakah $\lim_{x 	o 2} f(x)$ ada? Jelaskan alasan matematisnya!</p>
+            $$f(x) = \begin{cases} 3x - 1, & x < 2 \\ x^2 + 1, & x \ge 2 \end{cases}$$
+            a. Tentukan $\lim_{x \to 2^-} f(x)$ dan $\lim_{x \to 2^+} f(x)$.<br>
+            b. Apakah $\lim_{x \to 2} f(x)$ ada? Jelaskan alasan matematisnya!</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong>
               <div style="margin-top:8px;">
                 <p><strong>a. Menentukan limit sepihak:</strong><br>
-                &bull; Limit kiri ($x 	o 2^-$): Gunakan rumus saat $x < 2$:
-                $$\lim_{x 	o 2^-} (3x - 1) = 3(2) - 1 = 6 - 1 = \mathbf{5}$$
-                &bull; Limit kanan ($x 	o 2^+$): Gunakan rumus saat $x \ge 2$:
-                $$\lim_{x 	o 2^+} (x^2 + 1) = 2^2 + 1 = 4 + 1 = \mathbf{5}$$</p>
+                &bull; Limit kiri ($x \to 2^-$): Gunakan rumus saat $x < 2$:
+                $$\lim_{x \to 2^-} (3x - 1) = 3(2) - 1 = 6 - 1 = \mathbf{5}$$
+                &bull; Limit kanan ($x \to 2^+$): Gunakan rumus saat $x \ge 2$:
+                $$\lim_{x \to 2^+} (x^2 + 1) = 2^2 + 1 = 4 + 1 = \mathbf{5}$$</p>
 
                 <p style="margin-top:10px;"><strong>b. Keberadaan limit dua arah:</strong><br>
                 Berdasarkan Teorema Keberadaan Limit, limit dua arah ada jika dan hanya jika limit kiri sama dengan limit kanan.<br>
-                Karena $\lim_{x 	o 2^-} f(x) = \lim_{x 	o 2^+} f(x) = 5$, maka <strong>$\mathbf{\lim_{x 	o 2} f(x)	ext{ ADA dan bernilai } 5}$</strong>.</p>
+                Karena $\lim_{x \to 2^-} f(x) = \lim_{x \to 2^+} f(x) = 5$, maka <strong>$\mathbf{\lim_{x \to 2} f(x)\text{ ADA dan bernilai } 5}$</strong>.</p>
               </div>
             </div>
           </div>
@@ -934,11 +928,11 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Tentukan nilai dari: $$\lim_{x 	o 0} rac{\sin 5x}{3x}$$</p>
+            <p><strong>Pertanyaan:</strong> Tentukan nilai dari: $$\lim_{x \to 0} \frac{\sin 5x}{3x}$$</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong><br>
-              Manipulasi bentuk aljabar agar memuat bentuk limit dasar $\lim_{u 	o 0} rac{\sin u}{u} = 1$:
-              $$\lim_{x 	o 0} rac{\sin 5x}{3x} = \lim_{x 	o 0} \left(rac{5}{3} \cdot rac{\sin 5x}{5x}ight) = rac{5}{3} \cdot \lim_{x 	o 0} rac{\sin 5x}{5x} = rac{5}{3} \cdot 1 = \mathbf{rac{5}{3}}$$
+              Manipulasi bentuk aljabar agar memuat bentuk limit dasar $\lim_{u \to 0} \frac{\sin u}{u} = 1$:
+              $$\lim_{x \to 0} \frac{\sin 5x}{3x} = \lim_{x \to 0} \left(\frac{5}{3} \cdot \frac{\sin 5x}{5x}\right) = \frac{5}{3} \cdot \lim_{x \to 0} \frac{\sin 5x}{5x} = \frac{5}{3} \cdot 1 = \mathbf{\frac{5}{3}}$$
             </div>
           </div>
         </div>
@@ -956,13 +950,13 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
             </div>
           </div>
           <div class="slide-exercise-body">
-            <p><strong>Pertanyaan:</strong> Tentukan nilai dari: $$\lim_{x 	o +\infty} rac{4x^2 - 3x + 5}{2x^2 + 7x - 1}$$</p>
+            <p><strong>Pertanyaan:</strong> Tentukan nilai dari: $$\lim_{x \to +\infty} \frac{4x^2 - 3x + 5}{2x^2 + 7x - 1}$$</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong><br>
               Bagi setiap suku pembilang dan penyebut dengan variabel berpangkat tertinggi ($x^2$):
-              $$\lim_{x 	o \infty} rac{rac{4x^2}{x^2} - rac{3x}{x^2} + rac{5}{x^2}}{rac{2x^2}{x^2} + rac{7x}{x^2} - rac{1}{x^2}} = \lim_{x 	o \infty} rac{4 - rac{3}{x} + rac{5}{x^2}}{2 + rac{7}{x} - rac{1}{x^2}}$$
-              Karena ketika $x 	o \infty$, semua pecahan $rac{k}{x^n} 	o 0$:
-              $$= rac{4 - 0 + 0}{2 + 0 - 0} = rac{4}{2} = \mathbf{2}$$
+              $$\lim_{x \to \infty} \frac{\frac{4x^2}{x^2} - \frac{3x}{x^2} + \frac{5}{x^2}}{\frac{2x^2}{x^2} + \frac{7x}{x^2} - \frac{1}{x^2}} = \lim_{x \to \infty} \frac{4 - \frac{3}{x} + \frac{5}{x^2}}{2 + \frac{7}{x} - \frac{1}{x^2}}$$
+              Karena ketika $x \to \infty$, semua pecahan $\frac{k}{x^n} \to 0$:
+              $$= \frac{4 - 0 + 0}{2 + 0 - 0} = \frac{4}{2} = \mathbf{2}$$
             </div>
           </div>
         </div>
@@ -981,21 +975,17 @@ eq 6$, maka $\mathbf{\lim_{x 	o 2} f(x)	ext{ TIDAK ADA}}$.</div>
           </div>
           <div class="slide-exercise-body">
             <p><strong>Pertanyaan:</strong> Diketahui fungsi:
-            $$f(x) = egin{cases} x^2 + 1, & x 
-eq 2 \ 7, & x = 2 \end{cases}$$
+            $$f(x) = \begin{cases} x^2 + 1, & x \neq 2 \\ 7, & x = 2 \end{cases}$$
             Periksa apakah fungsi kontinu di $x = 2$ berdasarkan tiga syarat kontinuitas!</p>
             <div class="solution-box">
               <strong>Kunci Jawaban &amp; Pembahasan:</strong>
               <div style="margin-top:8px;">
                 <p>1. <strong>Syarat 1 (Nilai fungsi $f(2)$):</strong> Nilai fungsi tepat di $x = 2$ didefinisikan $f(2) = 7$. &rarr; <em>(Terpenuhi)</em></p>
-                <p>2. <strong>Syarat 2 (Nilai limit saat $x 	o 2$):</strong> Karena pada limit $x 
-eq 2$, gunakan rumus $x^2 + 1$:
-                $$\lim_{x 	o 2} f(x) = \lim_{x 	o 2} (x^2 + 1) = 2^2 + 1 = 5 \quad 	ext{(Limit ada)}$$ &rarr; <em>(Terpenuhi)</em></p>
+                <p>2. <strong>Syarat 2 (Nilai limit saat $x \to 2$):</strong> Karena pada limit $x \neq 2$, gunakan rumus $x^2 + 1$:
+                $$\lim_{x \to 2} f(x) = \lim_{x \to 2} (x^2 + 1) = 2^2 + 1 = 5 \quad \text{(Limit ada)}$$ &rarr; <em>(Terpenuhi)</em></p>
                 <p>3. <strong>Syarat 3 (Bandingkan nilai limit dengan nilai fungsi):</strong>
-                $$\lim_{x 	o 2} f(x) = 5 
-eq f(2) = 7$$
-                Karena nilai limit tidak sama dengan nilai fungsinya ($5 
-eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
+                $$\lim_{x \to 2} f(x) = 5 \neq f(2) = 7$$
+                Karena nilai limit tidak sama dengan nilai fungsinya ($5 \neq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
                 <p><strong>Kesimpulan:</strong> Fungsi <strong>TIDAK KONTINU di $x = 2$</strong> (terdapat titik yang terangkat / lubang terpisah di $(2, 5)$ dengan titik nilai di $(2, 7)$).</p>
               </div>
             </div>
@@ -1016,7 +1006,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           </div>
           <div class="slide-exercise-body">
             <p><strong>Pertanyaan:</strong> Diketahui fungsi:
-            $$f(x) = egin{cases} 2x + 1, & x < 3 \ ax + b, & x \ge 3 \end{cases}$$
+            $$f(x) = \begin{cases} 2x + 1, & x < 3 \\ ax + b, & x \ge 3 \end{cases}$$
             Tentukan:<br>
             a. Hubungan antara $a$ dan $b$ agar fungsi kontinu di $x = 3$.<br>
             b. Jika $a = 2$, tentukan nilai konstanta $b$!</p>
@@ -1025,10 +1015,10 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
               <div style="margin-top:8px;">
                 <p><strong>a. Menentukan hubungan $a$ dan $b$:</strong><br>
                 Agar kontinu di titik perbatasan $x = 3$, maka limit kiri, limit kanan, dan nilai fungsi harus bernilai sama persis:<br>
-                &bull; Limit kiri: $\lim_{x 	o 3^-} (2x + 1) = 2(3) + 1 = 7$.<br>
-                &bull; Limit kanan &amp; Nilai fungsi: $\lim_{x 	o 3^+} (ax + b) = f(3) = 3a + b$.<br>
+                &bull; Limit kiri: $\lim_{x \to 3^-} (2x + 1) = 2(3) + 1 = 7$.<br>
+                &bull; Limit kanan &amp; Nilai fungsi: $\lim_{x \to 3^+} (ax + b) = f(3) = 3a + b$.<br>
                 Maka syarat kontinuitas adalah:
-                $$\mathbf{3a + b = 7} \quad 	ext{atau} \quad \mathbf{b = 7 - 3a}$$</p>
+                $$\mathbf{3a + b = 7} \quad \text{atau} \quad \mathbf{b = 7 - 3a}$$</p>
 
                 <p style="margin-top:10px;"><strong>b. Menentukan nilai $b$ jika $a = 2$:</strong><br>
                 Substitusikan nilai $a = 2$ ke dalam persamaan hubungan di atas:
@@ -1045,8 +1035,8 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
     <div class="sim-panel">
       <div class="sim-header">
         <div>
-          <h3 style="font-size:17px; font-weight:600;">Simulator 1: Dinamika Pendekatan Numerik Limit $x 	o c$</h3>
-          <p style="font-size:13px; color:var(--text-muted);">Eksplorasi tabel tabel pendekatan kiri ($x < c$) dan kanan ($x > c$) untuk fungsi $f(x) = rac{x^2 - 4}{x - 2}$ yang berlubang di $x = 2$.</p>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 1: Dinamika Pendekatan Numerik Limit $x \to c$</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Eksplorasi tabel tabel pendekatan kiri ($x < c$) dan kanan ($x > c$) untuk fungsi $f(x) = \frac{x^2 - 4}{x - 2}$ yang berlubang di $x = 2$.</p>
         </div>
         <span class="sim-tag">NUMERICAL SIM</span>
       </div>
@@ -1060,7 +1050,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
-            <tr><th>Arah Pendekatan</th><th>Nilai Masukan $x$</th><th>Nilai Fungsi $f(x) = rac{x^2-4}{x-2}$</th><th>Kecenderungan Nilai</th></tr>
+            <tr><th>Arah Pendekatan</th><th>Nilai Masukan $x$</th><th>Nilai Fungsi $f(x) = \frac{x^2-4}{x-2}$</th><th>Kecenderungan Nilai</th></tr>
           </thead>
           <tbody id="limitTableBody">
             <!-- Populated via JavaScript -->
@@ -1118,7 +1108,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o 3} (2x^2 - x + 4)$ yang diselesaikan dengan substitusi langsung adalah...
+          Nilai dari $\lim_{x \to 3} (2x^2 - x + 4)$ yang diselesaikan dengan substitusi langsung adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q1" value="A"> A. $15$</label>
@@ -1140,18 +1130,18 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o 0} rac{\sin 5x}{3x}$ adalah...
+          Nilai dari $\lim_{x \to 0} \frac{\sin 5x}{3x}$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q2" value="A"> A. $1$</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="B"> B. $rac{5}{3}$</label>
-          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. $rac{3}{5}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="B"> B. $\frac{5}{3}$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. $\frac{3}{5}$</label>
           <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. $0$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q2')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q2">
           <strong>Pembahasan Mendalam (Slide 7 &amp; 16 UMS):</strong><br>
-          $rac{5}{3} \lim_{x 	o 0} rac{\sin 5x}{5x} = rac{5}{3}(1) = rac{5}{3}$.
+          $\frac{5}{3} \lim_{x \to 0} \frac{\sin 5x}{5x} = \frac{5}{3}(1) = \frac{5}{3}$.
         </div>
       </div>
 
@@ -1162,19 +1152,19 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o 0} rac{\sqrt{4 + x} - 2}{x}$ adalah...
+          Nilai dari $\lim_{x \to 0} \frac{\sqrt{4 + x} - 2}{x}$ adalah...
         </div>
         <div class="quiz-options">
-          <label class="option-label"><input type="radio" name="opt_q3" value="A"> A. $rac{1}{2}$</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. $rac{1}{4}$</label>
-          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $rac{1}{8}$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="A"> A. $\frac{1}{2}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. $\frac{1}{4}$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $\frac{1}{8}$</label>
           <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. $0$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q3')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q3">
           <strong>Pembahasan Mendalam:</strong><br>
           Kalikan pembilang dan penyebut dengan sekawan $(\sqrt{4 + x} + 2)$:<br>
-          $$\lim_{x 	o 0} rac{(4 + x) - 4}{x(\sqrt{4 + x} + 2)} = \lim_{x 	o 0} rac{x}{x(\sqrt{4 + x} + 2)} = \lim_{x 	o 0} rac{1}{\sqrt{4 + x} + 2} = rac{1}{\sqrt{4} + 2} = rac{1}{4}$$
+          $$\lim_{x \to 0} \frac{(4 + x) - 4}{x(\sqrt{4 + x} + 2)} = \lim_{x \to 0} \frac{x}{x(\sqrt{4 + x} + 2)} = \lim_{x \to 0} \frac{1}{\sqrt{4 + x} + 2} = \frac{1}{\sqrt{4} + 2} = \frac{1}{4}$$
         </div>
       </div>
 
@@ -1185,7 +1175,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o +\infty} rac{4x^2 - 3x + 5}{2x^2 + 7x - 1}$ adalah...
+          Nilai dari $\lim_{x \to +\infty} \frac{4x^2 - 3x + 5}{2x^2 + 7x - 1}$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="A"> A. $2$</label>
@@ -1196,7 +1186,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
         <button class="btn-action" onclick="checkAnswer('q4')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q4">
           <strong>Pembahasan Mendalam (Slide 16 UMS):</strong><br>
-          Pangkat tertinggi pembilang dan penyebut sama-sama $x^2$. Rasio koefisien tertinggi: $rac{4}{2} = 2$.
+          Pangkat tertinggi pembilang dan penyebut sama-sama $x^2$. Rasio koefisien tertinggi: $\frac{4}{2} = 2$.
         </div>
       </div>
 
@@ -1207,7 +1197,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o 0} rac{1 - \cos 4x}{x^2}$ adalah...
+          Nilai dari $\lim_{x \to 0} \frac{1 - \cos 4x}{x^2}$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q5" value="A"> A. $4$</label>
@@ -1218,8 +1208,8 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
         <button class="btn-action" onclick="checkAnswer('q5')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q5">
           <strong>Pembahasan Mendalam (Slide 7 UMS):</strong><br>
-          Gunakan rumus limit khusus $\lim_{x 	o 0} rac{1 - \cos(ax)}{x^2} = rac{a^2}{2}$.<br>
-          Dengan $a = 4$: $rac{4^2}{2} = rac{16}{2} = 8$.
+          Gunakan rumus limit khusus $\lim_{x \to 0} \frac{1 - \cos(ax)}{x^2} = \frac{a^2}{2}$.<br>
+          Dengan $a = 4$: $\frac{4^2}{2} = \frac{16}{2} = 8$.
         </div>
       </div>
 
@@ -1230,7 +1220,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Diberikan fungsi sepotong $f(x) = egin{cases} 2x + 1, & x < 3 \ ax + b, & x \ge 3 \end{cases}$. Jika $f(x)$ kontinu di $x = 3$ dan diketahui $a = 2$, maka nilai $b$ harus sama dengan...
+          Diberikan fungsi sepotong $f(x) = \begin{cases} 2x + 1, & x < 3 \\ ax + b, & x \ge 3 \end{cases}$. Jika $f(x)$ kontinu di $x = 3$ dan diketahui $a = 2$, maka nilai $b$ harus sama dengan...
         </div>
         <div class="quiz-options">
           <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="A"> A. $1$</label>
@@ -1253,7 +1243,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-medium">Medium</span>
         </div>
         <div class="quiz-prompt">
-          Fungsi $f(x) = rac{x^2 - 9}{x - 3}$ tidak kontinu di $x = 3$ karena...
+          Fungsi $f(x) = \frac{x^2 - 9}{x - 3}$ tidak kontinu di $x = 3$ karena...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q7" value="A"> A. Limit kiri dan limit kanan berbeda</label>
@@ -1264,7 +1254,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
         <button class="btn-action" onclick="checkAnswer('q7')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q7">
           <strong>Pembahasan Mendalam (Slide 15 UMS):</strong><br>
-          Limitnya ada dan bernilai 6, tetapi nilai $f(3) = rac{0}{0}$ tidak terdefinisi pada fungsi aslinya (gagal syarat 1).
+          Limitnya ada dan bernilai 6, tetapi nilai $f(3) = \frac{0}{0}$ tidak terdefinisi pada fungsi aslinya (gagal syarat 1).
         </div>
       </div>
 
@@ -1275,7 +1265,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Persamaan asimtot tegak dari grafik fungsi $f(x) = rac{3}{x - 4}$ adalah garis vertikal...
+          Persamaan asimtot tegak dari grafik fungsi $f(x) = \frac{3}{x - 4}$ adalah garis vertikal...
         </div>
         <div class="quiz-options">
           <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="A"> A. $x = 4$</label>
@@ -1286,7 +1276,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
         <button class="btn-action" onclick="checkAnswer('q8')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q8">
           <strong>Pembahasan Mendalam (Slide 13 UMS):</strong><br>
-          Penyebut menjadi nol saat $x - 4 = 0 \implies x = 4$. Saat $x 	o 4^-$, $f(x) 	o -\infty$; saat $x 	o 4^+$, $f(x) 	o +\infty$. Garis $x = 4$ adalah asimtot tegak.
+          Penyebut menjadi nol saat $x - 4 = 0 \implies x = 4$. Saat $x \to 4^-$, $f(x) \to -\infty$; saat $x \to 4^+$, $f(x) \to +\infty$. Garis $x = 4$ adalah asimtot tegak.
         </div>
       </div>
 
@@ -1297,18 +1287,18 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o 0} rac{	an 3x}{\sin 2x}$ adalah...
+          Nilai dari $\lim_{x \to 0} \frac{\tan 3x}{\sin 2x}$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q9" value="A"> A. $1$</label>
-          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="B"> B. $rac{3}{2}$</label>
-          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. $rac{2}{3}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="B"> B. $\frac{3}{2}$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. $\frac{2}{3}$</label>
           <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. $0$</label>
         </div>
         <button class="btn-action" onclick="checkAnswer('q9')">Verifikasi Jawaban</button>
         <div class="explanation-box" id="exp_q9">
           <strong>Pembahasan Mendalam:</strong><br>
-          $$\lim_{x 	o 0} \left(rac{	an 3x}{3x} \cdot rac{2x}{\sin 2x} \cdot rac{3}{2}ight) = 1 \cdot 1 \cdot rac{3}{2} = rac{3}{2}$$
+          $$\lim_{x \to 0} \left(\frac{\tan 3x}{3x} \cdot \frac{2x}{\sin 2x} \cdot \frac{3}{2}\right) = 1 \cdot 1 \cdot \frac{3}{2} = \frac{3}{2}$$
         </div>
       </div>
 
@@ -1319,7 +1309,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
           <span class="difficulty-badge difficulty-high">High</span>
         </div>
         <div class="quiz-prompt">
-          Nilai dari $\lim_{x 	o 2} rac{x^3 - 8}{x - 2}$ adalah...
+          Nilai dari $\lim_{x \to 2} \frac{x^3 - 8}{x - 2}$ adalah...
         </div>
         <div class="quiz-options">
           <label class="option-label"><input type="radio" name="opt_q10" value="A"> A. $4$</label>
@@ -1331,7 +1321,7 @@ eq 7$), syarat ketiga <strong>TIDAK TERPENUHI</strong>.</p>
         <div class="explanation-box" id="exp_q10">
           <strong>Pembahasan Mendalam:</strong><br>
           Faktorkan selisih kubik $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$:<br>
-          $$\lim_{x 	o 2} rac{(x - 2)(x^2 + 2x + 4)}{x - 2} = \lim_{x 	o 2} (x^2 + 2x + 4) = 2^2 + 2(2) + 4 = 4 + 4 + 4 = 12$$
+          $$\lim_{x \to 2} \frac{(x - 2)(x^2 + 2x + 4)}{x - 2} = \lim_{x \to 2} (x^2 + 2x + 4) = 2^2 + 2(2) + 4 = 4 + 4 + 4 = 12$$
         </div>
       </div>
 
