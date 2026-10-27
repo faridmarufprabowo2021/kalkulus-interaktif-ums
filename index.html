@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi & Latihan Soal Persiapan UTS Kalkulus 1 (Week 1–4) — UMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-subtle: #f2f1ed;
+      --text: #26251e;
+      --text-muted: #73726c;
+      --border: #cdcdc9;
+      --border-subtle: rgba(38, 37, 30, 0.08);
+      --accent: #f54e00;
+      --accent-hover: #d94500;
+      --accent-subtle: rgba(245, 78, 0, 0.08);
+      --success: #34785c;
+      --success-bg: rgba(52, 120, 92, 0.1);
+      --danger: #cf2d56;
+      --danger-bg: rgba(207, 45, 86, 0.1);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-mockup: 0 28px 70px rgba(0,0,0,0.12), 0 14px 32px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    .nav-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    .nav-island {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link:hover {
+      color: var(--text);
+      background: var(--surface-subtle);
+    }
+    .nav-link.active {
+      color: #ffffff;
+      background: var(--text);
+    }
+    .nav-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: rgba(245, 78, 0, 0.15);
+      color: var(--accent);
+      padding: 1px 6px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 24px 0 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 0 32px 0;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero-badge span {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 600;
+      letter-spacing: -1.3px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 17.5px;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 28px auto;
+      line-height: 1.55;
+    }
+    .uts-banner-alert {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      max-width: 760px;
+      margin: 0 auto 36px auto;
+      text-align: left;
+      font-size: 14px;
+      color: #3f3e37;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      .uts-banner-alert { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Modules Grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 768px) {
+      .modules-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+    }
+
+    .module-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+    .module-header {
+      background: var(--surface-subtle);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .module-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .module-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .module-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      flex: 1;
+    }
+    .module-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .mod-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      color: var(--text);
+    }
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 16px;
+      background: var(--text);
+      color: #ffffff;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.15s ease;
+    }
+    .btn-launch:hover {
+      background: #3f3e36;
+    }
+
+    /* UTS Timer & Control Bar */
+    .uts-timer-card {
+      background: #26251e;
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    .timer-display {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #f54e00;
+      line-height: 1;
+    }
+    .timer-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-timer {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-timer:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .btn-timer.primary {
+      background: #f54e00;
+      border-color: #f54e00;
+    }
+
+    /* Scoreboard Banner */
+    .scoreboard-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 820px) {
+      .scoreboard-panel { grid-template-columns: 1fr; }
+    }
+
+    .score-summary {
+      text-align: center;
+      border-right: 1px solid var(--border);
+      padding-right: 24px;
+    }
+    @media (max-width: 820px) {
+      .score-summary { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+    }
+    .score-big {
+      font-family: var(--font-mono);
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .score-pct {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--surface-subtle);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .grade-badge.a { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+    .grade-badge.b { background: rgba(29, 78, 216, 0.1); color: #1d4ed8; border-color: #1d4ed8; }
+    .grade-badge.c { background: rgba(192, 133, 50, 0.1); color: #c08532; border-color: #c08532; }
+    .grade-badge.d { background: var(--danger-bg); color: var(--danger); border-color: var(--danger); }
+
+    .mastery-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mastery-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .mastery-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-family: var(--font-mono);
+      color: var(--text);
+    }
+    .bar-track {
+      height: 8px;
+      background: var(--surface-subtle);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Cheatsheet Collapsible */
+    .cheatsheet-wrapper {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    .cheatsheet-toggle {
+      width: 100%;
+      background: var(--surface-subtle);
+      border: none;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: left;
+    }
+    .cheatsheet-toggle:hover {
+      background: #eae9e4;
+    }
+    .cheatsheet-content {
+      padding: 24px;
+      display: none;
+      border-top: 1px solid var(--border);
+    }
+    .cheatsheet-content.show {
+      display: block;
+    }
+    .cheat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 768px) {
+      .cheat-grid { grid-template-columns: 1fr; }
+    }
+    .cheat-card {
+      background: #fafaf8;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+    .cheat-card h4 {
+      font-size: 13px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .cheat-card p, .cheat-card code {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Filter Toolbar */
+    .filter-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: var(--surface-subtle);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+    }
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: transparent;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn:hover {
+      color: var(--text);
+    }
+    .filter-btn.active {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    /* Quiz Component */
+    .quiz-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.15s ease;
+    }
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .quiz-badges {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .module-pill {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      color: var(--text);
+      font-weight: 600;
+      border: 1px solid var(--border-subtle);
+    }
+    .difficulty-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+    }
+    .difficulty-medium {
+      background: rgba(52, 120, 92, 0.12);
+      color: var(--success);
+    }
+    .difficulty-high {
+      background: rgba(245, 78, 0, 0.12);
+      color: var(--accent);
+    }
+    .quiz-prompt {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 9px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: var(--surface-subtle);
+      font-size: 14px;
+    }
+    .option-label:hover {
+      border-color: var(--border);
+      background: #eae9e4;
+    }
+    .option-label input {
+      margin-right: 12px;
+      accent-color: var(--text);
+    }
+    .option-label.correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: var(--success);
+      font-weight: 500;
+    }
+    .option-label.incorrect {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: var(--danger);
+    }
+    .explanation-box {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 13.5px;
+      display: none;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-action {
+      background: var(--text);
+      color: #ffffff;
+      border: none;
+      padding: 7px 16px;
+      font-size: 12.5px;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .btn-action:hover {
+      background: #3f3e36;
+    }
+
+    @media print {
+      .nav-wrapper, .filter-toolbar, .uts-timer-card, .btn-action, .btn-launch { display: none !important; }
+      body { background: #ffffff; color: #000000; }
+      .quiz-card { border: 1px solid #ccc; page-break-inside: avoid; }
+      .explanation-box { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Island Navigation -->
+  <div class="nav-wrapper">
+    <nav class="nav-island">
+      <a href="index.html" class="nav-link active">Hub Utama <span class="nav-badge">Simulasi UTS</span></a>
+      <a href="week1-bilangan.html" class="nav-link">Week 1</a>
+      <a href="week2-trigonometri.html" class="nav-link">Week 2</a>
+      <a href="week3-fungsi.html" class="nav-link">Week 3</a>
+      <a href="week4-limit.html" class="nav-link">Week 4</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="hero-badge">
+        <span></span> KALKULUS 1 — BANK SOAL & SIMULASI UJIAN TENGAH SEMESTER (UTS)
+      </div>
+      <h1>Simulasi Ujian Tengah Semester (UTS) Kalkulus 1</h1>
+      <p>Bank latihan soal terpadu komprehensif untuk persiapan menghadapi UTS Kalkulus 1 (Cakupan Week 1 hingga Week 4: Bilangan & Representasi, Trigonometri, Fungsi Pemetaan, dan Limit & Kontinuitas). Dilengkapi simulasi timer ujian 90 menit, prediksi indeks nilai akademik (A, B, C, D), lembar rumus cepat UTS, dan kunci pembahasan KaTeX.</p>
+
+      <div class="uts-banner-alert">
+        <div>
+          <strong>Informasi UTS:</strong> Ujian Tengah Semester mencakup 4 materi pokok dengan total 20 butir soal (5 butir per topik, bobot seimbang 25%). Ambang batas nilai A akademik adalah $\ge 80\%$ (minimal 16 benar).
+        </div>
+        <button class="btn-action" onclick="window.print()" style="white-space:nowrap; background:#ffffff; color:var(--text); border:1px solid var(--border);">Cetak / Simpan PDF</button>
+      </div>
+    </header>
+
+    <!-- UTS Live Timer Card -->
+    <div class="uts-timer-card">
+      <div>
+        <div style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; color:rgba(255,255,255,0.7); letter-spacing:0.5px; margin-bottom:4px;">
+          Simulasi Waktu Pengerjaan UTS (Standar 90 Menit)
+        </div>
+        <div class="timer-display" id="examTimer">01:30:00</div>
+      </div>
+      <div class="timer-controls">
+        <button class="btn-timer primary" id="timerStartBtn" onclick="toggleTimer()">Mulai Timer UTS</button>
+        <button class="btn-timer" onclick="resetTimer()">Reset Waktu</button>
+      </div>
+    </div>
+
+    <!-- 4 Module Cards Overview -->
+    <div class="modules-grid">
+      <!-- Week 1 -->
+      <div class="module-card">
+        <div class="module-header">
+          <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--text-muted);">MATERI UTS 01</span>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent);">WEEK 1 (BOBOT 25%)</span>
+        </div>
+        <div class="module-body">
+          <h3 class="module-title">Bilangan & Representasi</h3>
+          <p class="module-desc">Perbedaan bilangan vs angka, hierarki himpunan ($\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$), representasi titik 1D-3D, daerah pertidaksamaan 2D, dan merasionalkan penyebut akar.</p>
+          <div class="module-tags">
+            <span class="mod-tag">Hierarki Himpunan</span>
+            <span class="mod-tag">Daerah Kartesius 2D</span>
+            <span class="mod-tag">Bentuk Sekawan</span>
+            <span class="mod-tag">PEMDAS</span>
+          </div>
+          <a href="week1-bilangan.html" class="btn-launch">Pelajari Teori & Modul Week 1 →</a>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="module-card">
+        <div class="module-header">
+          <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--text-muted);">MATERI UTS 02</span>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent);">WEEK 2 (BOBOT 25%)</span>
+        </div>
+        <div class="module-body">
+          <h3 class="module-title">Trigonometri & Lingkaran Satuan</h3>
+          <p class="module-desc">Rasio Pythagoras segitiga siku-siku, perputaran sudut dinamis lingkaran satuan $r=1$, kaidah tanda 4 kuadran ASTC, 8 keluarga identitas sudut ganda, dan persamaan trigonometri.</p>
+          <div class="module-tags">
+            <span class="mod-tag">Unit Circle r=1</span>
+            <span class="mod-tag">Kaidah ASTC</span>
+            <span class="mod-tag">Sudut Ganda</span>
+            <span class="mod-tag">Sum-to-Product</span>
+          </div>
+          <a href="week2-trigonometri.html" class="btn-launch">Pelajari Teori & Modul Week 2 →</a>
+        </div>
+      </div>
+
+      <!-- Week 3 -->
+      <div class="module-card">
+        <div class="module-header">
+          <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--text-muted);">MATERI UTS 03</span>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent);">WEEK 3 (BOBOT 25%)</span>
+        </div>
+        <div class="module-body">
+          <h3 class="module-title">Fungsi Bilangan & Pemetaan Khusus</h3>
+          <p class="module-desc">Relasi pemetaan $f: A \to B$, domain & range, syarat bijektif fungsi invers, komposisi aljabar, tangga floor ($\lfloor x \rfloor$) & ceiling ($\lceil x \rceil$), serta algoritma modulo dividen negatif.</p>
+          <div class="module-tags">
+            <span class="mod-tag">Injektif-Surjektif</span>
+            <span class="mod-tag">Invers & Komposisi</span>
+            <span class="mod-tag">Modulo Negatif</span>
+            <span class="mod-tag">Floor/Ceiling</span>
+          </div>
+          <a href="week3-fungsi.html" class="btn-launch">Pelajari Teori & Modul Week 3 →</a>
+        </div>
+      </div>
+
+      <!-- Week 4 -->
+      <div class="module-card">
+        <div class="module-header">
+          <span style="font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--text-muted);">MATERI UTS 04</span>
+          <span style="font-family:var(--font-mono); font-size:11px; color:var(--accent);">WEEK 4 (BOBOT 25%)</span>
+        </div>
+        <div class="module-body">
+          <h3 class="module-title">Limit & Kontinuitas</h3>
+          <p class="module-desc">Limit sepihak dan eksistensi, resolusi bentuk tak tentu $0/0$ pemfaktoran & sekawan akar, limit istimewa trigonometri $\lim \frac{\sin x}{x} = 1$, 3 aksioma kontinuitas, dan tuning parameter piecewise.</p>
+          <div class="module-tags">
+            <span class="mod-tag">Bentuk Tak Tentu 0/0</span>
+            <span class="mod-tag">Limit Trigonometri</span>
+            <span class="mod-tag">3 Syarat Kontinu</span>
+            <span class="mod-tag">Asimtot Tak Hingga</span>
+          </div>
+          <a href="week4-limit.html" class="btn-launch">Pelajari Teori & Modul Week 4 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cheatsheet Collapsible -->
+    <div class="cheatsheet-wrapper">
+      <button class="cheatsheet-toggle" onclick="toggleCheatsheet()">
+        <span>📐 Buka Lembar Rumus Cepat Persiapan UTS (Week 1–4 Cheatsheet)</span>
+        <span id="cheatToggleIcon">+ Klik untuk Membuka</span>
+      </button>
+      <div class="cheatsheet-content" id="cheatsheetContent">
+        <div class="cheat-grid">
+          <div class="cheat-card">
+            <h4>Week 1: Bilangan & Aljabar</h4>
+            <p>
+              • Hierarki: $\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$<br>
+              • Nilai Mutlak: $|u| \le k \iff -k \le u \le k$<br>
+              • Sekawan: $(a - \sqrt{b})(a + \sqrt{b}) = a^2 - b$<br>
+              • Desimal Berulang: $0.\overline{7} = \frac{7}{9}, \quad 0.\overline{9} = 1 \in \mathbb{N}$
+            </p>
+          </div>
+          <div class="cheat-card">
+            <h4>Week 2: Trigonometri</h4>
+            <p>
+              • Pythagoras: $\sin^2\theta + \cos^2\theta = 1, \quad 1 + \tan^2\theta = \sec^2\theta$<br>
+              • Ganda: $\sin 2x = 2\sin x\cos x, \quad \cos 2x = 2\cos^2 x - 1 = 1 - 2\sin^2 x$<br>
+              • Rentang: $A\sin x + B\cos x \in [-\sqrt{A^2+B^2}, +\sqrt{A^2+B^2}]$<br>
+              • Setengah: $\tan(\theta/2) = \frac{1 - \cos\theta}{\sin\theta}$
+            </p>
+          </div>
+          <div class="cheat-card">
+            <h4>Week 3: Fungsi Khusus & Modulo</h4>
+            <p>
+              • Invers Pecahan: $f(x) = \frac{ax+b}{cx+d} \implies f^{-1}(x) = \frac{-dx+b}{cx-a}$<br>
+              • Modulo Euclid: $a = m \cdot q + r$ ($0 \le r < m, q = \lfloor a/m \rfloor$)<br>
+              • Contoh UMS: $-25 \bmod 7 = 3, \quad -38 \bmod 7 = 4, \quad -47 \bmod 6 = 1$<br>
+              • Tangga: $\lfloor -4.3 \rfloor = -5, \quad \lceil -4.3 \rceil = -4$
+            </p>
+          </div>
+          <div class="cheat-card">
+            <h4>Week 4: Limit & Kontinuitas</h4>
+            <p>
+              • Limit Trig: $\lim_{x\to 0}\frac{\sin ax}{bx} = \frac{a}{b}, \quad \lim_{x\to 0}\frac{1-\cos 2x}{x^2} = 2$<br>
+              • Selisih Akar: $\lim_{x\to\infty}(\sqrt{ax^2+bx+c}-\sqrt{ax^2+qx+r}) = \frac{b-q}{2\sqrt{a}}$<br>
+              • 3 Syarat Cauchy: (1) $f(c)$ ada, (2) $\lim_{x\to c} f(x)$ ada, (3) $\lim f(x) = f(c)$
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grand Master Arena Section Header -->
+    <div style="margin-top:40px; margin-bottom:20px;">
+      <h2 style="font-size:28px; font-weight:600; letter-spacing:-0.8px; margin-bottom:6px;">
+        Bank Soal Simulasi Ujian Tengah Semester (20 Soal Terpadu)
+      </h2>
+      <p style="color:var(--text-muted); font-size:15px;">
+        Kerjakan seluruh 20 butir soal simulasi UTS di bawah ini. Jawaban dinilai secara otomatis dengan kalkulasi indeks huruf akademik dan analisis ketuntasan per sub-materi.
+      </p>
+    </div>
+
+    <!-- Live Scoreboard Panel -->
+    <div class="scoreboard-panel">
+      <div class="score-summary">
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); letter-spacing:0.5px; margin-bottom:6px;">PREDIKSI NILAI UTS</div>
+        <div class="score-big" id="grandScoreDisplay">0 / 20</div>
+        <div class="score-pct" id="grandPctDisplay">0% Akumulasi</div>
+        <div id="gradeBadgeContainer">
+          <span class="grade-badge" id="gradeBadge">Belum Dinilai</span>
+        </div>
+      </div>
+
+      <div class="mastery-bars">
+        <div class="mastery-item">
+          <div class="mastery-label-row">
+            <span>Bagian 1: Bilangan & Aljabar (Week 1)</span>
+            <span id="m1-stat">0 / 5 (0%)</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" id="m1-bar"></div></div>
+        </div>
+        <div class="mastery-item">
+          <div class="mastery-label-row">
+            <span>Bagian 2: Trigonometri & Identitas (Week 2)</span>
+            <span id="m2-stat">0 / 5 (0%)</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" id="m2-bar"></div></div>
+        </div>
+        <div class="mastery-item">
+          <div class="mastery-label-row">
+            <span>Bagian 3: Fungsi Khusus & Modulo (Week 3)</span>
+            <span id="m3-stat">0 / 5 (0%)</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" id="m3-bar"></div></div>
+        </div>
+        <div class="mastery-item">
+          <div class="mastery-label-row">
+            <span>Bagian 4: Limit & Kontinuitas (Week 4)</span>
+            <span id="m4-stat">0 / 5 (0%)</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" id="m4-bar"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Toolbar -->
+    <div class="filter-toolbar">
+      <div class="filter-group">
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted); align-self:center; margin-right:4px;">Filter Bagian UTS:</span>
+        <button class="filter-btn active" onclick="filterQuiz('all', this)">Semua Bagian (20)</button>
+        <button class="filter-btn" onclick="filterQuiz('w1', this)">Bagian 1: Bilangan (5)</button>
+        <button class="filter-btn" onclick="filterQuiz('w2', this)">Bagian 2: Trigonometri (5)</button>
+        <button class="filter-btn" onclick="filterQuiz('w3', this)">Bagian 3: Fungsi (5)</button>
+        <button class="filter-btn" onclick="filterQuiz('w4', this)">Bagian 4: Limit (5)</button>
+      </div>
+      <div>
+        <button class="btn-action" onclick="resetQuiz()" style="background:transparent; color:var(--text); border:1px solid var(--border);">Reset Ujian UTS</button>
+      </div>
+    </div>
+
+    <!-- 20 Integrated Questions -->
+    <div id="quizContainer">
+
+      <!-- ================= WEEK 1 QUESTIONS (Q1-Q5) ================= -->
+      <!-- Q1 -->
+      <div class="quiz-card" data-module="w1" id="gq1">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 1 — WEEK 1</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 01</span>
+        </div>
+        <div class="quiz-prompt">
+          Rasionalkan penyebut dari pecahan aljabar bentuk akar $\frac{10}{2\sqrt{3} - \sqrt{2}}$. Bentuk paling sederhananya adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq1" value="A"> A. $2\sqrt{3} + \sqrt{2}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq1" value="B"> B. $2\sqrt{3} - \sqrt{2}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq1" value="C"> C. $\frac{10\sqrt{3} + 5\sqrt{2}}{10}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq1" value="D"> D. $4\sqrt{3} + 2\sqrt{2}$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq1', 'w1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq1">
+          <strong>Bukti:</strong> Kalikan dengan sekawan $(2\sqrt{3} + \sqrt{2})$:<br>
+          $$\frac{10(2\sqrt{3} + \sqrt{2})}{(2\sqrt{3})^2 - (\sqrt{2})^2} = \frac{10(2\sqrt{3} + \sqrt{2})}{12 - 2} = \frac{10(2\sqrt{3} + \sqrt{2})}{10} = 2\sqrt{3} + \sqrt{2}.$$
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" data-module="w1" id="gq2">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 1 — WEEK 1</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 02</span>
+        </div>
+        <div class="quiz-prompt">
+          Buktikan bahwa desimal berulang $x = 0.777... = 0.\overline{7}$ merupakan bilangan rasional. Berapakah pecahan biasa paling sederhana $\frac{a}{b}$ untuk $x$?
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq2" value="A"> A. $\frac{7}{9}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq2" value="B"> B. $\frac{7}{10}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq2" value="C"> C. $\frac{77}{99}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq2" value="D"> D. $\frac{7}{11}$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq2', 'w1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq2">
+          <strong>Bukti:</strong> Misalkan $x = 0.\overline{7} \implies 10x = 7.\overline{7}$. Kurangkan: $10x - x = 7 \implies 9x = 7 \implies x = \frac{7}{9} \in \mathbb{Q}$.
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" data-module="w1" id="gq3">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 1 — WEEK 1</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 03</span>
+        </div>
+        <div class="quiz-prompt">
+          Himpunan penyelesaian sistem pertidaksamaan nilai mutlak simultan $\begin{cases} |2x - 3| < 5 \\ |x + 1| \ge 2 \end{cases}$ pada garis bilangan real adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq3" value="A"> A. $[1, 4)$</label>
+          <label class="option-label"><input type="radio" name="opt_gq3" value="B"> B. $(-1, 4)$</label>
+          <label class="option-label"><input type="radio" name="opt_gq3" value="C"> C. $(-\infty, -3] \cup [1, 4)$</label>
+          <label class="option-label"><input type="radio" name="opt_gq3" value="D"> D. $[-3, 4)$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq3', 'w1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq3">
+          <strong>Irisan Dua Pertidaksamaan:</strong><br>
+          1) $|2x - 3| < 5 \iff -5 < 2x - 3 < 5 \iff -2 < 2x < 8 \iff -1 < x < 4$.<br>
+          2) $|x + 1| \ge 2 \iff x + 1 \le -2$ atau $x + 1 \ge 2 \iff x \le -3$ atau $x \ge 1$.<br>
+          Irisan: $(-1 < x < 4) \cap (x \le -3 \cup x \ge 1) = [1, 4)$.
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" data-module="w1" id="gq4">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 1 — WEEK 1</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 04</span>
+        </div>
+        <div class="quiz-prompt">
+          Jika $q \in \mathbb{Q}$ ($q \neq 0$) adalah bilangan rasional dan $r \in \mathbb{R} \setminus \mathbb{Q}$ adalah irasional, buktikan sifat hasil bagi $\frac{r}{q}$. Pernyataan yang benar adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq4" value="A"> A. $\frac{r}{q}$ pasti selalu merupakan bilangan irasional</label>
+          <label class="option-label"><input type="radio" name="opt_gq4" value="B"> B. $\frac{r}{q}$ bisa berupa bilangan rasional</label>
+          <label class="option-label"><input type="radio" name="opt_gq4" value="C"> C. $\frac{r}{q}$ selalu menghasilkan bilangan bulat</label>
+          <label class="option-label"><input type="radio" name="opt_gq4" value="D"> D. $\frac{r}{q}$ tidak dapat ditentukan sifatnya</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq4', 'w1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq4">
+          <strong>Bukti Kontradiksi:</strong> Andaikan $\frac{r}{q} = k \in \mathbb{Q}$. Maka $r = k \cdot q$. Karena perkalian dua bilangan rasional $k, q$ pasti menghasilkan bilangan rasional, maka $r \in \mathbb{Q}$. Kontradiksi dengan $r$ irasional. Jadi $\frac{r}{q}$ mutlak irasional.
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" data-module="w1" id="gq5">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 1 — WEEK 1</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 05</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan banyak solusi bilangan real unik yang memenuhi persamaan eksponen:
+          $$(x^2 - 5x + 5)^{x^2 - 9x + 20} = 1$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_gq5" value="A"> A. 3 solusi</label>
+          <label class="option-label"><input type="radio" name="opt_gq5" value="B"> B. 4 solusi</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq5" value="C"> C. 5 solusi</label>
+          <label class="option-label"><input type="radio" name="opt_gq5" value="D"> D. 6 solusi</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq5', 'w1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq5">
+          <strong>Analisis 3 Kasus:</strong><br>
+          1) Pangkat $= 0$: $x^2 - 9x + 20 = 0 \implies x = 4, 5$. Basis saat $x=4$ adalah $16-20+5 = 1 \neq 0$. Basis saat $x=5$ adalah $25-25+5 = 5 \neq 0$. (Solusi: $4, 5$).<br>
+          2) Basis $= 1$: $x^2 - 5x + 5 = 1 \implies x^2 - 5x + 4 = 0 \implies x = 1, 4$. ($x=4$ sudah terhitung, tambahan solusi: $1$).<br>
+          3) Basis $= -1$: $x^2 - 5x + 5 = -1 \implies x^2 - 5x + 6 = 0 \implies x = 2, 3$.<br>
+          - Uji $x = 2$: pangkat $= 4 - 18 + 20 = 6$ (Genap, valid).<br>
+          - Uji $x = 3$: pangkat $= 9 - 27 + 20 = 2$ (Genap, valid).<br>
+          Himpunan solusi real unik: $\{1, 2, 3, 4, 5\}$. Tepat ada <strong>5 solusi real</strong>.
+        </div>
+      </div>
+
+      <!-- ================= WEEK 2 QUESTIONS (Q6-Q10) ================= -->
+      <!-- Q6 -->
+      <div class="quiz-card" data-module="w2" id="gq6">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 2 — WEEK 2</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 06</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan nilai eksak dari $\cos 75^\circ$ menggunakan rumus selisih/jumlah sudut $\cos(45^\circ + 30^\circ)$:
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq6" value="A"> A. $\frac{\sqrt{6} - \sqrt{2}}{4}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq6" value="B"> B. $\frac{\sqrt{6} + \sqrt{2}}{4}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq6" value="C"> C. $\frac{\sqrt{3} - 1}{2}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq6" value="D"> D. $\frac{\sqrt{2}}{4}$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq6', 'w2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq6">
+          <strong>Bukti:</strong> $\cos(\alpha+\beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$.<br>
+          $$\cos(45^\circ+30^\circ) = \left(\frac{\sqrt{2}}{2}\right)\left(\frac{\sqrt{3}}{2}\right) - \left(\frac{\sqrt{2}}{2}\right)\left(\frac{1}{2}\right) = \frac{\sqrt{6} - \sqrt{2}}{4}.$$
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-card" data-module="w2" id="gq7">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 2 — WEEK 2</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 07</span>
+        </div>
+        <div class="quiz-prompt">
+          Jika diketahui $\sin \theta = -\frac{4}{5}$ dan $\theta$ terletak di <strong>Kuadran IV</strong>, maka nilai dari $\sec \theta - \tan \theta$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq7" value="A"> A. 3</label>
+          <label class="option-label"><input type="radio" name="opt_gq7" value="B"> B. $\frac{1}{3}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq7" value="C"> C. $-\frac{1}{3}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq7" value="D"> D. $-3$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq7', 'w2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq7">
+          <strong>Kaidah Kuadran IV:</strong> $x > 0$ dan $y < 0$.<br>
+          $y = -4, r = 5 \implies x = \sqrt{5^2 - (-4)^2} = +3$.<br>
+          $\cos\theta = \frac{3}{5} \implies \sec\theta = \frac{5}{3}$.<br>
+          $\tan\theta = \frac{y}{x} = -\frac{4}{3}$.<br>
+          Maka $\sec\theta - \tan\theta = \frac{5}{3} - \left(-\frac{4}{3}\right) = \frac{9}{3} = \mathbf{3}$.
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-card" data-module="w2" id="gq8">
+        <div class="quiz-header">
+          <div class="quiz-badges">
+            <span class="module-pill">BAGIAN 2 — WEEK 2</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 08</span>
+        </div>
+        <div class="quiz-prompt">
+          Bentuk rasio identitas sudut ganda $\frac{1 - \cos 2x}{\sin 2x}$ ekuivalen dengan...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq8" value="A"> A. $\tan x$</label>
+          <label class="option-label"><input type="radio" name="opt_gq8" value="B"> B. $\cot x$</label>
+          <label class="option-label"><input type="radio" name="opt_gq8" value="C"> C. $\sec x$</label>
+          <label class="option-label"><input type="radio" name="opt_gq8" value="D"> D. $\sin x$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq8', 'w2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq8">
+          <strong>Bukti:</strong> $1 - \cos 2x = 2\sin^2 x$ dan $\sin 2x = 2\sin x \cos x$.<br>
+          $$\frac{2\sin^2 x}{2\sin x \cos x} = \frac{\sin x}{\cos x} = \tan x.$$
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-card" data-module="w2" id="gq9">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 2 — WEEK 2</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 09</span>
+        </div>
+        <div class="quiz-prompt">
+          Himpunan solusi dari persamaan trigonometri $\sin 2x = \cos x$ pada interval $0 \le x \le 2\pi$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq9" value="A"> A. $\left\{\frac{\pi}{6}, \frac{\pi}{2}, \frac{5\pi}{6}, \frac{3\pi}{2}\right\}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq9" value="B"> B. $\left\{\frac{\pi}{6}, \frac{5\pi}{6}\right\}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq9" value="C"> C. $\left\{\frac{\pi}{2}, \frac{3\pi}{2}\right\}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq9" value="D"> D. $\left\{\frac{\pi}{3}, \frac{2\pi}{3}, \pi\right\}$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq9', 'w2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq9">
+          <strong>Faktorisasi:</strong> $\sin 2x - \cos x = 0 \implies 2\sin x \cos x - \cos x = 0 \implies \cos x(2\sin x - 1) = 0$.<br>
+          1) $\cos x = 0 \implies x = \frac{\pi}{2}, \frac{3\pi}{2}$.<br>
+          2) $2\sin x - 1 = 0 \implies \sin x = \frac{1}{2} \implies x = \frac{\pi}{6}, \frac{5\pi}{6}$.<br>
+          Gabungan solusi: $\left\{\frac{\pi}{6}, \frac{\pi}{2}, \frac{5\pi}{6}, \frac{3\pi}{2}\right\}$.
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-card" data-module="w2" id="gq10">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 2 — WEEK 2</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 10</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan rentang nilai (Range) dari fungsi kombinasi harmonik $f(x) = 5\cos x + 12\sin x - 3$:
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq10" value="A"> A. $[-16, 10]$</label>
+          <label class="option-label"><input type="radio" name="opt_gq10" value="B"> B. $[-13, 13]$</label>
+          <label class="option-label"><input type="radio" name="opt_gq10" value="C"> C. $[-10, 16]$</label>
+          <label class="option-label"><input type="radio" name="opt_gq10" value="D"> D. $[-15, 12]$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq10', 'w2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq10">
+          <strong>Bentuk $R\cos(x - \alpha)$:</strong> Amplitudo $R = \sqrt{5^2 + 12^2} = \sqrt{25 + 144} = 13$.<br>
+          Rentang $5\cos x + 12\sin x$ adalah $[-13, 13]$.<br>
+          Maka rentang $f(x) = [-13 - 3, 13 - 3] = [-16, 10]$.
+        </div>
+      </div>
+
+      <!-- ================= WEEK 3 QUESTIONS (Q11-Q15) ================= -->
+      <!-- Q11 -->
+      <div class="quiz-card" data-module="w3" id="gq11">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 3 — WEEK 3</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 11</span>
+        </div>
+        <div class="quiz-prompt">
+          Berdasarkan Algoritma Pembagian Euclid, berapakah sisa pembagian bulat tak-negatif dari $(-47) \bmod 6$?
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq11" value="A"> A. 1</label>
+          <label class="option-label"><input type="radio" name="opt_gq11" value="B"> B. $-5$</label>
+          <label class="option-label"><input type="radio" name="opt_gq11" value="C"> C. 5</label>
+          <label class="option-label"><input type="radio" name="opt_gq11" value="D"> D. $-1$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq11', 'w3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq11">
+          <strong>Algoritma Euclid:</strong> Cari $q = \lfloor -47 / 6 \rfloor = \lfloor -7.833 \rfloor = -8$.<br>
+          $$-47 = 6 \times (-8) + r \implies -47 = -48 + r \implies r = 1.$$
+          Karena $0 \le 1 < 6$, maka $(-47) \bmod 6 = \mathbf{1}$.
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="quiz-card" data-module="w3" id="gq12">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 3 — WEEK 3</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 12</span>
+        </div>
+        <div class="quiz-prompt">
+          Evaluasi nilai fungsi tangga floor dan ceiling berikut:
+          $$\lfloor -5.2 \rfloor + \lceil 4.1 \rceil - \lfloor -1.9 \rfloor$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq12" value="A"> A. 1</label>
+          <label class="option-label"><input type="radio" name="opt_gq12" value="B"> B. $-3$</label>
+          <label class="option-label"><input type="radio" name="opt_gq12" value="C"> C. 3</label>
+          <label class="option-label"><input type="radio" name="opt_gq12" value="D"> D. $-1$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq12', 'w3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq12">
+          <strong>Langkah:</strong><br>
+          1) $\lfloor -5.2 \rfloor = -6$.<br>
+          2) $\lceil 4.1 \rceil = 5$.<br>
+          3) $\lfloor -1.9 \rfloor = -2$.<br>
+          Hasil $= (-6) + 5 - (-2) = -1 + 2 = \mathbf{1}$.
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="quiz-card" data-module="w3" id="gq13">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 3 — WEEK 3</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 13</span>
+        </div>
+        <div class="quiz-prompt">
+          Domain alami dari fungsi real $f(x) = \frac{\sqrt{x - 1}}{x - 4}$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq13" value="A"> A. $[1, 4) \cup (4, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_gq13" value="B"> B. $[1, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_gq13" value="C"> C. $(1, 4) \cup (4, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_gq13" value="D"> D. $(4, \infty)$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq13', 'w3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq13">
+          <strong>Syarat Domain:</strong> $x - 1 \ge 0 \implies x \ge 1$. Dan penyebut $x - 4 \neq 0 \implies x \neq 4$. Maka $[1, 4) \cup (4, \infty)$.
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="quiz-card" data-module="w3" id="gq14">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 3 — WEEK 3</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 14</span>
+        </div>
+        <div class="quiz-prompt">
+          Jika $f(x) = \frac{4x - 1}{2x + 3}$, maka nilai dari fungsi invers $f^{-1}(1)$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq14" value="A"> A. 2</label>
+          <label class="option-label"><input type="radio" name="opt_gq14" value="B"> B. $\frac{3}{5}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq14" value="C"> C. 1</label>
+          <label class="option-label"><input type="radio" name="opt_gq14" value="D"> D. $-2$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq14', 'w3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq14">
+          <strong>Perhitungan Invers:</strong> $f(x) = 1 \iff \frac{4x - 1}{2x + 3} = 1 \implies 4x - 1 = 2x + 3 \implies 2x = 4 \implies x = 2$. Maka $f^{-1}(1) = \mathbf{2}$.
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="quiz-card" data-module="w3" id="gq15">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 3 — WEEK 3</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 15</span>
+        </div>
+        <div class="quiz-prompt">
+          Diberikan fungsi rasional $h(x) = \frac{x - 1}{x}$. Tentukan nilai dari komposisi 2026 kali $h^{2026}(3)$:
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_gq15" value="A"> A. $-\frac{1}{2}$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq15" value="B"> B. $\frac{2}{3}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq15" value="C"> C. 3</label>
+          <label class="option-label"><input type="radio" name="opt_gq15" value="D"> D. $-3$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq15', 'w3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq15">
+          <strong>Pola Siklus:</strong><br>
+          $h^1(3) = \frac{3 - 1}{3} = \frac{2}{3}$.<br>
+          $h^2(3) = h(2/3) = \frac{2/3 - 1}{2/3} = \frac{-1/3}{2/3} = -\frac{1}{2}$.<br>
+          $h^3(3) = h(-1/2) = \frac{-1/2 - 1}{-1/2} = \frac{-3/2}{-1/2} = 3$.<br>
+          Periode $T = 3$. Karena $2026 \bmod 3 = 1$, maka $h^{2026}(3) = h^1(3) = \mathbf{\frac{2}{3}}$.
+        </div>
+      </div>
+
+      <!-- ================= WEEK 4 QUESTIONS (Q16-Q20) ================= -->
+      <!-- Q16 -->
+      <div class="quiz-card" data-module="w4" id="gq16">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 4 — WEEK 4</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 16</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan nilai dari limit bentuk sekawan akar:
+          $$\lim_{x \to 3} \frac{x^2 - 9}{\sqrt{x + 1} - 2}$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq16" value="A"> A. 24</label>
+          <label class="option-label"><input type="radio" name="opt_gq16" value="B"> B. 12</label>
+          <label class="option-label"><input type="radio" name="opt_gq16" value="C"> C. 6</label>
+          <label class="option-label"><input type="radio" name="opt_gq16" value="D"> D. 48</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq16', 'w4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq16">
+          <strong>Perkalian Sekawan:</strong><br>
+          $$\lim_{x \to 3} \frac{(x-3)(x+3)(\sqrt{x+1}+2)}{(x+1) - 4} = \lim_{x \to 3} \frac{(x-3)(x+3)(\sqrt{x+1}+2)}{x - 3}$$
+          $$= (3 + 3)(\sqrt{3 + 1} + 2) = 6 \times (2 + 2) = 6 \times 4 = \mathbf{24}.$$
+        </div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="quiz-card" data-module="w4" id="gq17">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 4 — WEEK 4</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 17</span>
+        </div>
+        <div class="quiz-prompt">
+          Nilai dari limit trigonometri dasar:
+          $$\lim_{x \to 0} \frac{\sin 6x}{\tan 2x}$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq17" value="A"> A. 3</label>
+          <label class="option-label"><input type="radio" name="opt_gq17" value="B"> B. $\frac{1}{3}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq17" value="C"> C. 12</label>
+          <label class="option-label"><input type="radio" name="opt_gq17" value="D"> D. 0</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq17', 'w4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq17">
+          <strong>Teorema Limit Trigonometri:</strong> $\lim_{x\to 0} \frac{\sin ax}{\tan bx} = \frac{a}{b} = \frac{6}{2} = \mathbf{3}$.
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="quiz-card" data-module="w4" id="gq18">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 4 — WEEK 4</span>
+            <span class="difficulty-badge difficulty-medium">Medium</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 18</span>
+        </div>
+        <div class="quiz-prompt">
+          Nilai dari limit rasional tak hingga:
+          $$\lim_{x \to \infty} \frac{3x^2 + 4x - 5}{7x^2 - 2x + 1}$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq18" value="A"> A. $\frac{3}{7}$</label>
+          <label class="option-label"><input type="radio" name="opt_gq18" value="B"> B. $\infty$</label>
+          <label class="option-label"><input type="radio" name="opt_gq18" value="C"> C. 0</label>
+          <label class="option-label"><input type="radio" name="opt_gq18" value="D"> D. $-\frac{5}{1}$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq18', 'w4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq18">
+          <strong>Derajat Sama:</strong> Pangkat tertinggi pembilang dan penyebut adalah $x^2$. Rasio koefisien $=\frac{3}{7}$.
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="quiz-card" data-module="w4" id="gq19">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 4 — WEEK 4</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 19</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan nilai konstanta $c$ agar fungsi sepotong berikut kontinu di $x = 3$:
+          $$f(x) = \begin{cases} cx + 2, & x < 3 \\ c x^2 - 4, & x \ge 3 \end{cases}$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq19" value="A"> A. $c = 1$</label>
+          <label class="option-label"><input type="radio" name="opt_gq19" value="B"> B. $c = 2$</label>
+          <label class="option-label"><input type="radio" name="opt_gq19" value="C"> C. $c = -1$</label>
+          <label class="option-label"><input type="radio" name="opt_gq19" value="D"> D. $c = 0.5$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq19', 'w4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq19">
+          <strong>Syarat Kontinuitas:</strong> $\lim_{x \to 3^-} f(x) = \lim_{x \to 3^+} f(x) = f(3)$.<br>
+          $3c + 2 = 9c - 4 \implies 6c = 6 \implies \mathbf{c = 1}$.
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="quiz-card" data-module="w4" id="gq20">
+        <div class="quiz-header">
+          <span class="quiz-badges">
+            <span class="module-pill">BAGIAN 4 — WEEK 4</span>
+            <span class="difficulty-badge difficulty-high">High</span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">SOAL UTS 20</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan nilai dari limit tak hingga selisih bentuk akar:
+          $$\lim_{x \to \infty} \left( \sqrt{x^2 + 6x} - x \right)$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_gq20" value="A"> A. 3</label>
+          <label class="option-label"><input type="radio" name="opt_gq20" value="B"> B. 6</label>
+          <label class="option-label"><input type="radio" name="opt_gq20" value="C"> C. 0</label>
+          <label class="option-label"><input type="radio" name="opt_gq20" value="D"> D. $\infty$</label>
+        </div>
+        <button class="btn-action" onclick="checkGrandAnswer('gq20', 'w4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_gq20">
+          <strong>Perkalian Sekawan Tak Hingga:</strong><br>
+          $$\lim_{x \to \infty} \frac{(\sqrt{x^2+6x}-x)(\sqrt{x^2+6x}+x)}{\sqrt{x^2+6x}+x} = \lim_{x \to \infty} \frac{x^2 + 6x - x^2}{\sqrt{x^2+6x}+x} = \lim_{x \to \infty} \frac{6x}{x\sqrt{1 + 6/x} + x} = \frac{6}{1 + 1} = \mathbf{3}.$$
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      }
+    });
+
+    // UTS Timer Logic (90 Menit = 5400 detik)
+    let timerSeconds = 5400;
+    let timerInterval = null;
+    let isRunning = false;
+
+    function toggleTimer() {
+      const btn = document.getElementById("timerStartBtn");
+      if (!isRunning) {
+        isRunning = true;
+        btn.textContent = "Jeda Timer";
+        btn.style.background = "#c08532";
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isRunning = false;
+            btn.textContent = "Waktu UTS Selesai";
+            alert("Waktu pengerjaan simulasi UTS (90 menit) telah habis!");
+          }
+        }, 1000);
+      } else {
+        clearInterval(timerInterval);
+        isRunning = false;
+        btn.textContent = "Lanjutkan Timer";
+        btn.style.background = "#f54e00";
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isRunning = false;
+      timerSeconds = 5400;
+      updateTimerDisplay();
+      const btn = document.getElementById("timerStartBtn");
+      btn.textContent = "Mulai Timer UTS";
+      btn.style.background = "#f54e00";
+    }
+
+    function updateTimerDisplay() {
+      const hrs = Math.floor(timerSeconds / 3600);
+      const mins = Math.floor((timerSeconds % 3600) / 60);
+      const secs = timerSeconds % 60;
+      const fmt = `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      document.getElementById("examTimer").textContent = fmt;
+    }
+
+    // Cheatsheet Toggle
+    function toggleCheatsheet() {
+      const content = document.getElementById("cheatsheetContent");
+      const icon = document.getElementById("cheatToggleIcon");
+      if (content.classList.contains("show")) {
+        content.classList.remove("show");
+        icon.textContent = "+ Klik untuk Membuka";
+      } else {
+        content.classList.add("show");
+        icon.textContent = "− Tutup Lembar Rumus";
+        if (window.renderMathInElement) {
+          renderMathInElement(content, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ]
+          });
+        }
+      }
+    }
+
+    // Scoreboard & Grade Calculation
+    const grandAnswers = {};
+
+    function checkGrandAnswer(qid, mod) {
+      const card = document.getElementById(qid);
+      const options = card.querySelectorAll("input[type='radio']");
+      let isCorrect = false;
+
+      options.forEach(opt => {
+        const label = opt.closest(".option-label");
+        label.classList.remove("correct", "incorrect");
+        if (opt.checked) {
+          if (label.getAttribute("data-correct") === "true") {
+            isCorrect = true;
+            label.classList.add("correct");
+          } else {
+            label.classList.add("incorrect");
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        options.forEach(opt => {
+          const label = opt.closest(".option-label");
+          if (label.getAttribute("data-correct") === "true") {
+            label.classList.add("correct");
+          }
+        });
+      }
+
+      grandAnswers[qid] = { correct: isCorrect, module: mod };
+      const exp = document.getElementById("exp_" + qid);
+      exp.classList.add("show");
+      if (window.renderMathInElement) {
+        renderMathInElement(exp, {delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}]});
+      }
+
+      updateGrandScoreboard();
+    }
+
+    function updateGrandScoreboard() {
+      let totalCorrect = 0;
+      const modCorrect = { w1: 0, w2: 0, w3: 0, w4: 0 };
+
+      for (const qid in grandAnswers) {
+        if (grandAnswers[qid].correct) {
+          totalCorrect++;
+          modCorrect[grandAnswers[qid].module]++;
+        }
+      }
+
+      const totalPct = Math.round((totalCorrect / 20) * 100);
+      document.getElementById("grandScoreDisplay").textContent = `${totalCorrect} / 20`;
+      document.getElementById("grandPctDisplay").textContent = `${totalPct}% Nilai Ujian`;
+
+      // Academic Grade Determination
+      const badge = document.getElementById("gradeBadge");
+      badge.className = "grade-badge";
+      if (Object.keys(grandAnswers).length === 0) {
+        badge.textContent = "Belum Dinilai";
+      } else if (totalPct >= 80) {
+        badge.classList.add("a");
+        badge.textContent = `Prediksi: Nilai A (Sangat Memuaskan — Siap 100% UTS!)`;
+      } else if (totalPct >= 70) {
+        badge.classList.add("b");
+        badge.textContent = `Prediksi: Nilai B (Baik — Pertajam Sedikit Lagi)`;
+      } else if (totalPct >= 60) {
+        badge.classList.add("c");
+        badge.textContent = `Prediksi: Nilai C (Cukup — Perbanyak Latihan)`;
+      } else {
+        badge.classList.add("d");
+        badge.textContent = `Prediksi: Nilai D/E (Review Ulang Modul Week 1–4)`;
+      }
+
+      ['w1', 'w2', 'w3', 'w4'].forEach((m, idx) => {
+        const count = modCorrect[m];
+        const pct = Math.round((count / 5) * 100);
+        document.getElementById(`m${idx+1}-stat`).textContent = `${count} / 5 (${pct}%)`;
+        document.getElementById(`m${idx+1}-bar`).style.width = `${pct}%`;
+      });
+    }
+
+    function filterQuiz(mod, btn) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const cards = document.querySelectorAll("#quizContainer .quiz-card");
+      cards.forEach(card => {
+        if (mod === "all" || card.getAttribute("data-module") === mod) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll("#quizContainer input[type='radio']").forEach(r => r.checked = false);
+      document.querySelectorAll(".option-label").forEach(l => l.classList.remove("correct", "incorrect"));
+      document.querySelectorAll(".explanation-box").forEach(e => e.classList.remove("show"));
+      for (const k in grandAnswers) delete grandAnswers[k];
+      updateGrandScoreboard();
+    }
+  </script>
+</body>
+</html>

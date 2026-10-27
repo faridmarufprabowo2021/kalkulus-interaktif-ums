@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 1: Bilangan & Representasi Bilangan — Kalkulus Interaktif UMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-subtle: #f2f1ed;
+      --text: #26251e;
+      --text-muted: #73726c;
+      --border: #cdcdc9;
+      --border-subtle: rgba(38, 37, 30, 0.08);
+      --accent: #f54e00;
+      --accent-hover: #d94500;
+      --accent-subtle: rgba(245, 78, 0, 0.08);
+      --success: #34785c;
+      --success-bg: rgba(52, 120, 92, 0.1);
+      --danger: #cf2d56;
+      --danger-bg: rgba(207, 45, 86, 0.1);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-mockup: 0 28px 70px rgba(0,0,0,0.12), 0 14px 32px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* Floating Island Nav */
+    .nav-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    .nav-island {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link:hover {
+      color: var(--text);
+      background: var(--surface-subtle);
+    }
+    .nav-link.active {
+      color: #ffffff;
+      background: var(--text);
+    }
+    .nav-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: rgba(245, 78, 0, 0.15);
+      color: var(--accent);
+      padding: 1px 6px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 0 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 0 32px 0;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .hero-badge span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 28px auto;
+      line-height: 1.5;
+    }
+    .hero-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 17px;
+      color: #55544e;
+      background: #fafaf8;
+      border-left: 3px solid var(--accent);
+      padding: 10px 18px;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: left;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    /* macOS Window Mockup */
+    .window-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-mockup);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .window-header {
+      background: var(--surface-subtle);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    .window-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .window-body {
+      padding: 28px;
+    }
+
+    /* Content Typography */
+    h2.section-title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    p.section-desc {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+    }
+
+    .sub-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .sub-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .sub-card p {
+      font-size: 14px;
+      color: #4f4e48;
+      line-height: 1.55;
+    }
+
+    /* Hierarchy diagram */
+    .hierarchy-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .hierarchy-level {
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #fafaf7;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      transition: transform 0.15s ease;
+    }
+    .hierarchy-level:hover {
+      transform: translateX(4px);
+      background: #ffffff;
+      border-color: var(--accent);
+    }
+    .hierarchy-symbol {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+    }
+    .hierarchy-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Interactive Simulator */
+    .sim-panel {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .sim-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      background: rgba(245, 78, 0, 0.1);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .input-text {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      background: #ffffff;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .input-text:focus {
+      border-color: var(--accent);
+    }
+    .btn-action {
+      background: var(--text);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .btn-action:hover {
+      background: #3f3e36;
+    }
+
+    /* Venn Result Badges */
+    .set-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .set-badge {
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+    .set-badge.active {
+      background: var(--success-bg);
+      border-color: var(--success);
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    /* 2D Region Canvas */
+    .canvas-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    canvas {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+    .slider-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .slider-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    /* Quiz Component */
+    .quiz-section {
+      margin-top: 50px;
+    }
+    .quiz-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: box-shadow 0.15s ease;
+    }
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .quiz-number {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .difficulty-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+    }
+    .difficulty-medium {
+      background: rgba(52, 120, 92, 0.12);
+      color: var(--success);
+    }
+    .difficulty-high {
+      background: rgba(245, 78, 0, 0.12);
+      color: var(--accent);
+    }
+    .quiz-prompt {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: var(--surface-subtle);
+      font-size: 14px;
+    }
+    .option-label:hover {
+      border-color: var(--border);
+      background: #eae9e4;
+    }
+    .option-label input {
+      margin-right: 12px;
+      accent-color: var(--text);
+    }
+    .option-label.correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: var(--success);
+      font-weight: 500;
+    }
+    .option-label.incorrect {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: var(--danger);
+    }
+    .explanation-box {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 13.5px;
+      display: none;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .summary-score {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text);
+      font-family: var(--font-mono);
+      letter-spacing: -1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Island Navigation -->
+  <div class="nav-wrapper">
+    <nav class="nav-island">
+      <a href="index.html" class="nav-link">← Hub Utama</a>
+      <a href="week1-bilangan.html" class="nav-link active">Week 1 <span class="nav-badge">Bilangan</span></a>
+      <a href="week2-trigonometri.html" class="nav-link">Week 2</a>
+      <a href="week3-fungsi.html" class="nav-link">Week 3</a>
+      <a href="week4-limit.html" class="nav-link">Week 4</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="hero-badge">
+        <span></span> KALKULUS 1 — UNIVERSITAS MUHAMMADIYAH SURAKARTA
+      </div>
+      <h1>Week 1: Bilangan & Representasi</h1>
+      <p>Fondasi rigor matematika kalkulus: hierarki himpunan bilangan, perbedaan bilangan dan angka, representasi geometris titik hingga daerah pertidaksamaan 2D, serta operasi aljabar akar.</p>
+      <div class="hero-quote">
+        "Angka adalah simbol penulisan (seperti aksara atau glif), sedangkan bilangan adalah konsep abstrak matematis tentang kuantitas nilai. Fondasi kalkulus berakar pada himpunan bilangan real $\mathbb{R}$."
+      </div>
+    </header>
+
+    <!-- macOS Mockup 1: Teori & Hierarki -->
+    <div class="window-card">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="window-title">teori_himpunan_bilangan.tex</div>
+        <div></div>
+      </div>
+      <div class="window-body">
+        <h2 class="section-title">1. Hierarki Rantai Himpunan Bilangan</h2>
+        <p class="section-desc">Setiap himpunan merupakan bagian murni (subset) dari himpunan di atasnya: $\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$.</p>
+
+        <div class="hierarchy-diagram">
+          <div class="hierarchy-level">
+            <div>
+              <span class="hierarchy-symbol">$\mathbb{N}$ (Bilangan Asli / Natural Numbers)</span>
+              <div class="hierarchy-desc">Bilangan bulat positif yang digunakan untuk mencacah objek: $\{1, 2, 3, 4, 5, \dots\}$. Memuat bilangan prima dan komposit.</div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size:12px; color: var(--accent);">Terkecil</div>
+          </div>
+          <div class="hierarchy-level">
+            <div>
+              <span class="hierarchy-symbol">$\mathbb{W}$ (Bilangan Cacah / Whole Numbers)</span>
+              <div class="hierarchy-desc">Himpunan bilangan asli ditambah elemen identitas penjumlahan nol ($0$): $\{0, 1, 2, 3, \dots\}$.</div>
+            </div>
+          </div>
+          <div class="hierarchy-level">
+            <div>
+              <span class="hierarchy-symbol">$\mathbb{Z}$ (Bilangan Bulat / Integers)</span>
+              <div class="hierarchy-desc">Dari bahasa Jerman <em>Zahlen</em>. Memuat bilangan bulat negatif, nol, dan bulat positif: $\{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}$.</div>
+            </div>
+          </div>
+          <div class="hierarchy-level">
+            <div>
+              <span class="hierarchy-symbol">$\mathbb{Q}$ (Bilangan Rasional / Rational Numbers)</span>
+              <div class="hierarchy-desc">Bilangan yang dapat dinyatakan dalam bentuk $\frac{a}{b}$ dengan $a, b \in \mathbb{Z}$ dan $b \neq 0$. Menghasilkan desimal berhenti ($0.25$) atau berulang ($0.\overline{3}$).</div>
+            </div>
+          </div>
+          <div class="hierarchy-level">
+            <div>
+              <span class="hierarchy-symbol">$\mathbb{R}$ (Bilangan Real / Real Numbers)</span>
+              <div class="hierarchy-desc">Gabungan bilangan rasional ($\mathbb{Q}$) dan irasional ($\mathbb{I} = \mathbb{R}\setminus\mathbb{Q}$, desimal tak berhenti & tak berulang seperti $\pi, e, \sqrt{2}$). Memenuhi aksioma kelengkapan kontinum garis real.</div>
+            </div>
+          </div>
+          <div class="hierarchy-level">
+            <div>
+              <span class="hierarchy-symbol">$\mathbb{C}$ (Bilangan Kompleks / Complex Numbers)</span>
+              <div class="hierarchy-desc">Bentuk $z = a + bi$ dengan $a, b \in \mathbb{R}$ dan $i = \sqrt{-1}$. Menutup secara aljabar seluruh persamaan polinomial.</div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size:12px; color: var(--accent);">Universal</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="sub-card">
+            <h3>Prima vs Komposit</h3>
+            <p><strong>Bilangan Prima:</strong> Bilangan bulat $> 1$ yang hanya memiliki tepat 2 pembagi positif (1 dan dirinya sendiri), misal $2, 3, 5, 7, 11$. Angka 2 adalah satu-satunya bilangan prima genap.<br><strong>Bilangan Komposit:</strong> Bilangan bulat $> 1$ yang memiliki lebih dari 2 faktor positif (misal $4, 6, 8, 9, 12$). Angka 1 bukan prima dan bukan komposit.</p>
+          </div>
+          <div class="sub-card">
+            <h3>Representasi Geometris & Dimensi</h3>
+            <p><strong>1D (Garis Bilangan):</strong> Setiap titik mewakili tepat 1 bilangan real. Interval tertutup $[a, b]$ vs terbuka $(a, b)$.<br><strong>2D (Bidang Kartesius $\mathbb{R}^2$):</strong> Pasangan berurutan $(x, y)$ dan daerah solusi pertidaksamaan seperti $x + y \ge 3$.<br><strong>3D (Ruang $\mathbb{R}^3$):</strong> Titik berkoordinat $(x, y, z)$ yang merepresentasikan posisi spasial fisik.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulator 1: Number Classifier -->
+    <div class="sim-panel">
+      <div class="sim-header">
+        <div>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 1: Uji Klasifikasi Himpunan Bilangan</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Ketikkan sembarang bilangan untuk memverifikasi keanggotaan dalam rantai himpunan matematika secara presisi.</p>
+        </div>
+        <span class="sim-tag">INTERACTIVE</span>
+      </div>
+
+      <div class="form-group" style="max-width: 420px;">
+        <label class="form-label" for="numberInput">Masukkan Bilangan (contoh: -7, 0, 5, 3/4, sqrt(2), pi, 4+2i):</label>
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="numberInput" class="input-text" value="3/4" placeholder="Ketik ekspresi bilangan...">
+          <button class="btn-action" onclick="classifyNumber()">Analisis</button>
+        </div>
+      </div>
+
+      <div id="classifierResult" style="margin-top:12px; font-size:14px; font-weight:500;"></div>
+      <div class="set-badges" id="setBadgesContainer">
+        <div class="set-badge" id="badge-N">$\mathbb{N}$ (Asli)</div>
+        <div class="set-badge" id="badge-W">$\mathbb{W}$ (Cacah)</div>
+        <div class="set-badge" id="badge-Z">$\mathbb{Z}$ (Bulat)</div>
+        <div class="set-badge" id="badge-Q">$\mathbb{Q}$ (Rasional)</div>
+        <div class="set-badge" id="badge-R">$\mathbb{R}$ (Real)</div>
+        <div class="set-badge" id="badge-C">$\mathbb{C}$ (Kompleks)</div>
+      </div>
+    </div>
+
+    <!-- Simulator 2: 2D Inequality Region -->
+    <div class="sim-panel">
+      <div class="sim-header">
+        <div>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 2: Visualisator Daerah Pertidaksamaan Kartesius 2D</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Eksplorasi daerah himpunan penyelesaian $ax + by \le c$ atau $ax + by \ge c$ pada bidang $\mathbb{R}^2$ secara langsung.</p>
+        </div>
+        <span class="sim-tag">CANVAS 2D</span>
+      </div>
+
+      <div class="slider-row">
+        <div class="slider-item">
+          <label>Koefisien $a$:</label>
+          <input type="range" id="paramA" min="-4" max="4" step="1" value="1" oninput="drawInequality()">
+          <span id="valA">1</span>
+        </div>
+        <div class="slider-item">
+          <label>Koefisien $b$:</label>
+          <input type="range" id="paramB" min="-4" max="4" step="1" value="1" oninput="drawInequality()">
+          <span id="valB">1</span>
+        </div>
+        <div class="slider-item">
+          <label>Konstanta $c$:</label>
+          <input type="range" id="paramC" min="-6" max="6" step="1" value="3" oninput="drawInequality()">
+          <span id="valC">3</span>
+        </div>
+        <div class="slider-item">
+          <label>Tanda:</label>
+          <select id="ineqSign" onchange="drawInequality()" style="padding:4px 8px; border-radius:4px; border:1px solid var(--border); font-family:var(--font-mono);">
+            <option value="ge">$\ge$ (Lebih besar sama dengan)</option>
+            <option value="le">$\le$ (Lebih kecil sama dengan)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="ineqCanvas" width="460" height="340"></canvas>
+        <div id="ineqEquationDisplay" style="font-family:var(--font-mono); font-size:13px; color:var(--text);">
+          Persamaan Garis Batas: $1x + 1y = 3$ | Arsiran: Daerah Solusi
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Section: 10 Medium-High Questions -->
+    <div class="quiz-section">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px;">
+        <div>
+          <h2 class="section-title">Latihan Soal Uji Kompetensi (Medium to High)</h2>
+          <p class="section-desc" style="margin-bottom:0;">10 soal terkalibrasi mencakup kasus batas hierarki himpunan, pertidaksamaan nilai mutlak, dan penyederhanaan aljabar radikal.</p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-family:var(--font-mono); font-size:13px; color:var(--text-muted);">Skor Anda: </span>
+          <span id="scoreText" style="font-family:var(--font-mono); font-size:16px; font-weight:700; color:var(--accent);">0 / 10</span>
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 01</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Diberikan bilangan $x = 0.999... = 0.\overline{9}$. Ke dalam himpunan bilangan manakah $x$ pertama kali digolongkan sebagai himpunan terkecil dalam hierarki $\mathbb{N} \subset \mathbb{W} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R}$?
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q1" value="A"> A. Himpunan Bilangan Irasional ($\mathbb{R} \setminus \mathbb{Q}$)</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="B"> B. Himpunan Bilangan Rasional non-bulat ($\mathbb{Q} \setminus \mathbb{Z}$)</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q1" value="C"> C. Himpunan Bilangan Asli ($\mathbb{N}$)</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="D"> D. Himpunan Bilangan Kompleks Imajiner Murni</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q1">
+          <strong>Bukti Matematis:</strong> Misalkan $S = 0.999...$ Maka $10S = 9.999...$ Kurangkan kedua persamaan: $10S - S = 9.999... - 0.999... \implies 9S = 9 \implies S = 1$. Karena $1 \in \mathbb{N}$ (bilangan asli positif terkecil), maka himpunan terkecil tempat $0.\overline{9}$ bernaung adalah $\mathbb{N}$.
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 02</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Bentuk rasional penyebut dari pecahan bentuk akar $\frac{6}{\sqrt{7} - 2}$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="A"> A. $2\sqrt{7} + 4$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="B"> B. $2\sqrt{7} - 4$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. $\frac{6\sqrt{7} + 12}{5}$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. $3\sqrt{7} + 6$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q2">
+          <strong>Pembahasan Lengkap:</strong> Kalikan pembilang dan penyebut dengan bentuk sekawan $(\sqrt{7} + 2)$:<br>
+          $$\frac{6}{\sqrt{7} - 2} \times \frac{\sqrt{7} + 2}{\sqrt{7} + 2} = \frac{6(\sqrt{7} + 2)}{(\sqrt{7})^2 - 2^2} = \frac{6(\sqrt{7} + 2)}{7 - 4} = \frac{6(\sqrt{7} + 2)}{3} = 2(\sqrt{7} + 2) = 2\sqrt{7} + 4.$$
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 03</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Himpunan penyelesaian dari pertidaksamaan nilai mutlak linear $|3x - 5| \le 7$ pada garis bilangan real adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="A"> A. $\left[-\frac{2}{3}, 4\right]$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="B"> B. $\left(-\infty, -\frac{2}{3}\right] \cup [4, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. $\left[-4, \frac{2}{3}\right]$</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. $\left(-\frac{2}{3}, 4\right)$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q3">
+          <strong>Pembahasan Lengkap:</strong> Sifat nilai mutlak $|u| \le k \iff -k \le u \le k$:<br>
+          $$-7 \le 3x - 5 \le 7$$
+          Tambahkan 5 pada ketiga ruas:
+          $$-2 \le 3x \le 12$$
+          Bagi dengan 3:
+          $$-\frac{2}{3} \le x \le 4 \iff x \in \left[-\frac{2}{3}, 4\right].$$
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 04</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Titik koordinat manakah pada bidang Kartesius $\mathbb{R}^2$ yang berada di dalam daerah penyelesaian sistem pertidaksamaan:
+          $$\begin{cases} 2x + y \ge 4 \\ x - 2y < 2 \end{cases}$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q4" value="A"> A. $(1, 1)$</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="B"> B. $(3, 1)$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="C"> C. $(0, 2)$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="D"> D. $(4, 0)$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q4">
+          <strong>Uji Substitusi:</strong><br>
+          Untuk titik $(3, 1)$:<br>
+          1) $2(3) + 1 = 7 \ge 4$ (Memenuhi pertidaksamaan pertama).<br>
+          2) $3 - 2(1) = 1 < 2$ (Memenuhi pertidaksamaan kedua).<br>
+          Titik $(4, 0)$ gagal karena $4 - 2(0) = 4 \not< 2$. Titik $(1,1)$ gagal karena $2(1)+1 = 3 < 4$. Titik $(0,2)$ gagal karena $2(0)+2 = 2 < 4$.
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 05</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Evaluasi urutan hierarki operasi aljabar (PEMDAS) berikut:
+          $$18 - 3 \times \left(4 - (-2)^2\right) \div (-2) + \sqrt{144 \div 16}$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. 21</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. 15</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. 27</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. 9</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q5')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q5">
+          <strong>Langkah Perhitungan:</strong><br>
+          1) Dalam kurung: $(-2)^2 = 4$, sehingga $(4 - 4) = 0$.<br>
+          2) Perkalian & pembagian: $3 \times 0 \div (-2) = 0$.<br>
+          3) Bentuk akar: $\sqrt{144 \div 16} = \sqrt{9} = 3$.<br>
+          4) Operasi penjumlahan: $18 - 0 + 3 = 21$.
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 06</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Rasionalkan penyebut tiga suku bentuk akar $\frac{2}{\sqrt{2} + \sqrt{3} - \sqrt{5}}$. Bentuk paling sederhananya adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="A"> A. $\frac{2\sqrt{3} + 3\sqrt{2} + \sqrt{30}}{6}$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="B"> B. $\frac{\sqrt{6} + \sqrt{10} + \sqrt{15}}{6}$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="C"> C. $\frac{\sqrt{2} + \sqrt{3} + \sqrt{5}}{6}$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="D"> D. $\frac{\sqrt{30} - \sqrt{6}}{3}$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q6')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q6">
+          <strong>Pembahasan Lengkap:</strong> Kelompokkan penyebut sebagai $((\sqrt{2}+\sqrt{3}) - \sqrt{5})$.<br>
+          Kalikan sekawan $((\sqrt{2}+\sqrt{3}) + \sqrt{5})$:<br>
+          Penyebut $= (\sqrt{2}+\sqrt{3})^2 - (\sqrt{5})^2 = (2 + 2\sqrt{6} + 3) - 5 = 2\sqrt{6}$.<br>
+          Pembilang $= 2(\sqrt{2} + \sqrt{3} + \sqrt{5})$.<br>
+          Pecahan menjadi:
+          $$\frac{2(\sqrt{2} + \sqrt{3} + \sqrt{5})}{2\sqrt{6}} = \frac{\sqrt{2} + \sqrt{3} + \sqrt{5}}{\sqrt{6}} = \frac{\sqrt{12} + \sqrt{18} + \sqrt{30}}{6} = \frac{2\sqrt{3} + 3\sqrt{2} + \sqrt{30}}{6}.$$
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-card" id="q7">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 07</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Jika $a \in \mathbb{Q}$ ($a \neq 0$) adalah bilangan rasional dan $b \in \mathbb{R} \setminus \mathbb{Q}$ adalah bilangan irasional, pernyataan manakah di bawah ini yang <strong>PASTI SELALU BENAR</strong> secara aljabar?
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q7" value="A"> A. $a + b$ bisa merupakan bilangan rasional</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q7" value="B"> B. Hasil kali $a \cdot b$ selalu merupakan bilangan irasional</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="C"> C. $b^2$ pasti selalu bilangan rasional</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="D"> D. Terdapat bilangan rasional terkecil yang lebih besar dari $b$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q7')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q7">
+          <strong>Bukti Kontradiksi:</strong> Andaikan $a \cdot b = r \in \mathbb{Q}$. Karena $a \neq 0$ dan $a \in \mathbb{Q}$, maka kita dapat membagi kedua ruas dengan $a$:
+          $$b = \frac{r}{a}$$
+          Karena hasil bagi dua bilangan rasional non-nol adalah bilangan rasional, maka $b \in \mathbb{Q}$. Ini bertentangan (kontradiksi) dengan hipotesis bahwa $b$ irasional. Jadi, pengandaian salah, dan $a \cdot b$ mutlak irasional.
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-card" id="q8">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 08</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Luas daerah tertutup pada bidang Kartesius $\mathbb{R}^2$ yang dibatasi oleh pertidaksamaan nilai mutlak ganda $|x| + |y| \le 4$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q8" value="A"> A. 16 satuan luas</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="B"> B. 32 satuan luas</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="C"> C. 64 satuan luas</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="D"> D. $16\sqrt{2}$ satuan luas</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q8')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q8">
+          <strong>Analisis Geometris:</strong> Pertidaksamaan $|x| + |y| \le 4$ membentuk persegi (belah ketupat) simetris dengan empat titik sudut di perpotongan sumbu: $(4, 0), (0, 4), (-4, 0), (0, -4)$.<br>
+          Panjang diagonal horizontal $d_1 = 4 - (-4) = 8$.<br>
+          Panjang diagonal vertikal $d_2 = 4 - (-4) = 8$.<br>
+          Luas belah ketupat $= \frac{1}{2} \times d_1 \times d_2 = \frac{1}{2} \times 8 \times 8 = 32$ satuan luas.
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-card" id="q9">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 09</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Berapa banyak bilangan bulat positif $n \in \mathbb{N}$ sehingga pecahan aljabar $\frac{n^2 + 7}{n + 1}$ menghasilkan bilangan bulat?
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q9" value="A"> A. 2 bilangan</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="B"> B. 3 bilangan</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. 4 bilangan</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. 8 bilangan</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q9')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q9">
+          <strong>Pembagian Polinomial:</strong><br>
+          $$\frac{n^2 + 7}{n + 1} = \frac{n^2 - 1 + 8}{n + 1} = \frac{(n-1)(n+1) + 8}{n + 1} = n - 1 + \frac{8}{n + 1}$$
+          Agar hasil bagi merupakan bilangan bulat, maka $(n + 1)$ harus merupakan faktor positif dari 8.<br>
+          Faktor positif dari 8 adalah $\{1, 2, 4, 8\}$.<br>
+          Karena $n \in \mathbb{N} \implies n \ge 1 \implies n + 1 \ge 2$.<br>
+          Maka nilai $n + 1$ yang mungkin adalah $2, 4, 8$:<br>
+          - $n + 1 = 2 \implies n = 1$<br>
+          - $n + 1 = 4 \implies n = 3$<br>
+          - $n + 1 = 8 \implies n = 7$<br>
+          Jadi terdapat tepat <strong>3 bilangan bulat positif</strong>: $\{1, 3, 7\}$.
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-card" id="q10">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 10</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Berapakah banyak solusi bilangan real $x \in \mathbb{R}$ yang memenuhi persamaan eksponensial berikut:
+          $$(x^2 - 7x + 11)^{x^2 - 13x + 42} = 1$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q10" value="A"> A. 4 solusi</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="B"> B. 5 solusi</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q10" value="C"> C. 6 solusi</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="D"> D. 7 solusi</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q10')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q10">
+          <strong>Analisis 3 Kasus Bentuk $u(x)^{v(x)} = 1$:</strong><br>
+          <strong>Kasus 1: Pangkat $v(x) = 0$ dan basis $u(x) \neq 0$:</strong><br>
+          $x^2 - 13x + 42 = 0 \implies (x-6)(x-7) = 0 \implies x = 6, 7$.<br>
+          Untuk $x=6$, basis $= 36-42+11 = 5 \neq 0$. Untuk $x=7$, basis $= 49-49+11 = 11 \neq 0$. (2 solusi: $6, 7$).<br><br>
+          <strong>Kasus 2: Basis $u(x) = 1$:</strong><br>
+          $x^2 - 7x + 11 = 1 \implies x^2 - 7x + 10 = 0 \implies (x-2)(x-5) = 0$. (2 solusi: $2, 5$).<br><br>
+          <strong>Kasus 3: Basis $u(x) = -1$ dengan syarat pangkat bernilai genap:</strong><br>
+          $x^2 - 7x + 11 = -1 \implies x^2 - 7x + 12 = 0 \implies (x-3)(x-4) = 0$.<br>
+          Uji $x = 3$: pangkat $= 3^2 - 13(3) + 42 = 9 - 39 + 42 = 12$ (GENAP, $(-1)^{12} = 1$, Valid!).<br>
+          Uji $x = 4$: pangkat $= 4^2 - 13(4) + 42 = 16 - 52 + 42 = 6$ (GENAP, $(-1)^6 = 1$, Valid!).<br><br>
+          Himpunan seluruh solusi real $= \{2, 3, 4, 5, 6, 7\}$. Ada tepat <strong>6 solusi real</strong>.
+        </div>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="summary-card">
+        <h3 style="font-size:16px; margin-bottom:8px;">Hasil Evaluasi Mandiri Week 1</h3>
+        <div class="summary-score" id="finalScore">0 / 10</div>
+        <p style="color:var(--text-muted); font-size:14px; margin-top:8px;">Jelajahi materi berikutnya untuk memperdalam trigonometri dan rasio sudut.</p>
+        <div style="margin-top:16px; display:flex; justify-content:center; gap:12px;">
+          <a href="week2-trigonometri.html" class="btn-action" style="text-decoration:none; display:inline-block;">Lanjut ke Week 2: Trigonometri →</a>
+          <a href="index.html" class="btn-action" style="text-decoration:none; display:inline-block; background:transparent; color:var(--text); border:1px solid var(--border);">Ke Hub Utama</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // KaTeX render on load
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      }
+      classifyNumber();
+      drawInequality();
+    });
+
+    // Simulator 1: Number Classifier
+    function classifyNumber() {
+      const raw = document.getElementById("numberInput").value.trim().toLowerCase();
+      const res = document.getElementById("classifierResult");
+      const badges = {
+        N: document.getElementById("badge-N"),
+        W: document.getElementById("badge-W"),
+        Z: document.getElementById("badge-Z"),
+        Q: document.getElementById("badge-Q"),
+        R: document.getElementById("badge-R"),
+        C: document.getElementById("badge-C")
+      };
+
+      Object.values(badges).forEach(b => b.classList.remove("active"));
+
+      let isN = false, isW = false, isZ = false, isQ = false, isR = false, isC = true;
+      let note = "";
+
+      if (raw.includes("i")) {
+        isN = isW = isZ = isQ = isR = false;
+        note = "Memuat satuan imajiner $i = \\sqrt{-1}$, merupakan Bilangan Kompleks murni / non-real ($\\mathbb{C}$).";
+      } else if (raw.includes("pi") || raw.includes("e") || raw.includes("sqrt") || raw.includes("akar")) {
+        isN = isW = isZ = isQ = false;
+        isR = isC = true;
+        note = "Merupakan bilangan irasional (desimal tidak berulang dan tak terhingga) bagian dari Real ($\\mathbb{R}$) dan Kompleks ($\\mathbb{C}$).";
+      } else if (raw.includes("/")) {
+        const parts = raw.split("/");
+        const num = parseFloat(parts[0]);
+        const den = parseFloat(parts[1]);
+        if (den !== 0) {
+          if (num % den === 0) {
+            const val = num / den;
+            isZ = isQ = isR = isC = true;
+            if (val >= 0) isW = true;
+            if (val > 0) isN = true;
+            note = `Pecahan dapat disederhanakan menjadi bilangan bulat ${val}.`;
+          } else {
+            isQ = isR = isC = true;
+            note = "Bentuk rasional $\\frac{a}{b}$ dengan $b \\neq 0$, anggota $\\mathbb{Q}, \\mathbb{R}, \\mathbb{C}$.";
+          }
+        } else {
+          note = "Penyebut nol tidak terdefinisi.";
+          isC = false;
+        }
+      } else {
+        const val = parseFloat(raw);
+        if (!isNaN(val)) {
+          if (Number.isInteger(val)) {
+            isZ = isQ = isR = isC = true;
+            if (val >= 0) isW = true;
+            if (val > 0) isN = true;
+            note = `Bilangan bulat konstan: ${val}.`;
+          } else {
+            isQ = isR = isC = true;
+            note = `Bilangan desimal rasional berhingga: ${val}.`;
+          }
+        } else {
+          note = "Format tidak dikenali.";
+          isC = false;
+        }
+      }
+
+      if (isN) badges.N.classList.add("active");
+      if (isW) badges.W.classList.add("active");
+      if (isZ) badges.Z.classList.add("active");
+      if (isQ) badges.Q.classList.add("active");
+      if (isR) badges.R.classList.add("active");
+      if (isC) badges.C.classList.add("active");
+
+      res.innerHTML = note;
+      if (window.renderMathInElement) {
+        renderMathInElement(res, {
+          delimiters: [{left: "$", right: "$", display: false}]
+        });
+      }
+    }
+
+    // Simulator 2: 2D Inequality Canvas
+    function drawInequality() {
+      const a = parseFloat(document.getElementById("paramA").value);
+      const b = parseFloat(document.getElementById("paramB").value);
+      const c = parseFloat(document.getElementById("paramC").value);
+      const sign = document.getElementById("ineqSign").value;
+
+      document.getElementById("valA").textContent = a;
+      document.getElementById("valB").textContent = b;
+      document.getElementById("valC").textContent = c;
+
+      const signSymbol = sign === "ge" ? "\\ge" : "\\le";
+      const disp = document.getElementById("ineqEquationDisplay");
+      disp.innerHTML = `Pertidaksamaan: $${a}x + ${b}y ${signSymbol} ${c}$ | Garis Batas: $${a}x + ${b}y = ${c}$`;
+      if (window.renderMathInElement) {
+        renderMathInElement(disp, {delimiters: [{left: "$", right: "$", display: false}]});
+      }
+
+      const canvas = document.getElementById("ineqCanvas");
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const scale = 25; // 25 px per unit
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid lines
+      ctx.strokeStyle = "#ebeae4";
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= w; x += scale) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+      for (let y = 0; y <= h; y += scale) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+
+      // Axes
+      ctx.strokeStyle = "#8f8e89";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
+
+      // Axis labels
+      ctx.fillStyle = "#73726c";
+      ctx.font = "10px monospace";
+      ctx.fillText("x", w - 12, cy - 6);
+      ctx.fillText("y", cx + 6, 12);
+      ctx.fillText("O", cx - 12, cy + 12);
+
+      // Shading region
+      const imgData = ctx.createImageData(w, h);
+      const d = imgData.data;
+
+      for (let px = 0; px < w; px += 2) {
+        const mathX = (px - cx) / scale;
+        for (let py = 0; py < h; py += 2) {
+          const mathY = (cy - py) / scale;
+          const lhs = a * mathX + b * mathY;
+          const satisfied = sign === "ge" ? (lhs >= c) : (lhs <= c);
+          if (satisfied) {
+            for (let dx = 0; dx < 2; dx++) {
+              for (let dy = 0; dy < 2; dy++) {
+                const idx = ((py + dy) * w + (px + dx)) * 4;
+                d[idx] = 245;     // R
+                d[idx + 1] = 78;  // G
+                d[idx + 2] = 0;   // B
+                d[idx + 3] = 40;  // Alpha
+              }
+            }
+          }
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+
+      // Redraw axes on top of shading
+      ctx.strokeStyle = "#4f4e48";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
+
+      // Boundary Line ax + by = c
+      ctx.strokeStyle = "#f54e00";
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+
+      if (b !== 0) {
+        const x1 = -10, y1 = (c - a * x1) / b;
+        const x2 = 10, y2 = (c - a * x2) / b;
+        ctx.moveTo(cx + x1 * scale, cy - y1 * scale);
+        ctx.lineTo(cx + x2 * scale, cy - y2 * scale);
+      } else if (a !== 0) {
+        const xVal = c / a;
+        ctx.moveTo(cx + xVal * scale, 0);
+        ctx.lineTo(cx + xVal * scale, h);
+      }
+      ctx.stroke();
+    }
+
+    // Quiz evaluation engine
+    const userAnswers = {};
+    function checkAnswer(qid) {
+      const card = document.getElementById(qid);
+      const options = card.querySelectorAll("input[type='radio']");
+      let selected = null;
+      let isCorrect = false;
+
+      options.forEach(opt => {
+        const label = opt.closest(".option-label");
+        label.classList.remove("correct", "incorrect");
+        if (opt.checked) {
+          selected = opt.value;
+          if (label.getAttribute("data-correct") === "true") {
+            isCorrect = true;
+            label.classList.add("correct");
+          } else {
+            label.classList.add("incorrect");
+          }
+        }
+      });
+
+      // Highlight correct answer if wrong
+      if (!isCorrect) {
+        options.forEach(opt => {
+          const label = opt.closest(".option-label");
+          if (label.getAttribute("data-correct") === "true") {
+            label.classList.add("correct");
+          }
+        });
+      }
+
+      userAnswers[qid] = isCorrect;
+      const exp = document.getElementById("exp_" + qid);
+      exp.classList.add("show");
+      if (window.renderMathInElement) {
+        renderMathInElement(exp, {delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}]});
+      }
+
+      updateScore();
+    }
+
+    function updateScore() {
+      let count = 0;
+      for (const k in userAnswers) {
+        if (userAnswers[k] === true) count++;
+      }
+      document.getElementById("scoreText").textContent = count + " / 10";
+      document.getElementById("finalScore").textContent = count + " / 10";
+    }
+  </script>
+</body>
+</html>

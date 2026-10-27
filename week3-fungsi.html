@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3: Fungsi Bilangan & Pemetaan Khusus — Kalkulus Interaktif UMS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --surface-subtle: #f2f1ed;
+      --text: #26251e;
+      --text-muted: #73726c;
+      --border: #cdcdc9;
+      --border-subtle: rgba(38, 37, 30, 0.08);
+      --accent: #f54e00;
+      --accent-hover: #d94500;
+      --accent-subtle: rgba(245, 78, 0, 0.08);
+      --success: #34785c;
+      --success-bg: rgba(52, 120, 92, 0.1);
+      --danger: #cf2d56;
+      --danger-bg: rgba(207, 45, 86, 0.1);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-mockup: 0 28px 70px rgba(0,0,0,0.12), 0 14px 32px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    .nav-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    .nav-island {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-link:hover {
+      color: var(--text);
+      background: var(--surface-subtle);
+    }
+    .nav-link.active {
+      color: #ffffff;
+      background: var(--text);
+    }
+    .nav-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      background: rgba(245, 78, 0, 0.15);
+      color: var(--accent);
+      padding: 1px 6px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 0 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 0 32px 0;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .hero-badge span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero h1 {
+      font-size: 46px;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 28px auto;
+      line-height: 1.5;
+    }
+    .hero-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 17px;
+      color: #55544e;
+      background: #fafaf8;
+      border-left: 3px solid var(--accent);
+      padding: 10px 18px;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: left;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .window-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-mockup);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .window-header {
+      background: var(--surface-subtle);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    .window-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .window-body {
+      padding: 28px;
+    }
+
+    h2.section-title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    p.section-desc {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 768px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+    }
+
+    .sub-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .sub-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .sub-card p {
+      font-size: 14px;
+      color: #4f4e48;
+      line-height: 1.55;
+    }
+
+    /* Interactive Simulator */
+    .sim-panel {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .sim-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .sim-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      background: rgba(245, 78, 0, 0.1);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .input-field {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      background: #ffffff;
+      width: 140px;
+    }
+
+    .btn-action {
+      background: var(--text);
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .btn-action:hover {
+      background: #3f3e36;
+    }
+
+    .modulo-proof-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+
+    /* Quiz Component */
+    .quiz-section {
+      margin-top: 50px;
+    }
+    .quiz-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      transition: box-shadow 0.15s ease;
+    }
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .quiz-number {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .difficulty-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+    }
+    .difficulty-medium {
+      background: rgba(52, 120, 92, 0.12);
+      color: var(--success);
+    }
+    .difficulty-high {
+      background: rgba(245, 78, 0, 0.12);
+      color: var(--accent);
+    }
+    .quiz-prompt {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: var(--surface-subtle);
+      font-size: 14px;
+    }
+    .option-label:hover {
+      border-color: var(--border);
+      background: #eae9e4;
+    }
+    .option-label input {
+      margin-right: 12px;
+      accent-color: var(--text);
+    }
+    .option-label.correct {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      color: var(--success);
+      font-weight: 500;
+    }
+    .option-label.incorrect {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      color: var(--danger);
+    }
+    .explanation-box {
+      background: #fafaf8;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 13.5px;
+      display: none;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .summary-card {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .summary-score {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--text);
+      font-family: var(--font-mono);
+      letter-spacing: -1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Island Navigation -->
+  <div class="nav-wrapper">
+    <nav class="nav-island">
+      <a href="index.html" class="nav-link">← Hub Utama</a>
+      <a href="week1-bilangan.html" class="nav-link">Week 1</a>
+      <a href="week2-trigonometri.html" class="nav-link">Week 2</a>
+      <a href="week3-fungsi.html" class="nav-link active">Week 3 <span class="nav-badge">Fungsi</span></a>
+      <a href="week4-limit.html" class="nav-link">Week 4</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <!-- Hero Header -->
+    <header class="hero">
+      <div class="hero-badge">
+        <span></span> KALKULUS 1 — UNIVERSITAS MUHAMMADIYAH SURAKARTA
+      </div>
+      <h1>Week 3: Fungsi Bilangan & Pemetaan Khusus</h1>
+      <p>Kajian mendalam relasi pemetaan $f: A \to B$, domain dan range, syarat bijektif fungsi invers, komposisi aljabar, hingga fungsi diskrit penting: floor ($\lfloor x \rfloor$), ceiling ($\lceil x \rceil$), dan algoritma modulo dividen negatif.</p>
+      <div class="hero-quote">
+        "Algoritma pembagian Euclid $a = m \cdot q + r$ mensyaratkan sisa $0 \le r < m$. Inilah alasan mendasar mengapa $-25 \bmod 7 = 3$ dan bukan $-4$, karena pembagian kalkulus selalu mencari kuosien bilangan bulat terbesar ke arah negatif: $q = \lfloor a/m \rfloor$."
+      </div>
+    </header>
+
+    <!-- macOS Mockup 1: Teori Pemetaan & Sifat -->
+    <div class="window-card">
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="window-title">teori_fungsi_dan_pemetaan.tex</div>
+        <div></div>
+      </div>
+      <div class="window-body">
+        <h2 class="section-title">1. Tiga Sifat Utama Relasi Pemetaan</h2>
+        <p class="section-desc">Karakteristik hubungan antara daerah asal (Domain) dan daerah kawan (Kodomain).</p>
+
+        <div class="grid-3">
+          <div class="sub-card">
+            <h3>Fungsi Injektif (One-to-One)</h3>
+            <p>Setiap elemen berbeda di domain memiliki bayangan berbeda di kodomain:
+            $$x_1 \neq x_2 \implies f(x_1) \neq f(x_2)$$
+            <em>Uji Garis Horizontal:</em> Setiap garis horizontal $y = c$ memotong grafik fungsi maksimal di <strong>satu titik</strong> saja.</p>
+          </div>
+          <div class="sub-card">
+            <h3>Fungsi Surjektif (Onto)</h3>
+            <p>Setiap elemen pada daerah kawan (kodomain $B$) memiliki prapeta di domain $A$:
+            $$\forall y \in B, \exists x \in A \text{ sehingga } f(x) = y$$
+            Artinya, daerah hasil (Range) sama persis dengan seluruh Kodomain ($\text{Ran}(f) = B$).</p>
+          </div>
+          <div class="sub-card">
+            <h3>Fungsi Bijektif (Korespondensi 1-1)</h3>
+            <p>Fungsi yang <strong>sekaligus Injektif dan Surjektif</strong>. Syarat mutlak keberadaan <strong>fungsi invers</strong> $f^{-1}(x)$. Grafik $f^{-1}$ adalah hasil pencerminan grafik $f$ terhadap garis identitas $y = x$.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:18px; margin:24px 0 12px 0;">Fungsi-Fungsi Khusus Kalkulus</h3>
+        <div class="grid-2">
+          <div class="sub-card">
+            <h3>Fungsi Tangga: Floor & Ceiling</h3>
+            <p><strong>Floor ($\lfloor x \rfloor$):</strong> Bilangan bulat terbesar yang lebih kecil atau sama dengan $x$.<br>
+            $\lfloor 3.8 \rfloor = 3, \quad \lfloor -2.3 \rfloor = -3, \quad \lfloor -4.1 \rfloor = -5$.<br><br>
+            <strong>Ceiling ($\lceil x \rceil$):</strong> Bilangan bulat terkecil yang lebih besar atau sama dengan $x$.<br>
+            $\lceil 3.2 \rceil = 4, \quad \lceil -2.3 \rceil = -2, \quad \lceil -4.1 \rceil = -4$.</p>
+          </div>
+          <div class="sub-card">
+            <h3>Fungsi Modulo ($a \bmod m$) & Dividen Negatif</h3>
+            <p>Berdasarkan Algoritma Pembagian Euclid, untuk $a \in \mathbb{Z}$ dan $m \in \mathbb{N}$:<br>
+            $$a = m \cdot q + r \quad \text{dengan } 0 \le r < m \text{ dan } q = \lfloor a / m \rfloor$$
+            Contoh krusial di slide kuliah:<br>
+            $$-25 = 7 \cdot (-4) + 3 \implies -25 \bmod 7 = 3$$
+            $$-38 = 7 \cdot (-6) + 4 \implies -38 \bmod 7 = 4$$</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulator: Negative Modulo & Floor Lab -->
+    <div class="sim-panel">
+      <div class="sim-header">
+        <div>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 1: Laboratorium Modulo Algoritma Euclid (Dividen Negatif)</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Uji perhitungan modulus matematika murni $a \bmod m$ dan perhatikan bagaimana kuosien $q = \lfloor a/m \rfloor$ menjaga sisa $r \ge 0$.</p>
+        </div>
+        <span class="sim-tag">EUCLIDEAN ALGORITHM</span>
+      </div>
+
+      <div class="input-row">
+        <div>
+          <label style="font-size:12px; font-weight:600; display:block; margin-bottom:4px;">Dividen $a$:</label>
+          <input type="number" id="inputA" class="input-field" value="-25">
+        </div>
+        <div>
+          <label style="font-size:12px; font-weight:600; display:block; margin-bottom:4px;">Pembagi $m$ ($> 0$):</label>
+          <input type="number" id="inputM" class="input-field" value="7" min="1">
+        </div>
+        <div style="align-self:flex-end;">
+          <button class="btn-action" onclick="calcModulo()">Hitung Algoritma Euclid</button>
+        </div>
+      </div>
+
+      <div class="modulo-proof-box" id="moduloOutput">
+        $$-25 = 7 \times (-4) + 3 \implies \mathbf{-25 \bmod 7 = 3}$$
+      </div>
+    </div>
+
+    <!-- Simulator 2: Step Function Visualizer -->
+    <div class="sim-panel">
+      <div class="sim-header">
+        <div>
+          <h3 style="font-size:17px; font-weight:600;">Simulator 2: Visualisator Dinamis Tangga Floor ($\lfloor x \rfloor$) & Ceiling ($\lceil x \rceil$)</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Geser nilai $x$ real untuk melihat lompatan nilai tangga diskrit dan posisinya terhadap garis $y = x$.</p>
+        </div>
+        <span class="sim-tag">CANVAS DISKRET</span>
+      </div>
+
+      <div style="margin-bottom:14px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+        <label style="font-family:var(--font-mono); font-size:13px;">Nilai $x$ real:</label>
+        <input type="range" id="realSlider" min="-4" max="4" step="0.1" value="1.4" style="width:260px;" oninput="updateStepCanvas()">
+        <span id="realValDisplay" style="font-family:var(--font-mono); font-weight:700; color:var(--accent);">x = 1.40</span>
+        <span id="stepValuesDisplay" style="font-family:var(--font-mono); font-size:13px; background:#ffffff; padding:4px 10px; border:1px solid var(--border); border-radius:4px;">
+          $\lfloor 1.4 \rfloor = 1$ | $\lceil 1.4 \rceil = 2$
+        </span>
+      </div>
+
+      <div style="text-align:center;">
+        <canvas id="stepCanvas" width="560" height="280"></canvas>
+      </div>
+    </div>
+
+    <!-- Quiz Section: 10 Medium-High Questions -->
+    <div class="quiz-section">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:24px;">
+        <div>
+          <h2 class="section-title">Latihan Soal Uji Kompetensi (Medium to High)</h2>
+          <p class="section-desc" style="margin-bottom:0;">10 soal terkalibrasi mencakup modulo negatif, invers fungsi pecahan, fungsi tangga, dan komposisi rekursif.</p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-family:var(--font-mono); font-size:13px; color:var(--text-muted);">Skor Anda: </span>
+          <span id="scoreText" style="font-family:var(--font-mono); font-size:16px; font-weight:700; color:var(--accent);">0 / 10</span>
+        </div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 01</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Sesuai teorema pembagian Euclid $a = m \cdot q + r$ dengan syarat sisa pembagian $0 \le r < m$, berapakah hasil operasi modulo dari $(-25) \bmod 7$ dan $(-38) \bmod 7$?
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q1" value="A"> A. 3 dan 4</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="B"> B. $-4$ dan $-3$</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="C"> C. 4 dan 3</label>
+          <label class="option-label"><input type="radio" name="opt_q1" value="D"> D. 2 dan 5</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q1')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q1">
+          <strong>Bukti Algoritma Pembagian Euclid:</strong><br>
+          1) Untuk $-25$ dan pembagi $7$:<br>
+          Kita mencari kelipatan 7 yang lebih kecil atau sama dengan $-25$. Kelipatan tersebut adalah $7 \times (-4) = -28$.<br>
+          Maka: $-25 = 7 \times (-4) + 3$. Karena $0 \le 3 < 7$, maka $(-25) \bmod 7 = \mathbf{3}$.<br><br>
+          2) Untuk $-38$ dan pembagi $7$:<br>
+          Kelipatan 7 terdekat ke kiri adalah $7 \times (-6) = -42$.<br>
+          Maka: $-38 = 7 \times (-6) + 4$. Karena $0 \le 4 < 7$, maka $(-38) \bmod 7 = \mathbf{4}$.
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 02</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Domain alami (daerah asal) dari fungsi aljabar pecahan bentuk akar $f(x) = \sqrt{\frac{x - 3}{x + 2}}$ pada himpunan bilangan real $\mathbb{R}$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q2" value="A"> A. $(-\infty, -2) \cup [3, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="B"> B. $[-2, 3]$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="C"> C. $(-\infty, -2] \cup [3, \infty)$</label>
+          <label class="option-label"><input type="radio" name="opt_q2" value="D"> D. $(-2, 3]$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q2')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q2">
+          <strong>Analisis Syarat Domain:</strong><br>
+          1) Di bawah tanda akar genap harus tak negatif: $\frac{x - 3}{x + 2} \ge 0$.<br>
+          2) Penyebut tidak boleh bernilai nol: $x + 2 \neq 0 \implies x \neq -2$.<br>
+          Pembuat nol: $x = -2$ dan $x = 3$.<br>
+          Uji tanda garis bilangan:
+          - $x < -2$: $(-)/(-) = (+)$ (Memenuhi)
+          - $-2 < x < 3$: $(-)/(+) = (-)$ (Gagal)
+          - $x \ge 3$: $(+)/(+) = (+)$ (Memenuhi)<br>
+          Karena $x = -2$ membuat penyebut nol, interval di $-2$ terbuka. Jadi domainnya adalah $(-\infty, -2) \cup [3, \infty)$.
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 03</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Diberikan fungsi polinomial $f: \mathbb{R} \to \mathbb{R}$ dengan aturan $f(x) = x^3 - 3x$. Sifat pemetaan fungsi tersebut pada seluruh domain bilangan real adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q3" value="A"> A. Injektif tetapi tidak surjektif</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q3" value="B"> B. Surjektif tetapi tidak injektif</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="C"> C. Bijektif (korespondensi satu-satu)</label>
+          <label class="option-label"><input type="radio" name="opt_q3" value="D"> D. Bukan fungsi</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q3')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q3">
+          <strong>Uji Sifat Pemetaan:</strong><br>
+          1) Uji Injektif: Hitung $f(0) = 0^3 - 3(0) = 0$. Hitung $f(\sqrt{3}) = (\sqrt{3})^3 - 3\sqrt{3} = 3\sqrt{3} - 3\sqrt{3} = 0$. Karena terdapat $x_1 \neq x_2$ dengan $f(x_1) = f(x_2) = 0$, fungsi <strong>TIDAK INJEKTIF</strong>.<br>
+          2) Uji Surjektif: Karena $\lim_{x\to\infty} f(x) = +\infty$ dan $\lim_{x\to-\infty} f(x) = -\infty$, dan $f(x)$ kontinu pada $\mathbb{R}$, berdasarkan Teorema Nilai Antara, seluruh nilai $y \in \mathbb{R}$ terjangkau ($\text{Range} = \mathbb{R} = \text{Kodomain}$). Jadi fungsi <strong>SURJEKTIF</strong>.
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 04</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Hitung nilai dari ekspresi fungsi tangga berikut:
+          $$\lfloor -4.3 \rfloor + \lceil -4.3 \rceil - \lfloor 7.9 \rfloor$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q4" value="A"> A. $-16$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="B"> B. $-15$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="C"> C. $-14$</label>
+          <label class="option-label"><input type="radio" name="opt_q4" value="D"> D. $-17$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q4')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q4">
+          <strong>Evaluasi Fungsi Tangga:</strong><br>
+          1) $\lfloor -4.3 \rfloor$: bilangan bulat terbesar $\le -4.3$ adalah $-5$.<br>
+          2) $\lceil -4.3 \rceil$: bilangan bulat terkecil $\ge -4.3$ adalah $-4$.<br>
+          3) $\lfloor 7.9 \rfloor$: bilangan bulat terbesar $\le 7.9$ adalah $7$.<br>
+          Maka: $(-5) + (-4) - 7 = -9 - 7 = -16$.
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 05</span>
+          <span class="difficulty-badge difficulty-medium">Medium</span>
+        </div>
+        <div class="quiz-prompt">
+          Jika $f(x) = \frac{3x - 5}{2x + 1}$ untuk $x \neq -\frac{1}{2}$, maka rumus fungsi invers $f^{-1}(x)$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q5" value="A"> A. $f^{-1}(x) = \frac{x + 5}{3 - 2x}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="B"> B. $f^{-1}(x) = \frac{2x + 1}{3x - 5}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="C"> C. $f^{-1}(x) = \frac{3x + 1}{2x - 5}$</label>
+          <label class="option-label"><input type="radio" name="opt_q5" value="D"> D. $f^{-1}(x) = \frac{-2x - 1}{3x + 5}$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q5')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q5">
+          <strong>Aljabar Invers:</strong><br>
+          Misalkan $y = \frac{3x - 5}{2x + 1}$.<br>
+          $y(2x + 1) = 3x - 5 \implies 2xy + y = 3x - 5$.<br>
+          Pindahkan suku bervariabel $x$ ke ruas kiri:<br>
+          $2xy - 3x = -y - 5 \implies x(2y - 3) = -(y + 5) \implies x = \frac{-(y + 5)}{2y - 3} = \frac{y + 5}{3 - 2y}$.<br>
+          Ganti variabel menjadi $x$: $f^{-1}(x) = \frac{x + 5}{3 - 2x}$.
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 06</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Diketahui komposisi $(f \circ g)(x) = 4x^2 - 12x + 14$ dan $f(x) = x^2 + 5$. Jika diketahui fungsi $g(x)$ memiliki gradien positif, maka rumus eksplisit $g(x)$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q6" value="A"> A. $g(x) = 2x - 3$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="B"> B. $g(x) = 2x + 3$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="C"> C. $g(x) = 4x - 6$</label>
+          <label class="option-label"><input type="radio" name="opt_q6" value="D"> D. $g(x) = -2x + 3$</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q6')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q6">
+          <strong>Pembahasan:</strong><br>
+          $$(f \circ g)(x) = f(g(x)) = (g(x))^2 + 5$$
+          Maka:
+          $$(g(x))^2 + 5 = 4x^2 - 12x + 14 \implies (g(x))^2 = 4x^2 - 12x + 9$$
+          Perhatikan bahwa ruas kanan adalah bentuk kuadrat sempurna:
+          $$(g(x))^2 = (2x - 3)^2$$
+          Maka $g(x) = \pm (2x - 3)$. Karena diketahui $g(x)$ bergradien positif, maka $g(x) = 2x - 3$.
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-card" id="q7">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 07</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Tentukan himpunan penyelesaian bilangan real $x \in \mathbb{R}$ yang memenuhi persamaan fungsi tangga:
+          $$2\lfloor x \rfloor = x + 3$$
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q7" value="A"> A. $\{3\}$ (solusi tunggal)</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="B"> B. $\{3, 5\}$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="C"> C. $\{1, 3\}$</label>
+          <label class="option-label"><input type="radio" name="opt_q7" value="D"> D. Tidak ada penyelesaian real</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q7')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q7">
+          <strong>Analisis Definisi Formal Floor:</strong><br>
+          Misalkan $\lfloor x \rfloor = n$ dengan $n \in \mathbb{Z}$. Maka $x = 2n - 3$.<br>
+          Berdasarkan definisi fungsi floor: $n \le x < n + 1$.<br>
+          Substitusi $x = 2n - 3$:
+          $$n \le 2n - 3 < n + 1$$
+          1) Dari $n \le 2n - 3 \implies n \ge 3$.<br>
+          2) Dari $2n - 3 < n + 1 \implies n < 4$.<br>
+          Karena $n \in \mathbb{Z}$ dan $3 \le n < 4$, maka satu-satunya nilai bulat yang mungkin adalah $n = 3$.<br>
+          Substitusi $n = 3$ ke rumus $x$: $x = 2(3) - 3 = 3$.<br>
+          Uji: $2\lfloor 3 \rfloor = 2(3) = 6$ dan $3 + 3 = 6$ (Valid). Solusi tunggal adalah $\{3\}$.
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-card" id="q8">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 08</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Diberikan fungsi rekursif diskrit:
+          $$F(n) = \begin{cases} 1, & n = 0 \\ (n \cdot F(n-1) + 1) \bmod 10, & n \ge 1 \end{cases}$$
+          Nilai dari $F(6)$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label"><input type="radio" name="opt_q8" value="A"> A. 3</label>
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q8" value="B"> B. 7</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="C"> C. 9</label>
+          <label class="option-label"><input type="radio" name="opt_q8" value="D"> D. 1</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q8')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q8">
+          <strong>Pelacakan Langkah Rekursif:</strong><br>
+          $F(0) = 1$<br>
+          $F(1) = (1 \times 1 + 1) \bmod 10 = 2 \bmod 10 = 2$<br>
+          $F(2) = (2 \times 2 + 1) \bmod 10 = 5 \bmod 10 = 5$<br>
+          $F(3) = (3 \times 5 + 1) \bmod 10 = 16 \bmod 10 = 6$<br>
+          $F(4) = (4 \times 6 + 1) \bmod 10 = 25 \bmod 10 = 5$<br>
+          $F(5) = (5 \times 5 + 1) \bmod 10 = 26 \bmod 10 = 6$<br>
+          $F(6) = (6 \times 6 + 1) \bmod 10 = 37 \bmod 10 = \mathbf{7}$.
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-card" id="q9">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 09</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Diberikan fungsi rasional $g(x) = \frac{1}{1 - x}$ untuk $x \neq 0, 1$. Tentukan nilai dari komposisi berulang $g^{2026}(2)$ di mana $g^n$ menyatakan komposisi $n$ kali.
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q9" value="A"> A. $-1$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="B"> B. $\frac{1}{2}$</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="C"> C. 2</label>
+          <label class="option-label"><input type="radio" name="opt_q9" value="D"> D. 0</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q9')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q9">
+          <strong>Pola Siklus Komposisi Fungsi:</strong><br>
+          1) $g^1(2) = \frac{1}{1 - 2} = -1$<br>
+          2) $g^2(2) = g(-1) = \frac{1}{1 - (-1)} = \frac{1}{2}$<br>
+          3) $g^3(2) = g(1/2) = \frac{1}{1 - 1/2} = 2$<br>
+          Fungsi berulang kembali ke input awal $x = 2$ setelah 3 kali komposisi (periode siklis $T = 3$).<br>
+          Hitung sisa pangkat: $2026 \bmod 3 = 1$ (karena $2025$ habis dibagi 3).<br>
+          Maka $g^{2026}(2) = g^1(2) = \mathbf{-1}$.
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-card" id="q10">
+        <div class="quiz-header">
+          <span class="quiz-number">SOAL 10</span>
+          <span class="difficulty-badge difficulty-high">High</span>
+        </div>
+        <div class="quiz-prompt">
+          Diberikan fungsi bijektif sepotong-sepotong (piecewise):
+          $$f(x) = \begin{cases} 2x + 4, & \text{jika } x \le 1 \\ x^2 + 5, & \text{jika } x > 1 \end{cases}$$
+          Nilai dari $f^{-1}(14) + f^{-1}(2)$ adalah...
+        </div>
+        <div class="quiz-options">
+          <label class="option-label" data-correct="true"><input type="radio" name="opt_q10" value="A"> A. 2</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="B"> B. 4</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="C"> C. 5</label>
+          <label class="option-label"><input type="radio" name="opt_q10" value="D"> D. 1</label>
+        </div>
+        <button class="btn-action" onclick="checkAnswer('q10')">Verifikasi Jawaban</button>
+        <div class="explanation-box" id="exp_q10">
+          <strong>Analisis Invers Cabang Sepotong:</strong><br>
+          Perhatikan batas nilai di titik pisah $x = 1$:<br>
+          Untuk cabang pertama $x \le 1$: $f(x) \le 2(1) + 4 = 6$. Maka rentang cabang pertama adalah $(-\infty, 6]$.<br>
+          Untuk cabang kedua $x > 1$: $f(x) > 1^2 + 5 = 6$. Maka rentang cabang kedua adalah $(6, \infty)$.<br><br>
+          1) Untuk $y = 14$: karena $14 > 6$, nilai ini berasal dari cabang kedua:<br>
+          $x^2 + 5 = 14 \implies x^2 = 9 \implies x = 3$ (karena $x > 1$). Jadi $f^{-1}(14) = 3$.<br><br>
+          2) Untuk $y = 2$: karena $2 \le 6$, nilai ini berasal dari cabang pertama:<br>
+          $2x + 4 = 2 \implies 2x = -2 \implies x = -1 \le 1$. Jadi $f^{-1}(2) = -1$.<br><br>
+          Hasil akhir: $f^{-1}(14) + f^{-1}(2) = 3 + (-1) = \mathbf{2}$.
+        </div>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="summary-card">
+        <h3 style="font-size:16px; margin-bottom:8px;">Hasil Evaluasi Mandiri Week 3</h3>
+        <div class="summary-score" id="finalScore">0 / 10</div>
+        <p style="color:var(--text-muted); font-size:14px; margin-top:8px;">Kuasai materi puncak analisis kalkulus pada limit fungsi dan uji 3 syarat kontinuitas.</p>
+        <div style="margin-top:16px; display:flex; justify-content:center; gap:12px;">
+          <a href="week4-limit.html" class="btn-action" style="text-decoration:none; display:inline-block;">Lanjut ke Week 4: Limit & Kontinuitas →</a>
+          <a href="index.html" class="btn-action" style="text-decoration:none; display:inline-block; background:transparent; color:var(--text); border:1px solid var(--border);">Ke Hub Utama</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false}
+          ]
+        });
+      }
+      calcModulo();
+      updateStepCanvas();
+    });
+
+    function calcModulo() {
+      const a = parseInt(document.getElementById("inputA").value);
+      const m = parseInt(document.getElementById("inputM").value);
+      const out = document.getElementById("moduloOutput");
+
+      if (isNaN(a) || isNaN(m) || m <= 0) {
+        out.textContent = "Pembagi m harus berupa bilangan bulat positif (> 0).";
+        return;
+      }
+
+      // Euclidean division: q = floor(a / m), r = a - m * q
+      const q = Math.floor(a / m);
+      const r = a - m * q;
+
+      out.innerHTML = `$$${a} = ${m} \\times (${q}) + ${r} \\implies \\mathbf{${a} \\bmod ${m} = ${r}}$$
+      <div style="font-size:12px; color:var(--text-muted); margin-top:6px;">
+        Kuosien bulat pembagian ke bawah: $q = \\lfloor ${a}/${m} \\rfloor = ${q}$. Sisa tak-negatif: $0 \\le ${r} < ${m}$.
+      </div>`;
+
+      if (window.renderMathInElement) {
+        renderMathInElement(out, {delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}]});
+      }
+    }
+
+    function updateStepCanvas() {
+      const x = parseFloat(document.getElementById("realSlider").value);
+      const fl = Math.floor(x);
+      const ce = Math.ceil(x);
+
+      document.getElementById("realValDisplay").textContent = `x = ${x.toFixed(2)}`;
+      const stepVal = document.getElementById("stepValuesDisplay");
+      stepVal.innerHTML = `$\\lfloor ${x.toFixed(1)} \\rfloor = ${fl}$ | $\\lceil ${x.toFixed(1)} \\rceil = ${ce}$`;
+      if (window.renderMathInElement) {
+        renderMathInElement(stepVal, {delimiters: [{left: "$", right: "$", display: false}]});
+      }
+
+      const canvas = document.getElementById("stepCanvas");
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const scale = 32;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid
+      ctx.strokeStyle = "#ebeae4";
+      ctx.lineWidth = 1;
+      for (let px = 0; px <= w; px += scale) {
+        ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke();
+      }
+      for (let py = 0; py <= h; py += scale) {
+        ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke();
+      }
+
+      // Axes
+      ctx.strokeStyle = "#8f8e89";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(w, cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, h); ctx.stroke();
+
+      // Floor steps (green)
+      ctx.strokeStyle = "#34785c";
+      ctx.lineWidth = 2.5;
+      for (let n = -8; n <= 8; n++) {
+        const x1 = cx + n * scale;
+        const x2 = cx + (n + 1) * scale;
+        const yCoord = cy - n * scale;
+
+        ctx.beginPath();
+        ctx.moveTo(x1, yCoord);
+        ctx.lineTo(x2, yCoord);
+        ctx.stroke();
+
+        // Solid dot at left
+        ctx.fillStyle = "#34785c";
+        ctx.beginPath();
+        ctx.arc(x1, yCoord, 3.5, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Open circle at right
+        ctx.strokeStyle = "#34785c";
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(x2, yCoord, 3, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      // Indicator for current x (orange vertical line)
+      const curPx = cx + x * scale;
+      ctx.strokeStyle = "rgba(245, 78, 0, 0.4)";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath(); ctx.moveTo(curPx, 0); ctx.lineTo(curPx, h); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Point on floor
+      const floorPy = cy - fl * scale;
+      ctx.fillStyle = "#f54e00";
+      ctx.beginPath();
+      ctx.arc(curPx, floorPy, 5, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    const userAnswers = {};
+    function checkAnswer(qid) {
+      const card = document.getElementById(qid);
+      const options = card.querySelectorAll("input[type='radio']");
+      let isCorrect = false;
+
+      options.forEach(opt => {
+        const label = opt.closest(".option-label");
+        label.classList.remove("correct", "incorrect");
+        if (opt.checked) {
+          if (label.getAttribute("data-correct") === "true") {
+            isCorrect = true;
+            label.classList.add("correct");
+          } else {
+            label.classList.add("incorrect");
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        options.forEach(opt => {
+          const label = opt.closest(".option-label");
+          if (label.getAttribute("data-correct") === "true") {
+            label.classList.add("correct");
+          }
+        });
+      }
+
+      userAnswers[qid] = isCorrect;
+      const exp = document.getElementById("exp_" + qid);
+      exp.classList.add("show");
+      if (window.renderMathInElement) {
+        renderMathInElement(exp, {delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}]});
+      }
+
+      updateScore();
+    }
+
+    function updateScore() {
+      let count = 0;
+      for (const k in userAnswers) {
+        if (userAnswers[k] === true) count++;
+      }
+      document.getElementById("scoreText").textContent = count + " / 10";
+      document.getElementById("finalScore").textContent = count + " / 10";
+    }
+  </script>
+</body>
+</html>
